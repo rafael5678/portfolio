@@ -16,8 +16,21 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
             Juan Rafael Calzada González
           </h1>
           <div className="mb-6">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-4 bg-gradient-to-br from-primary to-primary/60 border-2 border-border flex items-center justify-center">
-              <span className="text-white text-3xl md:text-4xl font-bold">JRC</span>
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-4 bg-gradient-to-br from-primary to-primary/60 border-4 border-border overflow-hidden shadow-2xl">
+              {/* Aquí irá tu foto cuando la subas */}
+              <img 
+                src="/profile-photo.jpg" 
+                alt="Juan Rafael Calzada González" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Si la imagen no carga, mostramos las iniciales
+                  e.currentTarget.style.display = 'none';
+                  const parent = e.currentTarget.parentElement;
+                  if (parent) {
+                    parent.innerHTML = '<div class="w-full h-full flex items-center justify-center"><span class="text-white text-3xl md:text-4xl font-bold">JRC</span></div>';
+                  }
+                }}
+              />
             </div>
           </div>
           <p className="mb-6 text-xs text-muted-foreground max-w-2xl mx-auto">
