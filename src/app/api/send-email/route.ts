@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     const data = await resend.emails.send({
       from: 'Portafolio <onboarding@resend.dev>', // Email verificado de Resend
       to: [destinatario], // 👈 AQUÍ puedes poner cualquier email
-      reply_to: email, // El email del usuario que te contacta
+      replyTo: email, // El email del usuario que te contacta
       subject: `Nuevo mensaje de contacto: ${subject}`,
       html: `
         <!DOCTYPE html>
