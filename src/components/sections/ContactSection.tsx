@@ -33,26 +33,97 @@ export const ContactSection = () => {
     
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrorMessage('');
     
     try {
-      // Método 1: Intentar con EmailJS si está configurado
+      // Método 1: Usar nuestro propio API (Resend) - MÁS CONFIABLE Y FLEXIBLE
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          setSubmitStatus('success');
+          setTimeout(() => {
+            setFormData({ name: '', email: '', subject: '', message: '' });
+            setSubmitStatus('idle');
+          }, 3000);
+          return;
+        } else {
+          // Si Resend falla, intentar con otros métodos
+          console.log('API route falló, intentando métodos alternativos...');
+        }
+      } catch (apiError) {
+        console.error('Error con API route, intentando alternativas:', apiError);
+      }
+      
+      // Método 2: Intentar con EmailJS si está configurado
       if (isEmailConfigured()) {
-        const templateParams = {
-          from_name: formData.name,
-          from_email: formData.email,
+        try {
+          const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            to_email: 'juanrafaelcalzada1087@gmail.com',
+          };
+          
+          const response = await emailjs.send(
+            emailConfig.serviceId,
+            emailConfig.templateId,
+            templateParams,
+            emailConfig.publicKey
+          );
+          
+          if (response.status === 200) {
+            setSubmitStatus('success');
+            setTimeout(() => {
+              setFormData({ name: '', email: '', subject: '', message: '' });
+              setSubmitStatus('idle');
+            }, 3000);
+            return;
+          }
+        } catch (emailJsError) {
+          console.error('EmailJS falló, intentando método alternativo:', emailJsError);
+        }
+      }
+      
+      // Método 3: Usar Web3Forms como respaldo
+      const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '';
+      
+      if (web3formsKey && web3formsKey !== 'YOUR_WEB3FORMS_ACCESS_KEY' && web3formsKey !== 'PEGA_AQUI_TU_CLAVE') {
+        const web3Data = {
+          access_key: web3formsKey,
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'juanrafaelcalzada1087@gmail.com',
+          from_name: `Portafolio - ${formData.name}`,
         };
-        
-        const response = await emailjs.send(
-          emailConfig.serviceId,
-          emailConfig.templateId,
-          templateParams,
-          emailConfig.publicKey
-        );
-        
-        if (response.status === 200) {
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(web3Data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
           setSubmitStatus('success');
           setTimeout(() => {
             setFormData({ name: '', email: '', subject: '', message: '' });
@@ -62,37 +133,17 @@ export const ContactSection = () => {
         }
       }
       
-      // Método 2: Usar FormSubmit (sin configuración requerida)
-      const formSubmitData = new FormData();
-      formSubmitData.append('name', formData.name);
-      formSubmitData.append('email', formData.email);
-      formSubmitData.append('subject', formData.subject);
-      formSubmitData.append('message', formData.message);
-      formSubmitData.append('_captcha', 'false');
-      formSubmitData.append('_template', 'table');
+      // Método 4: Si nada funciona, mostrar error informativo
+      setSubmitStatus('error');
+      setErrorMessage(
+        'No se pudo enviar el mensaje. Por favor, contáctame directamente en juanrafaelcalzada1087@gmail.com'
+      );
       
-      const response = await fetch('https://formsubmit.co/juanrafaelcalzada1087@gmail.com', {
-        method: 'POST',
-        body: formSubmitData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
-      if (response.ok) {
-        setSubmitStatus('success');
-        setTimeout(() => {
-          setFormData({ name: '', email: '', subject: '', message: '' });
-          setSubmitStatus('idle');
-        }, 3000);
-      } else {
-        throw new Error('Error al enviar el mensaje');
-      }
     } catch (error: any) {
       console.error('Error al enviar el mensaje:', error);
       setSubmitStatus('error');
       setErrorMessage(
-        'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctame directamente por email.'
+        error.message || 'Hubo un error al enviar el mensaje. Por favor, contáctame directamente por email a juanrafaelcalzada1087@gmail.com'
       );
     } finally {
       setIsSubmitting(false);
