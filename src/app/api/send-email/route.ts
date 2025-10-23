@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
       { 
         success: true, 
         message: 'Email enviado correctamente',
-        id: data.id 
+        id: data.data?.id 
       },
       { status: 200 }
     );
