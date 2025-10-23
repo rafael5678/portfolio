@@ -1,0 +1,57 @@
+import { Skills } from '@/types';
+import { skills } from '@/data/constants';
+
+export const SkillsSection = () => {
+  return (
+    <section id="habilidades" className="py-16 bg-secondary/30">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full">
+            Habilidades Técnicas
+          </div>
+          <h2 className="mb-4 text-2xl md:text-3xl font-medium">
+            Tecnologías
+          </h2>
+          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+            Tecnologías que manejo con enfoque principal en desarrollo backend.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div>
+            <h3 className="mb-6 text-center text-lg text-foreground">Backend</h3>
+            <div className="space-y-4">
+              {skills.backend.map((skill, index) => (
+                <SkillCard key={index} skill={skill} />
+              ))}
+            </div>
+          </div>
+          
+          <div>
+            <h3 className="mb-6 text-center text-lg text-foreground">Frontend</h3>
+            <div className="space-y-4">
+              {skills.frontend.map((skill, index) => (
+                <SkillCard key={index} skill={skill} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+interface SkillCardProps {
+  skill: { name: string; icon: string };
+}
+
+const SkillCard = ({ skill }: SkillCardProps) => {
+  return (
+    <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-shadow">
+      <div className="flex items-center justify-center space-x-3">
+        <span className="text-2xl">{skill.icon}</span>
+        <span className="font-medium text-foreground">{skill.name}</span>
+      </div>
+    </div>
+  );
+};

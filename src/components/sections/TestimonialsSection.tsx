@@ -1,0 +1,83 @@
+import { Star } from 'lucide-react';
+import { Testimonial } from '@/types';
+import { testimonials } from '@/data/constants';
+
+export const TestimonialsSection = () => {
+  return (
+    <section id="testimonios" className="py-16 bg-background">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full">
+            Testimonios
+          </div>
+          <h2 className="mb-4 text-2xl md:text-3xl font-medium">
+            Lo que dicen de mí
+          </h2>
+          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+            Comentarios de profesores y compañeros sobre mi trabajo y desempeño académico.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} testimonial={testimonial} />
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">
+            <div>
+              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">100%</div>
+              <div className="text-xs text-muted-foreground">Satisfacción</div>
+            </div>
+            <div>
+              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">3+</div>
+              <div className="text-xs text-muted-foreground">Proyectos</div>
+            </div>
+            <div>
+              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">2</div>
+              <div className="text-xs text-muted-foreground">Años</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+interface TestimonialCardProps {
+  testimonial: Testimonial;
+}
+
+const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
+  return (
+    <div className="bg-card border border-border rounded-lg p-4">
+      <div className="space-y-4">
+        <div className="flex items-center space-x-1">
+          {[...Array(testimonial.rating)].map((_, i) => (
+            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+          ))}
+        </div>
+        
+        <p className="text-sm text-muted-foreground italic">
+          "{testimonial.content}"
+        </p>
+        
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-medium">
+            {testimonial.initials}
+          </div>
+          <div>
+            <div className="text-sm font-medium text-foreground">{testimonial.name}</div>
+            <div className="text-xs text-muted-foreground">
+              {testimonial.role}
+            </div>
+            <div className="text-xs text-muted-foreground">
+              {testimonial.company}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
