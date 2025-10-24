@@ -29,10 +29,10 @@ export const CVSection = () => {
     <section id="cv" className="py-16 bg-secondary/30">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-3">
+          <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-3 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium">
+          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
             {t.title}
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-xs">

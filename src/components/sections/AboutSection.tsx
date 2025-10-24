@@ -5,10 +5,10 @@ export const AboutSection = () => {
     <section id="sobre-mi" className="py-16 bg-background">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-3">
+          <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-3 text-foreground">
             Sobre Mí
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium">
+          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
             Conoce más sobre mí
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-xs">
@@ -46,7 +46,7 @@ export const AboutSection = () => {
                 <div className="space-y-3">
                   <div className="bg-card border border-border rounded-lg p-4">
                 <div className="flex items-center space-x-3">
-                  <div className="p-2 border border-border rounded-md">
+                  <div className="p-2 border border-border rounded-md text-foreground">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -58,7 +58,7 @@ export const AboutSection = () => {
               
                   <div className="bg-card border border-border rounded-lg p-4">
                     <div className="flex items-center space-x-3">
-                      <div className="p-2 border border-border rounded-md">
+                      <div className="p-2 border border-border rounded-md text-foreground">
                         <MapPin className="w-4 h-4" />
                       </div>
                       <div>
@@ -70,7 +70,7 @@ export const AboutSection = () => {
                   
                   <div className="bg-card border border-border rounded-lg p-4">
                     <div className="flex items-center space-x-3">
-                      <div className="p-2 border border-border rounded-md">
+                      <div className="p-2 border border-border rounded-md text-foreground">
                         <GraduationCap className="w-4 h-4" />
                       </div>
                       <div>
@@ -82,7 +82,7 @@ export const AboutSection = () => {
                   
                   <div className="bg-card border border-border rounded-lg p-4">
                     <div className="flex items-center space-x-3">
-                      <div className="p-2 border border-border rounded-md">
+                      <div className="p-2 border border-border rounded-md text-foreground">
                         <Calendar className="w-4 h-4" />
                       </div>
                       <div>

@@ -7,10 +7,10 @@ export const ServicesSection = () => {
     <section id="servicios" className="py-16 bg-secondary/30">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full">
+          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
             Servicios
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium">
+          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
             ¿En qué puedo ayudarte?
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-xs">
@@ -86,7 +86,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </div>
         
         <button 
-          className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm font-medium w-full"
+          className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm font-medium w-full text-foreground"
           onClick={() => window.open('https://www.linkedin.com/in/juan-rafael-calzada-65566a387', '_blank')}
         >
           Cotizar

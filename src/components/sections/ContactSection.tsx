@@ -154,10 +154,10 @@ export const ContactSection = () => {
     <section id="contacto" className="py-16 bg-background">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full">
+          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
             Contacto
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium">
+          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
             Trabajemos Juntos
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-xs">
@@ -167,7 +167,7 @@ export const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div>
-            <h3 className="mb-6 text-lg font-bold">
+            <h3 className="mb-6 text-lg font-bold text-foreground">
               Información
             </h3>
             
@@ -194,7 +194,7 @@ export const ContactSection = () => {
             </div>
 
             <div>
-              <h4 className="mb-3 text-sm font-bold">Redes sociales</h4>
+              <h4 className="mb-3 text-sm font-bold text-foreground">Redes sociales</h4>
               <div className="flex space-x-2">
                 <SocialLink
                   href="https://github.com/rafael5678/portfolio.git"
@@ -378,7 +378,7 @@ const ContactInfoItem = ({ icon, label, value, href }: ContactInfoItemProps) => 
 
   return (
     <div className="flex items-center space-x-3">
-      <div className="p-2 border border-border">
+      <div className="p-2 border border-border text-foreground">
         {icon}
       </div>
       <div>
@@ -400,7 +400,7 @@ const SocialLink = ({ href, icon, label }: SocialLinkProps) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="p-2 border border-border hover:bg-accent transition-colors"
+    className="p-2 border border-border hover:bg-accent transition-colors text-foreground"
     aria-label={label}
   >
     {icon}
