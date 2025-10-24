@@ -16,7 +16,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
     <section id="inicio" className="min-h-screen flex items-center justify-center bg-background">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-4">
+          <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
           <h1 className="mb-4 text-3xl md:text-5xl text-foreground font-medium">
@@ -51,7 +51,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
               {t.viewProjects}
             </button>
             <button 
-              className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm font-medium"
+              className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm font-medium text-foreground"
               onClick={() => onSectionClick('contacto')}
             >
               {t.contact}
@@ -62,7 +62,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
               href="https://github.com/rafael5678/portfolio.git" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 border border-border hover:bg-accent transition-colors rounded-md"
+              className="p-2 border border-border hover:bg-accent transition-colors rounded-md text-foreground"
             >
               <Github className="w-4 h-4" />
             </a>
@@ -70,7 +70,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
               href="https://www.linkedin.com/in/juan-rafael-calzada-65566a387" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 border border-border hover:bg-accent transition-colors rounded-md"
+              className="p-2 border border-border hover:bg-accent transition-colors rounded-md text-foreground"
             >
               <Linkedin className="w-4 h-4" />
             </a>
@@ -78,7 +78,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
               href="https://wa.me/573103602816" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 border border-border hover:bg-accent transition-colors rounded-md"
+              className="p-2 border border-border hover:bg-accent transition-colors rounded-md text-foreground"
             >
               <Mail className="w-4 h-4" />
             </a>
