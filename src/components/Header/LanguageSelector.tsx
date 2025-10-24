@@ -18,18 +18,15 @@ export const LanguageSelector = ({
     <button
       onClick={onLanguageChange}
       className={`
-        flex items-center gap-2 px-3 py-2 rounded-md 
-        hover:bg-accent transition-colors
+        flex items-center gap-1.5 px-2 py-1.5 rounded-md 
+        border border-border hover:bg-accent transition-all
         ${isMobile ? 'w-full justify-start' : ''}
       `}
       title={currentLanguage === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
     >
-      <Languages className="w-4 h-4" />
-      <span className="text-sm font-medium uppercase">
+      <Languages className="w-3.5 h-3.5" />
+      <span className="text-xs font-semibold uppercase">
         {currentLanguage === 'es' ? 'ES' : 'EN'}
-      </span>
-      <span className="text-xs text-muted-foreground">
-        {currentLanguage === 'es' ? '→ EN' : '→ ES'}
       </span>
     </button>
   );

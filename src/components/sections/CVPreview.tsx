@@ -1,14 +1,19 @@
 'use client';
 
 import { MapPin, Mail, Linkedin, Calendar, X, Download, Github, Globe, Award, Briefcase, GraduationCap, Code } from 'lucide-react';
+import { Language } from '@/hooks/useLanguage';
+import { translations } from '@/data/translations';
 
 interface CVPreviewProps {
   isOpen: boolean;
   onClose: () => void;
+  language: Language;
 }
 
-export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
+export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
   if (!isOpen) return null;
+  
+  const t = translations[language].cvPreview;
 
   const handleDownloadPDF = () => {
     const link = document.createElement('a');
@@ -39,7 +44,7 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
         <div className="sticky top-0 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
             <Award className="w-5 h-5" />
-            Vista Previa del CV
+            {t.title}
           </h2>
           <div className="flex items-center gap-2">
             <button
@@ -47,7 +52,7 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
               className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-all text-sm font-medium flex items-center gap-2 hover:scale-105 transform"
             >
               <Download className="w-4 h-4" />
-              Descargar PDF
+              {t.downloadPDF}
             </button>
             <button
               onClick={onClose}
@@ -65,7 +70,7 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 opacity-90" />
             <div className="relative text-center py-10 px-6 text-white">
               <div className="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-3">
-                Ingeniero de Software Full Stack
+                {t.roleTitle}
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
                 JUAN RAFAEL CALZADA GONZÁLEZ
@@ -99,19 +104,17 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
                 <Award className="w-5 h-5 text-white" />
               </div>
               <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent dark:from-purple-400 dark:to-blue-400">
-                Perfil Profesional
+                {t.profile}
               </h2>
             </div>
             <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-slate-700">
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                Ingeniero de Software con experiencia en desarrollo de aplicaciones web y de escritorio 
-                utilizando Python, Java y JavaScript. Apasionado por la tecnología y la creación de 
-                soluciones eficientes. Responsable, analítico y con habilidades de trabajo en equipo.
+                {t.profileText}
               </p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-lg" />
                 <p className="relative text-gray-600 dark:text-gray-400 italic text-center py-4 px-6 rounded-lg border border-purple-200 dark:border-purple-800">
-                  "Sin importar lo difícil que sea, siempre seguiré adelante como Ingeniero de Software."
+                  {t.quote}
                 </p>
               </div>
             </div>
@@ -124,14 +127,14 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
                 <Code className="w-5 h-5 text-white" />
               </div>
               <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-pink-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-pink-400">
-                Habilidades Técnicas
+                {t.skills}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
                 <h3 className="font-bold text-purple-600 dark:text-purple-400 mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 bg-purple-500 rounded-full" />
-                  Lenguajes
+                  {t.languages}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {['Python', 'Java', 'JavaScript', 'HTML', 'CSS'].map(skill => (
@@ -157,7 +160,7 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
               <div className="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
                 <h3 className="font-bold text-pink-600 dark:text-pink-400 mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 bg-pink-500 rounded-full" />
-                  Bases de Datos
+                  {t.databases}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {['MySQL', 'PostgreSQL'].map(skill => (
@@ -170,7 +173,7 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
               <div className="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
                 <h3 className="font-bold text-green-600 dark:text-green-400 mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 bg-green-500 rounded-full" />
-                  Herramientas
+                  {t.tools}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {['Git', 'GitHub', 'REST APIs', 'Linux'].map(skill => (
@@ -190,34 +193,34 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
                 <Briefcase className="w-5 h-5 text-white" />
               </div>
               <h2 className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent dark:from-pink-400 dark:to-purple-400">
-                Experiencia Laboral
+                {t.experience}
               </h2>
             </div>
             <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-slate-700">
               <div className="flex flex-col md:flex-row justify-between items-start mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                    Ingeniero de Software / Asesor de Ventas
+                    {t.experienceRole}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">Tiempo Completo</p>
+                  <p className="text-gray-600 dark:text-gray-400">{t.fullTime}</p>
                 </div>
                 <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-slate-700 px-4 py-2 rounded-lg mt-2 md:mt-0">
                   <Calendar className="w-4 h-4" />
-                  <span className="font-medium">2025 – Actualidad</span>
+                  <span className="font-medium">2025 – {t.present}</span>
                 </div>
               </div>
               <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 <li className="flex gap-3">
                   <span className="text-purple-500 mt-1">▸</span>
-                  <span>Desarrollo y mantenimiento de sistemas internos con Python y Java</span>
+                  <span>{t.exp1}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-blue-500 mt-1">▸</span>
-                  <span>Implementación de interfaces interactivas con JavaScript y React</span>
+                  <span>{t.exp2}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-pink-500 mt-1">▸</span>
-                  <span>Soporte técnico y atención personalizada a clientes</span>
+                  <span>{t.exp3}</span>
                 </li>
               </ul>
             </div>
@@ -230,16 +233,16 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
               <h2 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent dark:from-green-400 dark:to-blue-400">
-                Formación
+                {t.education}
               </h2>
             </div>
             <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-slate-700">
               <div className="flex flex-col md:flex-row justify-between items-start">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                    Bachiller Técnico
+                    {t.degree}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">Rafael Pombo, Tumaco (Nariño)</p>
+                  <p className="text-gray-600 dark:text-gray-400">{t.school}</p>
                 </div>
                 <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-slate-700 px-4 py-2 rounded-lg mt-2 md:mt-0">
                   <Calendar className="w-4 h-4" />
@@ -252,10 +255,10 @@ export const CVPreview = ({ isOpen, onClose }: CVPreviewProps) => {
           {/* Footer */}
           <div className="text-center py-6 mt-8 border-t border-gray-300 dark:border-slate-700">
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-              Currículum Vitae - Juan Rafael Calzada González
+              {t.footer}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-500">
-              Actualizado en 2025
+              {t.footerUpdated}
             </p>
           </div>
         </div>

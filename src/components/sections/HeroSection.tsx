@@ -1,16 +1,23 @@
+'use client';
+
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { useLanguage } from '@/hooks/useLanguage';
+import { translations } from '@/data/translations';
 
 interface HeroSectionProps {
   onSectionClick: (sectionId: string) => void;
 }
 
 export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
+  const { language } = useLanguage();
+  const t = translations[language].hero;
+
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center bg-background">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-4">
-            Ingeniero de Software
+            {t.badge}
           </div>
           <h1 className="mb-4 text-3xl md:text-5xl text-foreground font-medium">
             Juan Rafael Calzada González
@@ -34,22 +41,20 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
             </div>
           </div>
           <p className="mb-6 text-xs text-muted-foreground max-w-2xl mx-auto">
-            Ingeniero de Software con 2 años de experiencia académica en la Universidad Cooperativa. 
-            Especializado en desarrollo backend con conocimientos en frontend. 
-            He completado 3 proyectos utilizando Python, Java, JavaScript, TypeScript, C# y C++.
+            {t.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
             <button 
               className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm font-medium"
               onClick={() => onSectionClick('proyectos')}
             >
-              Ver Proyectos
+              {t.viewProjects}
             </button>
             <button 
               className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm font-medium"
               onClick={() => onSectionClick('contacto')}
             >
-              Contacto
+              {t.contact}
             </button>
           </div>
           <div className="flex items-center justify-center space-x-4 mb-8">
@@ -83,7 +88,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
             className="inline-flex items-center text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowDown className="w-4 h-4 mr-1 animate-bounce" />
-            Más información
+            {t.moreInfo}
           </button>
         </div>
       </div>

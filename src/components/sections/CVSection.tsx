@@ -3,9 +3,13 @@
 import { useState } from 'react';
 import { Download, Eye } from 'lucide-react';
 import { CVPreview } from './CVPreview';
+import { useLanguage } from '@/hooks/useLanguage';
+import { translations } from '@/data/translations';
 
 export const CVSection = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const { language } = useLanguage();
+  const t = translations[language].cv;
 
   const handleDownload = () => {
     // Crear un enlace temporal para descargar
@@ -26,13 +30,13 @@ export const CVSection = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-3">
-            Currículum Vitae
+            {t.badge}
           </div>
           <h2 className="mb-4 text-2xl md:text-3xl font-medium">
-            Mi CV
+            {t.title}
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-xs">
-            Descarga mi currículum actualizado para conocer más sobre mi experiencia y formación.
+            {t.description}
           </p>
         </div>
 
@@ -44,10 +48,10 @@ export const CVSection = () => {
               </div>
               
               <div>
-                <h3 className="text-lg mb-2 font-medium text-foreground">Currículum Vitae</h3>
+                <h3 className="text-lg mb-2 font-medium text-foreground">{t.cvTitle}</h3>
                 <p className="text-xs text-muted-foreground mb-4">
                   Juan Rafael Calzada González<br/>
-                  Ingeniero de Software
+                  {t.role}
                 </p>
               </div>
 
@@ -57,28 +61,28 @@ export const CVSection = () => {
                   onClick={handleDownload}
                 >
                   <Download className="w-4 h-4 mr-2" />
-                  Descargar CV
+                  {t.download}
                 </button>
                 <button 
                   className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm font-medium inline-flex items-center"
                   onClick={handlePreview}
                 >
                   <Eye className="w-4 h-4 mr-2" />
-                  Vista Previa
+                  {t.preview}
                 </button>
               </div>
 
               <div className="grid grid-cols-3 gap-4 text-center pt-4 border-t border-border">
                 <div>
-                  <div className="text-sm mb-1 font-medium text-foreground">Formato</div>
+                  <div className="text-sm mb-1 font-medium text-foreground">{t.format}</div>
                   <div className="text-xs text-muted-foreground">PDF</div>
                 </div>
                 <div>
-                  <div className="text-sm mb-1 font-medium text-foreground">Páginas</div>
+                  <div className="text-sm mb-1 font-medium text-foreground">{t.pages}</div>
                   <div className="text-xs text-muted-foreground">2</div>
                 </div>
                 <div>
-                  <div className="text-sm mb-1 font-medium text-foreground">Actualizado</div>
+                  <div className="text-sm mb-1 font-medium text-foreground">{t.updated}</div>
                   <div className="text-xs text-muted-foreground">2025</div>
                 </div>
               </div>
@@ -88,7 +92,7 @@ export const CVSection = () => {
       </div>
 
       {/* Modal de Vista Previa */}
-      <CVPreview isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} />
+      <CVPreview isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} language={language} />
     </section>
   );
 };
