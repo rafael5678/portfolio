@@ -4,13 +4,16 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Navigation } from './Navigation';
 import { ThemeSelector } from './ThemeSelector';
+import { LanguageSelector } from './LanguageSelector';
 import { useTheme } from '@/hooks/useTheme';
+import { useLanguage } from '@/hooks/useLanguage';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { menuItems } from '@/data/constants';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
   const { activeSection, handleSectionClick } = useActiveSection();
 
   const handleMenuClick = (sectionId: string) => {
@@ -33,8 +36,12 @@ export const Header = () => {
             />
           </div>
 
-          {/* Theme Selector */}
+          {/* Theme & Language Selectors */}
           <div className="hidden md:flex items-center space-x-2">
+            <LanguageSelector 
+              currentLanguage={language}
+              onLanguageChange={toggleLanguage}
+            />
             <ThemeSelector 
               themes={[]} // Se pasará desde el componente padre
               currentTheme={theme}
@@ -61,14 +68,21 @@ export const Header = () => {
                 onSectionClick={handleMenuClick}
                 isMobile={true}
               />
-              <div className="flex items-center space-x-2 pt-3 border-t border-border">
-                <span className="text-xs text-muted-foreground">Tema:</span>
-                <ThemeSelector 
-                  themes={[]} // Se pasará desde el componente padre
-                  currentTheme={theme}
-                  onThemeChange={toggleTheme}
+              <div className="flex flex-col space-y-2 pt-3 border-t border-border">
+                <LanguageSelector 
+                  currentLanguage={language}
+                  onLanguageChange={toggleLanguage}
                   isMobile={true}
                 />
+                <div className="flex items-center space-x-2">
+                  <span className="text-xs text-muted-foreground">Tema:</span>
+                  <ThemeSelector 
+                    themes={[]} // Se pasará desde el componente padre
+                    currentTheme={theme}
+                    onThemeChange={toggleTheme}
+                    isMobile={true}
+                  />
+                </div>
               </div>
             </div>
           </div>
