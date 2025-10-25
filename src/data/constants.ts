@@ -27,7 +27,7 @@ export const projects: Project[] = [
     tech: ["JavaScript", "TypeScript", "CSS + Tailwind", "JSON"],
     status: "Completado",
     type: "Académico",
-    demoUrl: "https://routes-flame-six.vercel.app/mapa",
+    demoUrl: "https://routes-flame-six.vercel.app/",
     repoUrl: "https://github.com/rafael5678/routes.git",
     image: "/projects/routes-app.png"
   },
