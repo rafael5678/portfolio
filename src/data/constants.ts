@@ -22,11 +22,14 @@ export const themes: Theme[] = [
 
 export const projects: Project[] = [
   {
-    title: "Sistema de Gestión Académica",
-    description: "Aplicación web para gestión de estudiantes y calificaciones desarrollada con Java y Spring Boot",
-    tech: ["Java", "Spring Boot", "MySQL", "HTML/CSS"],
+    title: "Sistema de Rutas de Recorrido",
+    description: "Sistema de recorrido para trotar con seguimiento en tiempo real y mapas interactivos",
+    tech: ["JavaScript", "TypeScript", "CSS + Tailwind", "JSON"],
     status: "Completado",
-    type: "Académico"
+    type: "Académico",
+    demoUrl: "https://routes-flame-six.vercel.app/mapa",
+    repoUrl: "https://github.com/rafael5678/routes.git",
+    image: "/projects/routes-app.png"
   },
   {
     title: "API REST con Python",

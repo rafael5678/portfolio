@@ -16,6 +16,9 @@ export interface Project {
   tech: string[];
   status: string;
   type: string;
+  demoUrl?: string;
+  repoUrl?: string;
+  image?: string;
 }
 
 export interface Testimonial {

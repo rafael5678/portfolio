@@ -45,12 +45,32 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-shadow group">
-      <div className="pb-3">
-        <div className="flex items-start justify-between mb-2">
-          <div className="p-2 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md">
-            <Code className="w-4 h-4" />
-          </div>
+    <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow group">
+      {/* Imagen del proyecto */}
+      {project.image && (
+        <div className="w-full h-40 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // Si la imagen falla, mostrar un placeholder
+              e.currentTarget.style.display = 'none';
+              const parent = e.currentTarget.parentElement;
+              if (parent) {
+                parent.innerHTML = '<div class="w-full h-full flex items-center justify-center"><div class="p-2 border border-border bg-background rounded-md"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div></div>';
+              }
+            }}
+          />
+        </div>
+      )}
+      
+      <div className="p-4">
+        <div className="pb-3">
+          <div className="flex items-start justify-between mb-2">
+            <div className="p-2 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md text-foreground">
+              <Code className="w-4 h-4" />
+            </div>
           <div className="flex space-x-1">
             <span className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
               project.status === "Completado" 
@@ -80,20 +100,43 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
         
         <div className="flex space-x-2">
-          <button 
-            className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center text-foreground"
-            onClick={() => window.open('#', '_blank')}
-          >
-            <Github className="w-3 h-3 mr-1" />
-            Código
-          </button>
-          <button 
-            className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
-            onClick={() => window.open('#', '_blank')}
-          >
-            <ExternalLink className="w-3 h-3 mr-1" />
-            Demo
-          </button>
+          {project.repoUrl && (
+            <button 
+              className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center text-foreground"
+              onClick={() => window.open(project.repoUrl, '_blank')}
+            >
+              <Github className="w-3 h-3 mr-1" />
+              Código
+            </button>
+          )}
+          {project.demoUrl && (
+            <button 
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
+              onClick={() => window.open(project.demoUrl, '_blank')}
+            >
+              <ExternalLink className="w-3 h-3 mr-1" />
+              Demo
+            </button>
+          )}
+          {!project.repoUrl && !project.demoUrl && (
+            <>
+              <button 
+                className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center text-foreground"
+                onClick={() => window.open('#', '_blank')}
+              >
+                <Github className="w-3 h-3 mr-1" />
+                Código
+              </button>
+              <button 
+                className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
+                onClick={() => window.open('#', '_blank')}
+              >
+                <ExternalLink className="w-3 h-3 mr-1" />
+                Demo
+              </button>
+            </>
+          )}
+        </div>
         </div>
       </div>
     </div>
