@@ -28,7 +28,7 @@ export const ProjectsSection = () => {
           <p className="text-sm mb-4 text-foreground">¿Quieres ver más proyectos?</p>
           <button 
             className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm inline-flex items-center text-foreground"
-            onClick={() => window.open('https://github.com/rafael5678/portfolio.git', '_blank')}
+            onClick={() => window.open('https://github.com/rafael5678?tab=repositories', '_blank')}
           >
             <Github className="w-4 h-4 mr-2" />
             Ver todos en GitHub
