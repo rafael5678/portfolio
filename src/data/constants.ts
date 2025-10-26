@@ -32,11 +32,14 @@ export const projects: Project[] = [
     image: "/projects/routes-app.png"
   },
   {
-    title: "API REST con Python",
-    description: "API RESTful para manejo de inventarios desarrollada con Python y Flask",
-    tech: ["Python", "Flask", "SQLite", "Postman"],
+    title: "IA para Tareas",
+    description: "IA para ayudarte en tus trabajos si eres muy perezoso o perezosa. Te ayudan con trabajos de inglés, programación, matemáticas y mucho más",
+    tech: ["TypeScript", "Next.js", "Tailwind CSS", "Next.js API Routes"],
     status: "Completado",
-    type: "Académico"
+    type: "Personal",
+    demoUrl: "https://ia-tareas.vercel.app",
+    repoUrl: "https://github.com/rafael5678/ia_tareas",
+    image: "/projects/ia-tareas.png"
   },
   {
     title: "Aplicación Frontend React",
