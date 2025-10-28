@@ -47,7 +47,7 @@ export const projects: Project[] = [
     tech: ["Next.js 14", "TypeScript", "MongoDB Atlas", "Tailwind CSS", "bcryptjs"],
     status: "Completado",
     type: "Personal",
-    demoUrl: "https://hospy.vercel.app/login",
+    demoUrl: "https://hospy-kbz41pbkp-juan-rafael-s-projects.vercel.app/login",
     repoUrl: "https://github.com/rafael5678/Hospy",
     image: "/projects/hospy.png"
   }
