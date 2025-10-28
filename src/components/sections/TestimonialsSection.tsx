@@ -1,20 +1,27 @@
+'use client';
+
 import { Star } from 'lucide-react';
 import { Testimonial } from '@/types';
 import { testimonials } from '@/data/constants';
+import { useLanguage } from '@/hooks/useLanguage';
+import { translations } from '@/data/translations';
 
 export const TestimonialsSection = () => {
+  const { language } = useLanguage();
+  const t = translations[language].testimonials;
+
   return (
     <section id="testimonios" className="py-16 bg-background">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
-            Testimonios
+            {t.badge}
           </div>
           <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
-            Lo que dicen de mí
+            {t.title}
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-xs">
-            Comentarios de profesores y compañeros sobre mi trabajo y desempeño académico.
+            {t.subtitle}
           </p>
         </div>
 
@@ -28,15 +35,15 @@ export const TestimonialsSection = () => {
           <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">
             <div>
               <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">100%</div>
-              <div className="text-xs text-muted-foreground">Satisfacción</div>
+              <div className="text-xs text-muted-foreground">{t.satisfactionRate}</div>
             </div>
             <div>
               <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">3+</div>
-              <div className="text-xs text-muted-foreground">Proyectos</div>
+              <div className="text-xs text-muted-foreground">{t.completedProjects}</div>
             </div>
             <div>
               <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">2</div>
-              <div className="text-xs text-muted-foreground">Años</div>
+              <div className="text-xs text-muted-foreground">{language === 'es' ? 'Años' : 'Years'}</div>
             </div>
           </div>
         </div>

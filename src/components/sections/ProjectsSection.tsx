@@ -1,20 +1,25 @@
 import { Code, Github, ExternalLink } from 'lucide-react';
 import { Project } from '@/types';
 import { projects } from '@/data/constants';
+import { useLanguage } from '@/hooks/useLanguage';
+import { translations } from '@/data/translations';
 
 export const ProjectsSection = () => {
+  const { language } = useLanguage();
+  const t = translations[language].projects;
+
   return (
     <section id="proyectos" className="py-16 bg-secondary/30">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-3 text-foreground">
-            Proyectos
+            {t.badge}
           </div>
           <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
-            Mi Trabajo
+            {t.title}
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-xs">
-            Proyectos académicos y personales que demuestran mis habilidades técnicas.
+            {t.subtitle}
           </p>
         </div>
 
@@ -25,13 +30,13 @@ export const ProjectsSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-sm mb-4 text-foreground">¿Quieres ver más proyectos?</p>
+          <p className="text-sm mb-4 text-foreground">{t.moreProjects}</p>
           <button 
             className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm inline-flex items-center text-foreground"
             onClick={() => window.open('https://github.com/rafael5678?tab=repositories', '_blank')}
           >
             <Github className="w-4 h-4 mr-2" />
-            Ver todos en GitHub
+            {t.viewOnGithub}
           </button>
         </div>
       </div>
@@ -44,6 +49,9 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  const { language } = useLanguage();
+  const t = translations[language].projects;
+  
   return (
     <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow group">
       {/* Imagen del proyecto */}
@@ -77,10 +85,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 ? "bg-primary text-primary-foreground" 
                 : "bg-secondary text-secondary-foreground"
             }`}>
-              {project.status}
+              {project.status === "Completado" ? t.completed : t.inProgress}
             </span>
             <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full border border-border text-foreground">
-              {project.type}
+              {project.type === "Académico" ? t.academic : t.personal}
             </span>
           </div>
         </div>
@@ -106,7 +114,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               onClick={() => window.open(project.repoUrl, '_blank')}
             >
               <Github className="w-3 h-3 mr-1" />
-              Código
+              {t.code}
             </button>
           )}
           {project.demoUrl && (
@@ -115,7 +123,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               onClick={() => window.open(project.demoUrl, '_blank')}
             >
               <ExternalLink className="w-3 h-3 mr-1" />
-              Demo
+              {t.demo}
             </button>
           )}
           {!project.repoUrl && !project.demoUrl && (
@@ -125,14 +133,14 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 onClick={() => window.open('#', '_blank')}
               >
                 <Github className="w-3 h-3 mr-1" />
-                Código
+                {t.code}
               </button>
               <button 
                 className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
                 onClick={() => window.open('#', '_blank')}
               >
                 <ExternalLink className="w-3 h-3 mr-1" />
-                Demo
+                {t.demo}
               </button>
             </>
           )}

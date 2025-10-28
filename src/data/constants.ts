@@ -55,28 +55,28 @@ export const projects: Project[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Prof. María González",
-    role: "Docente de Programación",
-    company: "Universidad Cooperativa",
-    content: "Juan Rafael demuestra excelente comprensión de los conceptos de programación y siempre entrega proyectos de calidad.",
+    name: "José Cotes",
+    role: "Amigo de la Universidad",
+    company: "Universidad de Nariño (UDENAR)",
+    content: "Es un ingeniero de software talentoso, responsable y siempre dispuesto a aprender y mejorar. Destaca por su compromiso, creatividad y gran capacidad para resolver problemas.",
     rating: 5,
-    initials: "MG"
+    initials: "JC"
   },
   {
-    name: "Carlos Méndez",
-    role: "Compañero de Proyecto",
-    company: "Equipo Académico",
-    content: "Trabajar con Rafael ha sido genial. Su enfoque en backend y atención al detalle hacen que los proyectos sean exitosos.",
+    name: "Isabel Cervera",
+    role: "Conocida del Trabajo",
+    company: "Compañera Laboral",
+    content: "Es un chico que aunque no he hablado mucho, es una persona muy alegre, le gusta aligerar el ambiente, es muy positivo tanto con las personas que conoce como no conoce. Aunque llega a ser cansón jajaja, yo sé que va a ser un ingeniero muy bueno y responsable.",
     rating: 5,
-    initials: "CM"
+    initials: "IC"
   },
   {
-    name: "Ana Rodríguez",
-    role: "Coordinadora Académica",
-    company: "Universidad Cooperativa",
-    content: "Un estudiante dedicado con gran potencial en desarrollo de software. Siempre dispuesto a aprender y mejorar.",
+    name: "Don Jhon",
+    role: "Propietario",
+    company: "Lugar de Residencia",
+    content: "Es una persona responsable, muy amable, muy recochero, le gusta hablar y conversar. Es una persona que puedo decir que sin importar qué, va a tratar de cumplir lo que dice. Es un chico muy trabajador pero conversa mucho jajajajajaj. En programación solo le he visto unas cuantas cosas que crea, así que pienso que es un buen ingeniero de software.",
     rating: 5,
-    initials: "AR"
+    initials: "DJ"
   }
 ];
 
