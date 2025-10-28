@@ -42,11 +42,14 @@ export const projects: Project[] = [
     image: "/projects/ia-tareas.png"
   },
   {
-    title: "Aplicación Frontend React",
-    description: "Dashboard interactivo desarrollado con React y TypeScript para visualización de datos",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-    status: "En desarrollo",
-    type: "Personal"
+    title: "Sistema Hospy",
+    description: "Tu asistente de gestión hospitalaria. Aplicación completa para gestionar historias clínicas, citas médicas, pacientes y doctores con autenticación de múltiples niveles",
+    tech: ["Next.js 14", "TypeScript", "MongoDB Atlas", "Tailwind CSS", "bcryptjs"],
+    status: "Completado",
+    type: "Personal",
+    demoUrl: "https://hospy.vercel.app/login",
+    repoUrl: "https://github.com/rafael5678/Hospy",
+    image: "/projects/hospy.png"
   }
 ];
 
