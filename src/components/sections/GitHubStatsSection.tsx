@@ -36,9 +36,12 @@ export const GitHubStatsSection = () => {
   ];
 
   const languages = [
-    { name: "TypeScript", percentage: 96, color: "bg-blue-500" },
-    { name: "JavaScript", percentage: 3, color: "bg-yellow-400" },
-    { name: "CSS", percentage: 1, color: "bg-pink-500" }
+    { name: "TypeScript", icon: "🔷" },
+    { name: "JavaScript", icon: "🟨" },
+    { name: "Python", icon: "🐍" },
+    { name: "Java", icon: "☕" },
+    { name: "CSS", icon: "🎨" },
+    { name: "HTML", icon: "📄" }
   ];
 
   return (
@@ -94,21 +97,18 @@ export const GitHubStatsSection = () => {
               </a>
             </div>
 
-            {/* Languages Chart */}
+            {/* Technologies Grid */}
             <div className="space-y-4">
               <h4 className="text-sm font-medium text-foreground">{t.languages}</h4>
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {languages.map((lang, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-foreground">{lang.name}</span>
-                      <span className="text-xs text-muted-foreground">{lang.percentage}%</span>
-                    </div>
-                    <div className="w-full bg-secondary rounded-full h-2">
-                      <div 
-                        className={`${lang.color} h-2 rounded-full transition-all duration-500`}
-                        style={{ width: `${lang.percentage}%` }}
-                      />
+                  <div 
+                    key={index}
+                    className="bg-card border border-border rounded-lg p-4 hover:shadow-md transition-all hover:-translate-y-1"
+                  >
+                    <div className="flex items-center justify-center space-x-3">
+                      <span className="text-2xl">{lang.icon}</span>
+                      <span className="text-sm font-medium text-foreground">{lang.name}</span>
                     </div>
                   </div>
                 ))}
