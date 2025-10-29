@@ -53,10 +53,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   const t = translations[language].projects;
   
   return (
-    <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow group">
+    <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow group flex flex-col h-full">
       {/* Imagen del proyecto */}
       {project.image && (
-        <div className="w-full h-40 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden">
+        <div className="w-full h-40 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden flex-shrink-0">
           <img 
             src={project.image} 
             alt={project.title}
@@ -73,78 +73,78 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
       )}
       
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-grow">
         <div className="pb-3">
           <div className="flex items-start justify-between mb-2">
             <div className="p-2 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md text-foreground">
               <Code className="w-4 h-4" />
             </div>
-          <div className="flex space-x-1">
-            <span className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
-              project.status === "Completado" 
-                ? "bg-primary text-primary-foreground" 
-                : "bg-secondary text-secondary-foreground"
-            }`}>
-              {project.status === "Completado" ? t.completed : t.inProgress}
-            </span>
-            <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full border border-border text-foreground">
-              {project.type === "Académico" ? t.academic : t.personal}
-            </span>
+            <div className="flex space-x-1">
+              <span className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
+                project.status === "Completado" 
+                  ? "bg-primary text-primary-foreground" 
+                  : "bg-secondary text-secondary-foreground"
+              }`}>
+                {project.status === "Completado" ? t.completed : t.inProgress}
+              </span>
+              <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full border border-border text-foreground">
+                {project.type === "Académico" ? t.academic : t.personal}
+              </span>
+            </div>
           </div>
-        </div>
-        <h3 className="text-sm mb-2 font-medium text-foreground">{project.title}</h3>
-        <p className="text-xs text-muted-foreground">
-          {project.description}
-        </p>
-      </div>
-      
-      <div className="space-y-3">
-        <div className="flex flex-wrap gap-1">
-          {project.tech.map((tech, techIndex) => (
-            <span key={techIndex} className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
-              {tech}
-            </span>
-          ))}
+          <h3 className="text-sm mb-2 font-medium text-foreground">{project.title}</h3>
+          <p className="text-xs text-muted-foreground mb-3">
+            {project.description}
+          </p>
         </div>
         
-        <div className="flex space-x-2">
-          {project.repoUrl && (
-            <button 
-              className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center text-foreground"
-              onClick={() => window.open(project.repoUrl, '_blank')}
-            >
-              <Github className="w-3 h-3 mr-1" />
-              {t.code}
-            </button>
-          )}
-          {project.demoUrl && (
-            <button 
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
-              onClick={() => window.open(project.demoUrl, '_blank')}
-            >
-              <ExternalLink className="w-3 h-3 mr-1" />
-              {t.demo}
-            </button>
-          )}
-          {!project.repoUrl && !project.demoUrl && (
-            <>
+        <div className="space-y-3 mt-auto">
+          <div className="flex flex-wrap gap-1">
+            {project.tech.map((tech, techIndex) => (
+              <span key={techIndex} className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
+                {tech}
+              </span>
+            ))}
+          </div>
+          
+          <div className="flex space-x-2">
+            {project.repoUrl && (
               <button 
                 className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center text-foreground"
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => window.open(project.repoUrl, '_blank')}
               >
                 <Github className="w-3 h-3 mr-1" />
                 {t.code}
               </button>
+            )}
+            {project.demoUrl && (
               <button 
                 className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => window.open(project.demoUrl, '_blank')}
               >
                 <ExternalLink className="w-3 h-3 mr-1" />
                 {t.demo}
               </button>
-            </>
-          )}
-        </div>
+            )}
+            {!project.repoUrl && !project.demoUrl && (
+              <>
+                <button 
+                  className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center text-foreground"
+                  onClick={() => window.open('#', '_blank')}
+                >
+                  <Github className="w-3 h-3 mr-1" />
+                  {t.code}
+                </button>
+                <button 
+                  className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
+                  onClick={() => window.open('#', '_blank')}
+                >
+                  <ExternalLink className="w-3 h-3 mr-1" />
+                  {t.demo}
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
