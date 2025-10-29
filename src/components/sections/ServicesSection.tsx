@@ -49,7 +49,7 @@ export const ServicesSection = () => {
               <div className="text-xs text-muted-foreground">Uptime</div>
             </div>
             <div>
-              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">30d</div>
+              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">20d</div>
               <div className="text-xs text-muted-foreground">{language === 'es' ? 'Garantía' : 'Warranty'}</div>
             </div>
             <div>
