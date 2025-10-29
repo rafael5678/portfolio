@@ -3,8 +3,13 @@ import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Send, CheckCircle2, A
 import emailjs from '@emailjs/browser';
 import { ContactFormData } from '@/types';
 import { emailConfig, isEmailConfigured } from '@/config/emailjs';
+import { useLanguage } from '@/hooks/useLanguage';
+import { translations } from '@/data/translations';
 
 export const ContactSection = () => {
+  const { language } = useLanguage();
+  const t = translations[language].contactSection;
+  
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -136,14 +141,18 @@ export const ContactSection = () => {
       // Método 4: Si nada funciona, mostrar error informativo
       setSubmitStatus('error');
       setErrorMessage(
-        'No se pudo enviar el mensaje. Por favor, contáctame directamente en juanrafaelcalzada1087@gmail.com'
+        language === 'es' 
+          ? 'No se pudo enviar el mensaje. Por favor, contáctame directamente en juanrafaelcalzada1087@gmail.com'
+          : 'Could not send message. Please contact me directly at juanrafaelcalzada1087@gmail.com'
       );
       
     } catch (error: any) {
       console.error('Error al enviar el mensaje:', error);
       setSubmitStatus('error');
       setErrorMessage(
-        error.message || 'Hubo un error al enviar el mensaje. Por favor, contáctame directamente por email a juanrafaelcalzada1087@gmail.com'
+        error.message || (language === 'es' 
+          ? 'Hubo un error al enviar el mensaje. Por favor, contáctame directamente por email a juanrafaelcalzada1087@gmail.com'
+          : 'There was an error sending the message. Please contact me directly by email at juanrafaelcalzada1087@gmail.com')
       );
     } finally {
       setIsSubmitting(false);
@@ -155,20 +164,20 @@ export const ContactSection = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
-            Contacto
+            {t.badge}
           </div>
           <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
-            Trabajemos Juntos
+            {t.title}
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-xs">
-            ¿Tienes un proyecto? Conversemos sobre cómo puedo ayudarte.
+            {t.subtitle}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div>
             <h3 className="mb-6 text-lg font-bold text-foreground">
-              Información
+              {language === 'es' ? 'Información' : 'Information'}
             </h3>
             
             <div className="space-y-4 mb-6">
@@ -228,32 +237,32 @@ export const ContactSection = () => {
 
           <div className="bg-card border border-border rounded-lg p-8 shadow-lg">
             <div className="mb-6">
-              <h3 className="text-xl font-bold text-foreground mb-2">Enviar mensaje</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">{language === 'es' ? 'Enviar mensaje' : 'Send message'}</h3>
               <p className="text-sm text-muted-foreground">
-                Completa el formulario y me pondré en contacto contigo lo antes posible.
+                {language === 'es' ? 'Completa el formulario y me pondré en contacto contigo lo antes posible.' : 'Fill out the form and I will contact you as soon as possible.'}
               </p>
             </div>
             <form className="space-y-6" onSubmit={handleContactSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-foreground">Nombre *</label>
+                  <label className="block text-sm font-medium text-foreground">{t.name}</label>
                   <input 
                     name="name" 
                     value={formData.name}
                     onChange={handleInputChange}
-                    placeholder="Tu nombre completo" 
+                    placeholder={language === 'es' ? 'Tu nombre completo' : 'Your full name'} 
                     className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-sm font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
                     required 
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-foreground">Email *</label>
+                  <label className="block text-sm font-medium text-foreground">{t.email}</label>
                   <input 
                     name="email" 
                     type="email" 
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="tu@email.com" 
+                    placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'} 
                     className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-sm font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
                     required 
                   />
@@ -261,24 +270,24 @@ export const ContactSection = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-foreground">Asunto *</label>
+                <label className="block text-sm font-medium text-foreground">{t.subject}</label>
                 <input 
                   name="subject" 
                   value={formData.subject}
                   onChange={handleInputChange}
-                  placeholder="¿De qué quieres hablar?" 
+                  placeholder={language === 'es' ? '¿De qué quieres hablar?' : 'What do you want to talk about?'} 
                   className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-sm font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
                   required 
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-foreground">Mensaje *</label>
+                <label className="block text-sm font-medium text-foreground">{t.message}</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  placeholder="Cuéntame sobre tu proyecto, idea o consulta..."
+                  placeholder={language === 'es' ? 'Cuéntame sobre tu proyecto, idea o consulta...' : 'Tell me about your project, idea or question...'}
                   rows={5}
                   className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-sm font-normal shadow-sm resize-vertical hover:border-primary/30 hover:shadow-md focus:shadow-lg"
                   required
@@ -300,22 +309,22 @@ export const ContactSection = () => {
                   {isSubmitting ? (
                     <>
                       <div className="w-4 h-4 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Enviando...
+                      {t.sending}
                     </>
                   ) : submitStatus === 'success' ? (
                     <>
                       <CheckCircle2 className="w-4 h-4 mr-2" />
-                      ¡Mensaje enviado!
+                      {t.success}
                     </>
                   ) : submitStatus === 'error' ? (
                     <>
                       <AlertCircle className="w-4 h-4 mr-2" />
-                      Error al enviar
+                      {t.error}
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4 mr-2" />
-                      Enviar mensaje
+                      {t.send}
                     </>
                   )}
                 </button>
@@ -323,7 +332,7 @@ export const ContactSection = () => {
                 {submitStatus === 'success' && (
                   <div className="p-3 bg-green-50 border border-green-200 rounded-md">
                     <p className="text-sm text-green-800 text-center">
-                      ✅ Tu mensaje ha sido enviado exitosamente. Te contactaré pronto.
+                      {language === 'es' ? '✅ Tu mensaje ha sido enviado exitosamente. Te contactaré pronto.' : '✅ Your message has been sent successfully. I will contact you soon.'}
                     </p>
                   </div>
                 )}
@@ -337,7 +346,7 @@ export const ContactSection = () => {
                 )}
                 
                 <p className="text-xs text-muted-foreground text-center">
-                  * Campos obligatorios
+                  {language === 'es' ? '* Campos obligatorios' : '* Required fields'}
                 </p>
               </div>
             </form>
