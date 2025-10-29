@@ -62,7 +62,13 @@ export const ServicesSection = () => {
             <p className="text-sm text-foreground">
               {language === 'es' ? '¿Tienes un proyecto personalizado?' : 'Do you have a custom project?'}
             </p>
-            <button className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm">
+            <button 
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 text-sm"
+              onClick={() => {
+                const contactSection = document.getElementById('contacto');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               {language === 'es' ? 'Hablemos de tu proyecto' : "Let's talk about your project"}
             </button>
           </div>
@@ -103,7 +109,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </div>
         
         <button 
-          className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm font-medium w-full text-foreground"
+          className="px-6 py-2 border-2 border-border rounded-md hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm font-medium w-full text-foreground hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
           onClick={() => window.open('https://www.linkedin.com/in/juan-rafael-calzada-65566a387', '_blank')}
         >
           {language === 'es' ? 'Cotizar' : 'Get quote'}
