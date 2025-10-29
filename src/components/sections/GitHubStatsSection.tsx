@@ -17,14 +17,14 @@ export const GitHubStatsSection = () => {
   const stats = [
     {
       icon: <GitCommit className="w-5 h-5" />,
-      value: "70",
+      value: "127",
       label: t.commits,
       color: "text-green-500",
       link: "https://github.com/rafael5678"
     },
     {
       icon: <GitBranch className="w-5 h-5" />,
-      value: "18",
+      value: "15",
       label: t.repositories,
       color: "text-blue-500",
       link: "https://github.com/rafael5678?tab=repositories"
