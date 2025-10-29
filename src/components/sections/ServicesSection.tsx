@@ -86,35 +86,33 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const { language } = useLanguage();
   
   return (
-    <div className="bg-card border border-border rounded-lg p-4 hover:bg-accent transition-colors group">
-      <div className="pb-3">
-        <div className="flex items-center space-x-3 mb-2">
+    <div className="bg-card border border-border rounded-lg p-4 hover:bg-accent transition-colors group flex flex-col h-full">
+      <div className="flex-grow">
+        <div className="flex items-center space-x-3 mb-3">
           <div className="p-2 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md">
             {service.icon}
           </div>
           <h3 className="text-sm font-medium text-foreground">{service.title}</h3>
         </div>
-        <p className="text-xs text-muted-foreground mb-3">
+        <p className="text-xs text-muted-foreground mb-4">
           {service.description}
         </p>
-      </div>
-      
-      <div className="space-y-3">
-        <div className="flex flex-wrap gap-1">
+        
+        <div className="flex flex-wrap gap-1 mb-4">
           {service.features.map((feature, featureIndex) => (
             <span key={featureIndex} className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
               {feature}
             </span>
           ))}
         </div>
-        
-        <button 
-          className="px-6 py-2 border-2 border-border rounded-md hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm font-medium w-full text-foreground hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
-          onClick={() => window.open('https://www.linkedin.com/in/juan-rafael-calzada-65566a387', '_blank')}
-        >
-          {language === 'es' ? 'Cotizar' : 'Get quote'}
-        </button>
       </div>
+      
+      <button 
+        className="px-6 py-2 border-2 border-border rounded-md hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm font-medium w-full text-foreground hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 mt-auto"
+        onClick={() => window.open('https://www.linkedin.com/in/juan-rafael-calzada-65566a387', '_blank')}
+      >
+        {language === 'es' ? 'Cotizar' : 'Get quote'}
+      </button>
     </div>
   );
 };
