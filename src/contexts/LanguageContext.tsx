@@ -10,7 +10,14 @@ interface LanguageContextType {
   toggleLanguage: () => void;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+// Valor por defecto para evitar errores de SSR
+const defaultValue: LanguageContextType = {
+  language: 'es',
+  setLanguage: () => {},
+  toggleLanguage: () => {},
+};
+
+const LanguageContext = createContext<LanguageContextType>(defaultValue);
 
 // Función para obtener el idioma inicial
 const getInitialLanguage = (): Language => {
@@ -46,11 +53,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     setLanguage(newLang);
   };
 
-  // Evitar hidratación incorrecta
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
   return (
     <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
       {children}
@@ -60,9 +62,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage debe ser usado dentro de un LanguageProvider');
-  }
   return context;
 };
 
