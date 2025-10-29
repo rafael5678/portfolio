@@ -105,7 +105,7 @@ export const AchievementsSection = () => {
               <div className="text-xs md:text-sm text-muted-foreground">{t.stat1}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-green-500 mb-2">100%</div>
+              <div className="text-3xl md:text-4xl font-bold text-green-500 mb-2">98%</div>
               <div className="text-xs md:text-sm text-muted-foreground">{t.stat2}</div>
             </div>
             <div className="text-center">
