@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Download, Eye } from 'lucide-react';
 import { CVPreview } from './CVPreview';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 export const CVSection = () => {

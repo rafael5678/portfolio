@@ -1,7 +1,7 @@
 'use client';
 
 import { Mail, MapPin, GraduationCap, Calendar } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 export const AboutSection = () => {

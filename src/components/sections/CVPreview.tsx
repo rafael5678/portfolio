@@ -1,7 +1,7 @@
 'use client';
 
 import { MapPin, Mail, Linkedin, Calendar, X, Download, Github, Globe, Award, Briefcase, GraduationCap, Code } from 'lucide-react';
-import { Language } from '@/hooks/useLanguage';
+import { Language } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 interface CVPreviewProps {

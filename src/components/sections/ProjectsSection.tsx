@@ -1,7 +1,7 @@
 import { Code, Github, ExternalLink } from 'lucide-react';
 import { Project } from '@/types';
 import { projects } from '@/data/constants';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 export const ProjectsSection = () => {

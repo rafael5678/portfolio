@@ -1,6 +1,6 @@
 'use client';
 
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 import { Trophy, Star, Target, Award, TrendingUp, Users } from 'lucide-react';
 

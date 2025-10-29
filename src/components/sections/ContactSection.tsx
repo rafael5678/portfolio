@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Send, CheckCircle2, A
 import emailjs from '@emailjs/browser';
 import { ContactFormData } from '@/types';
 import { emailConfig, isEmailConfigured } from '@/config/emailjs';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 export const ContactSection = () => {

@@ -3,7 +3,7 @@
 import { Star } from 'lucide-react';
 import { Testimonial } from '@/types';
 import { testimonials } from '@/data/constants';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 export const TestimonialsSection = () => {

@@ -2,7 +2,7 @@
 
 import { Skills } from '@/types';
 import { skills } from '@/data/constants';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 export const SkillsSection = () => {

@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 interface HeroSectionProps {

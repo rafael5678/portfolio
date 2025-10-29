@@ -16,29 +16,32 @@ import {
   Footer 
 } from '@/components/sections';
 import { useActiveSection } from '@/hooks/useActiveSection';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export default function Portfolio() {
   const { handleSectionClick } = useActiveSection();
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <LanguageProvider>
+      <div className="min-h-screen bg-background">
+        <Header />
 
-      <main className="pt-20">
-        <HeroSection onSectionClick={handleSectionClick} />
-        <CVSection />
-        <AboutSection />
-        <ProjectsSection />
-        <TestimonialsSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ServicesSection />
-        <GitHubStatsSection />
-        <AchievementsSection />
-        <ContactSection />
-      </main>
+        <main className="pt-20">
+          <HeroSection onSectionClick={handleSectionClick} />
+          <CVSection />
+          <AboutSection />
+          <ProjectsSection />
+          <TestimonialsSection />
+          <ExperienceSection />
+          <SkillsSection />
+          <ServicesSection />
+          <GitHubStatsSection />
+          <AchievementsSection />
+          <ContactSection />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }

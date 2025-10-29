@@ -1,6 +1,6 @@
 'use client';
 
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 import { Activity, GitBranch, GitCommit, Star, Users } from 'lucide-react';
 

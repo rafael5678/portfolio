@@ -1,7 +1,7 @@
 'use client';
 
 import { Languages } from 'lucide-react';
-import { Language } from '@/hooks/useLanguage';
+import { Language } from '@/contexts/LanguageContext';
 
 interface LanguageSelectorProps {
   currentLanguage: Language;

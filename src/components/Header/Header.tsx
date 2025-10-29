@@ -6,7 +6,7 @@ import { Navigation } from './Navigation';
 import { ThemeSelector } from './ThemeSelector';
 import { LanguageSelector } from './LanguageSelector';
 import { useTheme } from '@/hooks/useTheme';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { menuItems } from '@/data/constants';
 

@@ -3,7 +3,7 @@
 import { Code, Database, Globe, Server } from 'lucide-react';
 import { Service } from '@/types';
 import { services } from '@/data/constants';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
 export const ServicesSection = () => {
