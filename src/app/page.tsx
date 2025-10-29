@@ -24,7 +24,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="pt-16">
+      <main className="pt-20">
         <HeroSection onSectionClick={handleSectionClick} />
         <CVSection />
         <AboutSection />
