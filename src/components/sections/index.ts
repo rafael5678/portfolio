@@ -7,5 +7,7 @@ export { TestimonialsSection } from './TestimonialsSection';
 export { ExperienceSection } from './ExperienceSection';
 export { SkillsSection } from './SkillsSection';
 export { ServicesSection } from './ServicesSection';
+export { GitHubStatsSection } from './GitHubStatsSection';
+export { AchievementsSection } from './AchievementsSection';
 export { ContactSection } from './ContactSection';
 export { Footer } from './Footer';

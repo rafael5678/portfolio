@@ -9,6 +9,8 @@ export const menuItems: MenuItem[] = [
   { id: 'experiencia', label: 'Experiencia' },
   { id: 'habilidades', label: 'Habilidades' },
   { id: 'servicios', label: 'Servicios' },
+  { id: 'estadisticas', label: 'Estadísticas' },
+  { id: 'logros', label: 'Logros' },
   { id: 'contacto', label: 'Contacto' }
 ];
 

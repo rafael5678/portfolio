@@ -10,6 +10,8 @@ import {
   ExperienceSection, 
   SkillsSection, 
   ServicesSection, 
+  GitHubStatsSection,
+  AchievementsSection,
   ContactSection, 
   Footer 
 } from '@/components/sections';
@@ -31,6 +33,8 @@ export default function Portfolio() {
         <ExperienceSection />
         <SkillsSection />
         <ServicesSection />
+        <GitHubStatsSection />
+        <AchievementsSection />
         <ContactSection />
       </main>
 
