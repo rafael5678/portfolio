@@ -8,19 +8,26 @@ export const GitHubStatsSection = () => {
   const { language } = useLanguage();
   const t = translations[language].githubStats;
 
+  // Handler para abrir los repositorios de contribuciones
+  const openContributions = () => {
+    window.open('https://github.com/Nicolas-12000/NotaNova', '_blank');
+    window.open('https://github.com/Juan-Camilo-Martinez-B/AntivirusFinal', '_blank');
+  };
+
   const stats = [
     {
       icon: <GitCommit className="w-5 h-5" />,
       value: "70",
       label: t.commits,
-      color: "text-green-500"
+      color: "text-green-500",
+      link: "https://github.com/rafael5678"
     },
     {
       icon: <GitBranch className="w-5 h-5" />,
       value: "18",
       label: t.repositories,
       color: "text-blue-500",
-      link: "https://github.com"
+      link: "https://github.com/rafael5678?tab=repositories"
     },
     {
       icon: <Activity className="w-5 h-5" />,
@@ -32,17 +39,18 @@ export const GitHubStatsSection = () => {
       icon: <Star className="w-5 h-5" />,
       value: "2",
       label: t.contributions,
-      color: "text-yellow-500"
+      color: "text-yellow-500",
+      onClick: openContributions
     }
   ];
 
   const languages = [
-    { name: "TypeScript", icon: "🔷" },
-    { name: "JavaScript", icon: "🟨" },
-    { name: "Python", icon: "🐍" },
-    { name: "Java", icon: "☕" },
-    { name: "CSS", icon: "🎨" },
-    { name: "HTML", icon: "📄" }
+    { name: "TypeScript", icon: "🔷", link: "https://www.typescriptlang.org/" },
+    { name: "JavaScript", icon: "🟨", link: "https://developer.mozilla.org/es/docs/Web/JavaScript" },
+    { name: "Python", icon: "🐍", link: "https://www.python.org/" },
+    { name: "Java", icon: "☕", link: "https://www.java.com/" },
+    { name: "CSS", icon: "🎨", link: "https://developer.mozilla.org/es/docs/Web/CSS" },
+    { name: "HTML", icon: "📄", link: "https://developer.mozilla.org/es/docs/Web/HTML" }
   ];
 
   return (
@@ -65,7 +73,8 @@ export const GitHubStatsSection = () => {
           {stats.map((stat, index) => {
             const StatCard = (
               <div 
-                className="bg-card border border-border rounded-lg p-4 md:p-6 hover:shadow-lg transition-all hover:-translate-y-1"
+                className={`bg-card border border-border rounded-lg p-4 md:p-6 hover:shadow-lg transition-all hover:-translate-y-1 ${stat.onClick || stat.link ? 'cursor-pointer' : ''}`}
+                onClick={stat.onClick}
               >
                 <div className={`inline-flex p-2 md:p-3 rounded-lg bg-secondary mb-3 ${stat.color}`}>
                   {stat.icon}
@@ -79,6 +88,12 @@ export const GitHubStatsSection = () => {
               </div>
             );
 
+            // Si tiene onClick, usar div con el handler
+            if (stat.onClick) {
+              return <div key={index}>{StatCard}</div>;
+            }
+
+            // Si tiene link, usar anchor
             return stat.link ? (
               <a
                 key={index}
@@ -120,15 +135,18 @@ export const GitHubStatsSection = () => {
               <h4 className="text-sm font-medium text-foreground">{t.languages}</h4>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {languages.map((lang, index) => (
-                  <div 
+                  <a
                     key={index}
-                    className="bg-card border border-border rounded-lg p-4 hover:shadow-md transition-all hover:-translate-y-1"
+                    href={lang.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-card border border-border rounded-lg p-4 hover:shadow-md transition-all hover:-translate-y-1 block cursor-pointer"
                   >
                     <div className="flex items-center justify-center space-x-3">
                       <span className="text-2xl">{lang.icon}</span>
                       <span className="text-sm font-medium text-foreground">{lang.name}</span>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
