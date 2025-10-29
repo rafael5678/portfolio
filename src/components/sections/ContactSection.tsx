@@ -343,15 +343,6 @@ export const ContactSection = () => {
             </form>
           </div>
         </div>
-
-        <div className="text-center mt-8">
-          <p className="text-xs text-muted-foreground">
-            También puedes descargar mi{" "}
-            <button className="text-primary hover:underline text-xs">
-              CV en PDF
-            </button>
-          </p>
-        </div>
       </div>
     </section>
   );

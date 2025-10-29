@@ -120,33 +120,50 @@ export const AchievementsSection = () => {
         </div>
 
         {/* Future Goals */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-border rounded-lg p-6 md:p-8">
-            <div className="flex items-center justify-center mb-6">
-              <Target className="w-6 h-6 text-primary mr-2" />
-              <h3 className="text-lg md:text-xl font-semibold text-foreground">
-                {t.nextGoals}
-              </h3>
-            </div>
+        <div className="max-w-5xl mx-auto">
+          <div className="relative overflow-hidden bg-gradient-to-br from-purple-500/10 via-primary/5 to-blue-500/10 border-2 border-purple-200 dark:border-purple-800 rounded-2xl p-8 md:p-10 shadow-xl">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
             
-            <div className="space-y-4">
-              {goals.map((goal, index) => (
-                <div 
-                  key={index}
-                  className="flex items-start space-x-3 bg-card/50 backdrop-blur-sm border border-border rounded-lg p-4 hover:bg-card transition-colors"
-                >
-                  <span className="text-2xl">{goal.icon}</span>
-                  <p className="text-sm text-foreground flex-1 pt-1">
-                    {goal.text}
-                  </p>
+            <div className="relative z-10">
+              <div className="flex items-center justify-center mb-8">
+                <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-full mr-3">
+                  <Target className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                 </div>
-              ))}
-            </div>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                  {t.nextGoals}
+                </h3>
+              </div>
+              
+              <div className="grid gap-4 md:gap-5 mb-8">
+                {goals.map((goal, index) => (
+                  <div 
+                    key={index}
+                    className="group relative bg-card/80 backdrop-blur-sm border-2 border-border rounded-xl p-5 md:p-6 hover:border-purple-300 dark:hover:border-purple-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300">
+                        {goal.icon}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm md:text-base text-foreground font-medium leading-relaxed">
+                          {goal.text}
+                        </p>
+                      </div>
+                      <div className="hidden md:block text-2xl text-muted-foreground/20 group-hover:text-purple-500/50 transition-colors">
+                        {index + 1}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-            <div className="mt-6 text-center">
-              <p className="text-xs text-muted-foreground italic">
-                {t.motivation}
-              </p>
+              <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 text-center">
+                <p className="text-sm md:text-base text-foreground italic font-medium">
+                  {t.motivation}
+                </p>
+              </div>
             </div>
           </div>
         </div>
