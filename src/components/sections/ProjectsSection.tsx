@@ -23,7 +23,7 @@ export const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
