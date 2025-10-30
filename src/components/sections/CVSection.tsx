@@ -11,14 +11,23 @@ export const CVSection = () => {
   const { language } = useLanguage();
   const t = translations[language].cv;
 
-  const handleDownload = () => {
-    // Crear un enlace temporal para descargar
-    const link = document.createElement('a');
-    link.href = '/cv-juan-rafael-calzada.pdf';
-    link.download = 'CV-Juan-Rafael-Calzada-Gonzalez.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownload = async () => {
+    // Si existe un PDF en public (/cv-juan-rafael-calzada.pdf) lo descargamos,
+    // de lo contrario abrimos la vista previa y sugerimos "Guardar como PDF".
+    try {
+      const res = await fetch('/cv-juan-rafael-calzada.pdf', { method: 'HEAD' });
+      if (res.ok) {
+        const link = document.createElement('a');
+        link.href = '/cv-juan-rafael-calzada.pdf';
+        link.download = 'CV-Juan-Rafael-Calzada-Gonzalez.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        return;
+      }
+    } catch {}
+    setIsPreviewOpen(true);
+    setTimeout(() => window.print(), 300);
   };
 
   const handlePreview = () => {
@@ -43,9 +52,13 @@ export const CVSection = () => {
         <div className="max-w-2xl mx-auto">
           <div className="bg-card border border-border rounded-lg p-6">
             <div className="text-center space-y-4">
-              <div className="w-16 h-20 mx-auto bg-gradient-to-br from-primary to-primary/60 border border-border flex items-center justify-center rounded-md">
+              <button 
+                onClick={handleDownload}
+                className="w-16 h-20 mx-auto bg-gradient-to-br from-primary to-primary/60 border border-border flex items-center justify-center rounded-md hover:opacity-90 transition"
+                aria-label="Descargar PDF"
+              >
                 <span className="text-white text-xs font-medium">PDF</span>
-              </div>
+              </button>
               
               <div>
                 <h3 className="text-lg mb-2 font-medium text-foreground">{t.cvTitle}</h3>
@@ -75,7 +88,9 @@ export const CVSection = () => {
               <div className="grid grid-cols-3 gap-4 text-center pt-4 border-t border-border">
                 <div>
                   <div className="text-sm mb-1 font-medium text-foreground">{t.format}</div>
-                  <div className="text-xs text-muted-foreground">PDF</div>
+                  <button onClick={handleDownload} className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground">
+                    PDF
+                  </button>
                 </div>
                 <div>
                   <div className="text-sm mb-1 font-medium text-foreground">{t.pages}</div>

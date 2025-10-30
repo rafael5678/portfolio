@@ -3,6 +3,7 @@
 import { MapPin, Mail, Linkedin, Calendar, X, Download, Github, Globe, Award, Briefcase, GraduationCap, Code } from 'lucide-react';
 import { Language } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
+import { useEffect, useState } from 'react';
 
 interface CVPreviewProps {
   isOpen: boolean;
@@ -12,29 +13,32 @@ interface CVPreviewProps {
 
 export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
   if (!isOpen) return null;
-  
+
   const t = translations[language].cvPreview;
+  const [hasStaticPdf, setHasStaticPdf] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch('/cv-juan-rafael-calzada.pdf', { method: 'HEAD' })
+      .then(r => mounted && setHasStaticPdf(r.ok))
+      .catch(() => mounted && setHasStaticPdf(false));
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const handleDownloadPDF = () => {
     const link = document.createElement('a');
     link.href = '/cv-juan-rafael-calzada.pdf';
     link.download = 'CV-Juan-Rafael-Calzada-Gonzalez.pdf';
-    
-    fetch('/cv-juan-rafael-calzada.pdf')
-      .then(response => {
-        if (response.ok) {
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        } else {
-          alert('Use Ctrl+P or Cmd+P and select "Save as PDF" to download your CV');
-          window.print();
-        }
-      })
-      .catch(() => {
-        alert('Use Ctrl+P or Cmd+P and select "Save as PDF" to download your CV');
-        window.print();
-      });
+    if (hasStaticPdf) {
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      alert('Usa Ctrl+P o Cmd+P y selecciona "Guardar como PDF"');
+      window.print();
+    }
   };
 
   return (
@@ -63,7 +67,16 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
           </div>
         </div>
 
-        {/* Contenido del CV con diseño moderno */}
+        {/* Contenido del CV: si existe PDF estático lo mostramos en un visor */}
+        {hasStaticPdf ? (
+          <div className="p-0">
+            <iframe
+              src="/cv-juan-rafael-calzada.pdf"
+              title="CV PDF"
+              className="w-full h-[80vh]"
+            />
+          </div>
+        ) : (
         <div id="cv-content" className="p-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-950 text-gray-900 dark:text-gray-100">
           {/* Header con gradiente */}
           <div className="relative overflow-hidden rounded-2xl mb-8">
@@ -262,6 +275,7 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
             </p>
           </div>
         </div>
+        )}
       </div>
     </div>
   );
