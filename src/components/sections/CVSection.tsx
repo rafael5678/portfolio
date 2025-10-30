@@ -112,16 +112,10 @@ export const CVSection = () => {
                 </button>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 text-center pt-4 border-t border-border">
-                <div>
-                  <div className="text-sm mb-1 font-medium text-foreground">{t.format}</div>
-                  <button onClick={handleDownload} className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground">
-                    {hasPdf ? 'PDF' : hasPng ? 'PNG' : 'PDF'}
-                  </button>
-                </div>
+              <div className="grid grid-cols-2 gap-4 text-center pt-4 border-t border-border">
                 <div>
                   <div className="text-sm mb-1 font-medium text-foreground">{t.pages}</div>
-                  <div className="text-xs text-muted-foreground">2</div>
+                  <div className="text-xs text-muted-foreground">1</div>
                 </div>
                 <div>
                   <div className="text-sm mb-1 font-medium text-foreground">{t.updated}</div>
