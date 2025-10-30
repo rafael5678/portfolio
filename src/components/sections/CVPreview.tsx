@@ -123,7 +123,6 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
             <p className="text-sm text-muted-foreground mb-3">No se encontró el archivo del CV. Usa “Guardar como PDF”.</p>
             <button onClick={() => window.print()} className="px-4 py-2 border border-border rounded-md hover:bg-accent text-sm">Imprimir / Guardar como PDF</button>
           </div>
-        )
         )}
       </div>
     </div>
