@@ -10,6 +10,8 @@ export const translations = {
       experience: 'Experiencia',
       skills: 'Habilidades',
       services: 'Servicios',
+      statistics: 'Estadísticas',
+      achievements: 'Logros',
       contact: 'Contacto',
     },
     // Hero Section
@@ -259,6 +261,8 @@ export const translations = {
       experience: 'Experience',
       skills: 'Skills',
       services: 'Services',
+      statistics: 'Statistics',
+      achievements: 'Achievements',
       contact: 'Contact',
     },
     // Hero Section

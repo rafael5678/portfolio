@@ -9,12 +9,31 @@ import { useTheme } from '@/hooks/useTheme';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { menuItems } from '@/data/constants';
+import { translations } from '@/data/translations';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage } = useLanguage();
   const { activeSection, handleSectionClick } = useActiveSection();
+  // Localizar etiquetas del menú según idioma
+  const tNav = translations[language].nav;
+  const localizedMenu = menuItems.map((item) => {
+    const map: Record<string, string> = {
+      'inicio': tNav.home,
+      'cv': tNav.cv,
+      'sobre-mi': tNav.about,
+      'proyectos': tNav.projects,
+      'testimonios': tNav.testimonials,
+      'experiencia': tNav.experience,
+      'habilidades': tNav.skills,
+      'servicios': tNav.services,
+      'estadisticas': tNav.statistics ?? tNav.projects, // fallback if key missing
+      'logros': tNav.achievements ?? 'Logros',
+      'contacto': tNav.contact,
+    };
+    return { ...item, label: map[item.id] ?? item.label };
+  });
 
   const handleMenuClick = (sectionId: string) => {
     handleSectionClick(sectionId);
@@ -30,14 +49,14 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <Navigation 
-              menuItems={menuItems}
+              menuItems={localizedMenu}
               activeSection={activeSection}
               onSectionClick={handleMenuClick}
             />
           </div>
 
           {/* Theme & Language Selectors */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-4 ml-4">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}
