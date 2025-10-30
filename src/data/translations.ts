@@ -109,7 +109,7 @@ export const translations = {
       subtitle: 'Educación y experiencia en desarrollo de software a lo largo de mi carrera académica.',
       education: {
         title: 'Ingeniería de Software',
-        period: '2022 - Presente',
+        period: '2023 - Presente',
         company: 'Universidad Cooperativa',
         description: 'Estudiante de Ingeniería de Software con enfoque en desarrollo backend y frontend. Cursando materias especializadas en programación, bases de datos y arquitectura de software.',
         achievement1: 'Promedio académico destacado',
@@ -124,6 +124,15 @@ export const translations = {
         achievement1: 'Excelente servicio al cliente',
         achievement2: 'Manejo de herramientas tecnológicas',
         achievement3: 'Trabajo en equipo y colaboración',
+      },
+      logistics: {
+        title: 'Logística de Eventos',
+        period: '2023 - 2024',
+        company: 'LogistiFest, Pasto',
+        description: 'Planificación y coordinación de aspectos logísticos para eventos y partidos profesionales.',
+        achievement1: 'Coordinación de equipos y tiempos',
+        achievement2: 'Relación con proveedores y sedes',
+        achievement3: 'Cumplimiento de estándares y seguridad',
       },
     },
     // Skills Section
@@ -349,7 +358,7 @@ export const translations = {
       subtitle: 'Education and experience in software development throughout my academic career.',
       education: {
         title: 'Software Engineering',
-        period: '2022 - Present',
+        period: '2023 - Present',
         company: 'Cooperative University',
         description: 'Software Engineering student with focus on backend and frontend development. Taking specialized courses in programming, databases and software architecture.',
         achievement1: 'Outstanding academic average',
@@ -364,6 +373,15 @@ export const translations = {
         achievement1: 'Excellent customer service',
         achievement2: 'Management of technological tools',
         achievement3: 'Teamwork and collaboration',
+      },
+      logistics: {
+        title: 'Event Logistics',
+        period: '2023 - 2024',
+        company: 'LogistiFest, Pasto',
+        description: 'Planning and coordination of logistics aspects for events and professional matches.',
+        achievement1: 'Team and time coordination',
+        achievement2: 'Vendor and venue relationships',
+        achievement3: 'Compliance with standards and safety',
       },
     },
     // Skills Section

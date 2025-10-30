@@ -50,6 +50,20 @@ export const ExperienceSection = () => {
                 t.work.achievement3
               ]}
             />
+          {t.logistics && (
+            <ExperienceCard
+              icon={<Code className="w-5 h-5" />}
+              title={t.logistics.title}
+              period={t.logistics.period}
+              company={t.logistics.company}
+              description={t.logistics.description}
+              achievements={[
+                t.logistics.achievement1,
+                t.logistics.achievement2,
+                t.logistics.achievement3
+              ]}
+            />
+          )}
           </div>
         </div>
 
@@ -60,7 +74,7 @@ export const ExperienceSection = () => {
               <div className="text-xs text-muted-foreground">{language === 'es' ? 'Años' : 'Years'}</div>
             </div>
             <div>
-              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">6+</div>
+              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">5+</div>
               <div className="text-xs text-muted-foreground">{language === 'es' ? 'Tecnologías' : 'Technologies'}</div>
             </div>
             <div>

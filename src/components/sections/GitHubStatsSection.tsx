@@ -49,8 +49,7 @@ export const GitHubStatsSection = () => {
     { name: "JavaScript", icon: "🟨", link: "https://developer.mozilla.org/es/docs/Web/JavaScript" },
     { name: "Python", icon: "🐍", link: "https://www.python.org/" },
     { name: "Java", icon: "☕", link: "https://www.java.com/" },
-    { name: "CSS", icon: "🎨", link: "https://developer.mozilla.org/es/docs/Web/CSS" },
-    { name: "HTML", icon: "📄", link: "https://developer.mozilla.org/es/docs/Web/HTML" }
+    { name: "CSS", icon: "🎨", link: "https://developer.mozilla.org/es/docs/Web/CSS" }
   ];
 
   return (
