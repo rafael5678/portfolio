@@ -42,9 +42,9 @@ export const Header = () => {
 
   return (
     <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }} className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
-      <nav className="mx-auto px-4 sm:px-6 lg:px-8 py-4 max-w-7xl">
+      <nav className="mx-auto px-4 sm:px-6 lg:px-8 py-2 max-w-7xl">
         <div className="flex items-center justify-between">
-          <div className="font-medium">Juan Rafael Calzada González</div>
+          <div className="font-medium text-sm sm:text-base">Juan Rafael Calzada González</div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
