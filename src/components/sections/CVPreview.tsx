@@ -15,8 +15,8 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
   if (!isOpen) return null;
 
   const t = translations[language].cvPreview;
-  const [hasStaticPdf, setHasStaticPdf] = useState(false);
-  const [hasStaticPng, setHasStaticPng] = useState(false);
+  const [hasStaticPdf, setHasStaticPdf] = useState<boolean | null>(null);
+  const [hasStaticPng, setHasStaticPng] = useState<boolean | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -63,6 +63,8 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
     if (e.target === e.currentTarget) onClose();
   };
 
+  const isChecking = hasStaticPdf === null || hasStaticPng === null;
+
   return (
     <div onMouseDown={handleBackdrop} className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300">
       <div ref={containerRef} className="bg-background border border-border rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onMouseDown={(e) => e.stopPropagation()}>
@@ -90,7 +92,11 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
         </div>
 
         {/* Contenido del CV: si existe PDF estático lo mostramos en un visor */}
-        {hasStaticPdf ? (
+        {isChecking ? (
+          <div className="p-16 flex items-center justify-center">
+            <div className="h-6 w-6 rounded-full border-2 border-white/40 border-t-white animate-spin" />
+          </div>
+        ) : hasStaticPdf ? (
           <div className="p-0">
             <iframe
               src="/cv-juan-rafael-calzada.pdf"
