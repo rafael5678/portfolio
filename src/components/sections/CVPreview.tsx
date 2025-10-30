@@ -3,7 +3,7 @@
 import { MapPin, Mail, Linkedin, Calendar, X, Download, Github, Globe, Award, Briefcase, GraduationCap, Code } from 'lucide-react';
 import { Language } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface CVPreviewProps {
   isOpen: boolean;
@@ -17,6 +17,7 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
   const t = translations[language].cvPreview;
   const [hasStaticPdf, setHasStaticPdf] = useState(false);
   const [hasStaticPng, setHasStaticPng] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -28,8 +29,13 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
       setHasStaticPdf(pdfOk);
       setHasStaticPng(pngOk);
     });
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKey);
     return () => {
       mounted = false;
+      window.removeEventListener('keydown', handleKey);
     };
   }, []);
 
@@ -53,9 +59,13 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
     }
   };
 
+  const handleBackdrop = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) onClose();
+  };
+
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-background border border-border rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+    <div onMouseDown={handleBackdrop} className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300">
+      <div ref={containerRef} className="bg-background border border-border rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onMouseDown={(e) => e.stopPropagation()}>
         {/* Header mejorado */}
         <div className="sticky top-0 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
@@ -90,7 +100,17 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
           </div>
         ) : hasStaticPng ? (
           <div className="p-0">
-            <img src="/cv-juan-rafael-calzada.png" alt="CV imagen" className="w-full h-auto" />
+            <div className="flex justify-end gap-2 px-4 pt-4">
+              <a href="/cv-juan-rafael-calzada.png" target="_blank" rel="noreferrer" className="px-3 py-1 text-xs bg-white/20 text-white rounded-md hover:bg-white/30">Abrir en pestaña nueva</a>
+            </div>
+            <img
+              src="/cv-juan-rafael-calzada.png"
+              alt="CV imagen"
+              className="w-full h-auto"
+              loading="eager"
+              decoding="sync"
+              style={{ imageRendering: 'auto' }}
+            />
           </div>
         ) : (
         <div id="cv-content" className="p-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-950 text-gray-900 dark:text-gray-100">
