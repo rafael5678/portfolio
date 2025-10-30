@@ -18,6 +18,7 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
   const [hasStaticPdf, setHasStaticPdf] = useState<boolean | null>(null);
   const [hasStaticPng, setHasStaticPng] = useState<boolean | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [isViewerLoaded, setIsViewerLoaded] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -28,6 +29,7 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
       if (!mounted) return;
       setHasStaticPdf(pdfOk);
       setHasStaticPng(pngOk);
+      setIsViewerLoaded(false);
     });
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -67,33 +69,34 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
 
   return (
     <div onMouseDown={handleBackdrop} className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div ref={containerRef} className="bg-background border border-border rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onMouseDown={(e) => e.stopPropagation()}>
-        {/* Header mejorado */}
-        <div className="sticky top-0 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <Award className="w-5 h-5" />
-            {t.title}
-          </h2>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleDownloadPDF}
-              className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-all text-sm font-medium flex items-center gap-2 hover:scale-105 transform"
-            >
-              <Download className="w-4 h-4" />
-              {t.downloadPDF}
-            </button>
-            <button
-              onClick={onClose}
-              className="p-2 hover:bg-white/20 rounded-lg transition-colors"
-            >
-              <X className="w-5 h-5 text-white" />
-            </button>
+      <div ref={containerRef} className="bg-background border border-border rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden shadow-2xl" onMouseDown={(e) => e.stopPropagation()}>
+        {(!isChecking && isViewerLoaded) && (
+          <div className="sticky top-0 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
+            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+              <Award className="w-5 h-5" />
+              {t.title}
+            </h2>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleDownloadPDF}
+                className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-all text-sm font-medium flex items-center gap-2 hover:scale-105 transform"
+              >
+                <Download className="w-4 h-4" />
+                {t.downloadPDF}
+              </button>
+              <button
+                onClick={onClose}
+                className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Contenido del CV: si existe PDF estático lo mostramos en un visor */}
-        {isChecking ? (
-          <div className="p-16 flex items-center justify-center">
+        {isChecking || (!hasStaticPdf && !hasStaticPng) || !isViewerLoaded ? (
+          <div className="p-16 flex items-center justify-center min-h-[60vh]">
             <div className="h-6 w-6 rounded-full border-2 border-white/40 border-t-white animate-spin" />
           </div>
         ) : hasStaticPdf ? (
@@ -102,6 +105,7 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
               src="/cv-juan-rafael-calzada.pdf"
               title="CV PDF"
               className="w-full h-[80vh]"
+              onLoad={() => setIsViewerLoaded(true)}
             />
           </div>
         ) : hasStaticPng ? (
@@ -116,6 +120,7 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
               loading="eager"
               decoding="sync"
               style={{ imageRendering: 'auto' }}
+              onLoad={() => setIsViewerLoaded(true)}
             />
           </div>
         ) : (
