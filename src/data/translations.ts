@@ -15,7 +15,7 @@ export const translations = {
     // Hero Section
     hero: {
       badge: 'Ingeniero de Software',
-      description: 'Ingeniero de Software con 2 años de experiencia académica en la Universidad Cooperativa. Especializado en desarrollo backend con conocimientos en frontend. He completado 3 proyectos utilizando Python, Java, JavaScript, TypeScript, C# y C++.',
+      description: 'Ingeniero de Software con 2 años de experiencia académica en la Universidad Cooperativa. Especializado en desarrollo backend con conocimientos en frontend. He completado 3 proyectos utilizando Python, Java, JavaScript, TypeScript, C# y C++. Me especializo en desarrollo backend utilizando Python y Java, con conocimientos complementarios en frontend usando JavaScript, TypeScript y React/Next.js.',
       viewProjects: 'Ver Proyectos',
       contact: 'Contacto',
       moreInfo: 'Más información',
@@ -66,8 +66,8 @@ export const translations = {
       subtitle: 'Estudiante apasionado por el desarrollo de software y la tecnología.',
       myStory: 'Mi Historia',
       story1: 'Soy Juan Rafael Calzada González, estudiante de Ingeniería de Software en la Universidad Cooperativa con 2 años de experiencia académica.',
-      story2: 'Me especializo en desarrollo backend utilizando Python y Java, con conocimientos complementarios en frontend usando JavaScript, TypeScript y React/Next.js.',
-      story3: 'Mi enfoque principal es crear soluciones eficientes y escalables, aplicando las mejores prácticas de desarrollo y arquitectura de software.',
+      story2: 'Me gusta leer novelas de escritores y mangas. También practico deportes como baloncesto y artes marciales (taekwondo).',
+      story3: 'Disfruto bailar y escuchar salsa; me gustan los videojuegos, el anime, las series coreanas y las películas japonesas y de terror. Me atraen especialmente las series de misterio.',
       personalInfo: 'Información Personal',
       location: 'Tumaco, Nariño, Colombia',
       age: '20 años',
