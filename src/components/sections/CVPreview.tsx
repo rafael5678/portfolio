@@ -95,12 +95,17 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
         )}
 
         {/* Contenido del CV: si existe PDF estático lo mostramos en un visor */}
-        {isChecking || (!hasStaticPdf && !hasStaticPng) || !isViewerLoaded ? (
+        {isChecking ? (
           <div className="p-16 flex items-center justify-center min-h-[60vh]">
             <div className="h-6 w-6 rounded-full border-2 border-white/40 border-t-white animate-spin" />
           </div>
         ) : hasStaticPdf ? (
-          <div className="p-0">
+          <div className="relative p-0">
+            {!isViewerLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-background">
+                <div className="h-6 w-6 rounded-full border-2 border-white/40 border-t-white animate-spin" />
+              </div>
+            )}
             <iframe
               src="/cv-juan-rafael-calzada.pdf"
               title="CV PDF"
@@ -109,7 +114,12 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
             />
           </div>
         ) : hasStaticPng ? (
-          <div className="p-0">
+          <div className="relative p-0">
+            {!isViewerLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-background">
+                <div className="h-6 w-6 rounded-full border-2 border-white/40 border-t-white animate-spin" />
+              </div>
+            )}
             <div className="flex justify-end gap-2 px-4 pt-4">
               <a href="/cv-juan-rafael-calzada.png" target="_blank" rel="noreferrer" className="px-3 py-1 text-xs bg-white/20 text-white rounded-md hover:bg-white/30">Abrir en pestaña nueva</a>
             </div>
