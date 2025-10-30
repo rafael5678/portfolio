@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Download, Eye } from 'lucide-react';
 import { CVPreview } from './CVPreview';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -10,6 +10,21 @@ export const CVSection = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const { language } = useLanguage();
   const t = translations[language].cv;
+  const [hasPdf, setHasPdf] = useState(false);
+  const [hasPng, setHasPng] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    Promise.all([
+      fetch('/cv-juan-rafael-calzada.pdf', { method: 'HEAD' }).then(r => r.ok).catch(() => false),
+      fetch('/cv-juan-rafael-calzada.png', { method: 'HEAD' }).then(r => r.ok).catch(() => false),
+    ]).then(([pdfOk, pngOk]) => {
+      if (!mounted) return;
+      setHasPdf(pdfOk);
+      setHasPng(pngOk);
+    });
+    return () => { mounted = false };
+  }, []);
 
   const handleDownload = async () => {
     // Si existe un PDF en public (/cv-juan-rafael-calzada.pdf) lo descargamos,
@@ -20,6 +35,18 @@ export const CVSection = () => {
         const link = document.createElement('a');
         link.href = '/cv-juan-rafael-calzada.pdf';
         link.download = 'CV-Juan-Rafael-Calzada-Gonzalez.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        return;
+      }
+    } catch {}
+    try {
+      const resPng = await fetch('/cv-juan-rafael-calzada.png', { method: 'HEAD' });
+      if (resPng.ok) {
+        const link = document.createElement('a');
+        link.href = '/cv-juan-rafael-calzada.png';
+        link.download = 'CV-Juan-Rafael-Calzada-Gonzalez.png';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -55,9 +82,9 @@ export const CVSection = () => {
               <button 
                 onClick={handleDownload}
                 className="w-16 h-20 mx-auto bg-gradient-to-br from-primary to-primary/60 border border-border flex items-center justify-center rounded-md hover:opacity-90 transition"
-                aria-label="Descargar PDF"
+                aria-label="Descargar CV"
               >
-                <span className="text-white text-xs font-medium">PDF</span>
+                <span className="text-white text-xs font-medium">{hasPdf ? 'PDF' : hasPng ? 'PNG' : 'PDF'}</span>
               </button>
               
               <div>
@@ -89,7 +116,7 @@ export const CVSection = () => {
                 <div>
                   <div className="text-sm mb-1 font-medium text-foreground">{t.format}</div>
                   <button onClick={handleDownload} className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground">
-                    PDF
+                    {hasPdf ? 'PDF' : hasPng ? 'PNG' : 'PDF'}
                   </button>
                 </div>
                 <div>

@@ -16,12 +16,18 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
 
   const t = translations[language].cvPreview;
   const [hasStaticPdf, setHasStaticPdf] = useState(false);
+  const [hasStaticPng, setHasStaticPng] = useState(false);
 
   useEffect(() => {
     let mounted = true;
-    fetch('/cv-juan-rafael-calzada.pdf', { method: 'HEAD' })
-      .then(r => mounted && setHasStaticPdf(r.ok))
-      .catch(() => mounted && setHasStaticPdf(false));
+    Promise.all([
+      fetch('/cv-juan-rafael-calzada.pdf', { method: 'HEAD' }).then(r => r.ok).catch(() => false),
+      fetch('/cv-juan-rafael-calzada.png', { method: 'HEAD' }).then(r => r.ok).catch(() => false),
+    ]).then(([pdfOk, pngOk]) => {
+      if (!mounted) return;
+      setHasStaticPdf(pdfOk);
+      setHasStaticPng(pngOk);
+    });
     return () => {
       mounted = false;
     };
@@ -29,9 +35,15 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
 
   const handleDownloadPDF = () => {
     const link = document.createElement('a');
-    link.href = '/cv-juan-rafael-calzada.pdf';
-    link.download = 'CV-Juan-Rafael-Calzada-Gonzalez.pdf';
     if (hasStaticPdf) {
+      link.href = '/cv-juan-rafael-calzada.pdf';
+      link.download = 'CV-Juan-Rafael-Calzada-Gonzalez.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else if (hasStaticPng) {
+      link.href = '/cv-juan-rafael-calzada.png';
+      link.download = 'CV-Juan-Rafael-Calzada-Gonzalez.png';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -75,6 +87,10 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
               title="CV PDF"
               className="w-full h-[80vh]"
             />
+          </div>
+        ) : hasStaticPng ? (
+          <div className="p-0">
+            <img src="/cv-juan-rafael-calzada.png" alt="CV imagen" className="w-full h-auto" />
           </div>
         ) : (
         <div id="cv-content" className="p-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-950 text-gray-900 dark:text-gray-100">
