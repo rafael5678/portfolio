@@ -25,7 +25,7 @@ export const ProjectsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
 
@@ -46,20 +46,22 @@ export const ProjectsSection = () => {
 
 interface ProjectCardProps {
   project: Project;
+  index: number;
 }
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const { language } = useLanguage();
   const t = translations[language].projects;
+  const translatedProject = t.items[index] || project;
   
   return (
     <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow group flex flex-col h-full">
       {/* Imagen del proyecto */}
       {project.image && (
         <div className="w-full h-40 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden flex-shrink-0">
-          <img 
+            <img 
             src={project.image} 
-            alt={project.title}
+            alt={translatedProject.title}
             className="w-full h-full object-cover"
             onError={(e) => {
               // Si la imagen falla, mostrar un placeholder
@@ -81,20 +83,20 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             </div>
             <div className="flex space-x-1">
               <span className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
-                project.status === "Completado" 
+                index === 0 || index === 1 || index === 2 // Todos los proyectos están completados
                   ? "bg-primary text-primary-foreground" 
                   : "bg-secondary text-secondary-foreground"
               }`}>
-                {project.status === "Completado" ? t.completed : t.inProgress}
+                {t.completed}
               </span>
               <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full border border-border text-foreground">
-                {project.type === "Académico" ? t.academic : t.personal}
+                {index === 0 ? t.academic : t.personal}
               </span>
             </div>
           </div>
-          <h3 className="text-sm mb-2 font-medium text-foreground">{project.title}</h3>
+          <h3 className="text-sm mb-2 font-medium text-foreground">{translatedProject.title}</h3>
           <p className="text-xs text-muted-foreground mb-3">
-            {project.description}
+            {translatedProject.description}
           </p>
         </div>
         

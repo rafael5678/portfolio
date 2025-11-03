@@ -94,6 +94,26 @@ export const translations = {
       inProgress: 'En desarrollo',
       academic: 'Académico',
       personal: 'Personal',
+      items: [
+        {
+          title: 'Sistema de Seguimiento de Rutas',
+          description: 'Sistema de rutas para running con seguimiento en tiempo real y mapas interactivos',
+          status: 'Completado',
+          type: 'Académico',
+        },
+        {
+          title: 'IA para Tareas',
+          description: 'IA para ayudarte con tu trabajo si eres muy perezoso. Ayuda con inglés, programación, matemáticas y mucho más',
+          status: 'Completado',
+          type: 'Personal',
+        },
+        {
+          title: 'Sistema Hospy',
+          description: 'Tu asistente de gestión hospitalaria. Aplicación completa para gestionar historiales clínicos, citas médicas, pacientes y doctores con autenticación multinivel',
+          status: 'Completado',
+          type: 'Personal',
+        },
+      ],
     },
     // Testimonials Section
     testimonials: {
@@ -103,6 +123,29 @@ export const translations = {
       satisfactionRate: 'Tasa de Satisfacción',
       recommendations: 'Recomendaciones',
       completedProjects: 'Proyectos Completados',
+      items: [
+        {
+          name: 'José Cotes',
+          role: 'Amigo Universitario',
+          company: 'Universidad de Nariño (UDENAR)',
+          content: 'Es un ingeniero de software talentoso y responsable que siempre está dispuesto a aprender y mejorar. Se destaca por su compromiso, creatividad y gran capacidad para resolver problemas.',
+          initials: 'JC',
+        },
+        {
+          name: 'Isabel Cervera',
+          role: 'Conocida del Trabajo',
+          company: 'Compañera de Trabajo',
+          content: 'Es un chico que, aunque no he hablado mucho con él, es una persona muy alegre a la que le gusta animar el ambiente y es muy positivo tanto con personas que conoce como con las que no. Aunque puede ser molesto jajaja, sé que va a ser un muy buen ingeniero y responsable.',
+          initials: 'IC',
+        },
+        {
+          name: 'Don Jhon',
+          role: 'Propietario',
+          company: 'Lugar de Residencia',
+          content: 'Es una persona responsable, muy amable, muy hablador, le gusta charlar y conversar. Puedo decir que sin importar lo que pase, intentará cumplir su palabra. Es un chico muy trabajador pero habla mucho jajajaja. En programación, solo he visto algunas cosas que crea, así que creo que es un buen ingeniero de software.',
+          initials: 'DJ',
+        },
+      ],
     },
     // Experience Section
     experienceSection: {
@@ -345,6 +388,26 @@ export const translations = {
       inProgress: 'In progress',
       academic: 'Academic',
       personal: 'Personal',
+      items: [
+        {
+          title: 'Route Tracking System',
+          description: 'Route system for jogging with real-time tracking and interactive maps',
+          status: 'Completed',
+          type: 'Academic',
+        },
+        {
+          title: 'AI for Tasks',
+          description: 'AI to help you with your work if you are very lazy. Helps with English, programming, mathematics, and much more',
+          status: 'Completed',
+          type: 'Personal',
+        },
+        {
+          title: 'Hospy System',
+          description: 'Your hospital management assistant. Complete application to manage clinical histories, medical appointments, patients, and doctors with multi-level authentication',
+          status: 'Completed',
+          type: 'Personal',
+        },
+      ],
     },
     // Testimonials Section
     testimonials: {
@@ -354,6 +417,29 @@ export const translations = {
       satisfactionRate: 'Satisfaction Rate',
       recommendations: 'Recommendations',
       completedProjects: 'Completed Projects',
+      items: [
+        {
+          name: 'José Cotes',
+          role: 'University Friend',
+          company: 'Universidad de Nariño (UDENAR)',
+          content: 'He is a talented, responsible software engineer who is always willing to learn and improve. He stands out for his commitment, creativity, and great ability to solve problems.',
+          initials: 'JC',
+        },
+        {
+          name: 'Isabel Cervera',
+          role: 'Work Acquaintance',
+          company: 'Work Colleague',
+          content: "He's a guy who, although I haven't talked to much, is a very cheerful person who likes to lighten the mood and is very positive with both people he knows and doesn't know. Although he can be annoying hahaha, I know he's going to be a very good and responsible engineer.",
+          initials: 'IC',
+        },
+        {
+          name: 'Don Jhon',
+          role: 'Owner',
+          company: 'Place of Residence',
+          content: 'He is a responsible person, very kind, very talkative, likes to chat and converse. I can say that regardless of what happens, he will try to keep his word. He\'s a very hard-working guy but talks a lot hahahaha. In programming, I\'ve only seen a few things he creates, so I think he\'s a good software engineer.',
+          initials: 'DJ',
+        },
+      ],
     },
     // Experience Section
     experienceSection: {

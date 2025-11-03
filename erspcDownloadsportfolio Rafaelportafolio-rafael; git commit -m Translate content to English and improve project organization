@@ -1,0 +1,466 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 21d5a43..34b5d96 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,176 +1,176 @@[m
+[31m-# Portafolio Juan Rafael Calzada González[m
+[32m+[m[32m# Portfolio Juan Rafael Calzada González[m
+ [m
+[31m-Un portafolio profesional moderno y responsive desarrollado con React, TypeScript y Tailwind CSS.[m
+[32m+[m[32mA modern, responsive professional portfolio developed with React, TypeScript, and Tailwind CSS.[m
+ [m
+[31m-## 🚀 Características[m
+[32m+[m[32m## 🚀 Features[m
+ [m
+[31m-- **Arquitectura Modular**: Componentes reutilizables y bien organizados[m
+[31m-- **TypeScript**: Tipado estático para mayor robustez[m
+[31m-- **Tailwind CSS**: Estilos modernos y responsive[m
+[31m-- **Temas Dinámicos**: Múltiples temas de color (claro, oscuro, azul, verde, púrpura)[m
+[31m-- **Responsive Design**: Optimizado para todos los dispositivos[m
+[31m-- **Navegación Suave**: Scroll automático entre secciones[m
+[31m-- **Formulario de Contacto**: Interfaz de contacto funcional[m
+[31m-- **SEO Optimizado**: Meta tags y estructura semántica[m
+[32m+[m[32m- **Modular Architecture**: Reusable and well-organized components[m
+[32m+[m[32m- **TypeScript**: Static typing for enhanced robustness[m
+[32m+[m[32m- **Tailwind CSS**: Modern and responsive styling[m
+[32m+[m[32m- **Dynamic Themes**: Multiple color themes (light, dark, blue, green, purple)[m
+[32m+[m[32m- **Responsive Design**: Optimized for all devices[m
+[32m+[m[32m- **Smooth Navigation**: Automatic scrolling between sections[m
+[32m+[m[32m- **Contact Form**: Functional contact interface[m
+[32m+[m[32m- **SEO Optimized**: Meta tags and semantic structure[m
+ [m
+[31m-## 📁 Estructura del Proyecto[m
+[32m+[m[32m## 📁 Project Structure[m
+ [m
+ ```[m
+ src/[m
+ ├── app/[m
+[31m-│   ├── layout.tsx          # Layout principal[m
+[31m-│   └── page.tsx            # Página principal[m
+[32m+[m[32m│   ├── layout.tsx          # Main layout[m
+[32m+[m[32m│   └── page.tsx            # Main page[m
+ ├── components/[m
+ │   ├── Header/[m
+[31m-│   │   ├── Header.tsx      # Componente del header[m
+[31m-│   │   ├── Navigation.tsx  # Navegación[m
+[31m-│   │   ├── ThemeSelector.tsx # Selector de temas[m
+[31m-│   │   └── index.ts        # Exportaciones[m
+[32m+[m[32m│   │   ├── Header.tsx      # Header component[m
+[32m+[m[32m│   │   ├── Navigation.tsx  # Navigation[m
+[32m+[m[32m│   │   ├── ThemeSelector.tsx # Theme selector[m
+[32m+[m[32m│   │   └── index.ts        # Exports[m
+ │   └── sections/[m
+[31m-│       ├── HeroSection.tsx     # Sección hero[m
+[31m-│       ├── CVSection.tsx       # Sección CV[m
+[31m-│       ├── AboutSection.tsx    # Sección sobre mí[m
+[31m-│       ├── ProjectsSection.tsx # Sección proyectos[m
+[31m-│       ├── TestimonialsSection.tsx # Testimonios[m
+[31m-│       ├── ExperienceSection.tsx   # Experiencia[m
+[31m-│       ├── SkillsSection.tsx       # Habilidades[m
+[31m-│       ├── ServicesSection.tsx     # Servicios[m
+[31m-│       ├── ContactSection.tsx      # Contacto[m
+[32m+[m[32m│       ├── HeroSection.tsx     # Hero section[m
+[32m+[m[32m│       ├── CVSection.tsx       # CV section[m
+[32m+[m[32m│       ├── AboutSection.tsx    # About section[m
+[32m+[m[32m│       ├── ProjectsSection.tsx # Projects section[m
+[32m+[m[32m│       ├── TestimonialsSection.tsx # Testimonials[m
+[32m+[m[32m│       ├── ExperienceSection.tsx   # Experience[m
+[32m+[m[32m│       ├── SkillsSection.tsx       # Skills[m
+[32m+[m[32m│       ├── ServicesSection.tsx     # Services[m
+[32m+[m[32m│       ├── ContactSection.tsx      # Contact[m
+ │       ├── Footer.tsx              # Footer[m
+[31m-│       └── index.ts                # Exportaciones[m
+[32m+[m[32m│       └── index.ts                # Exports[m
+ ├── hooks/[m
+[31m-│   ├── useTheme.ts         # Hook para manejo de temas[m
+[31m-│   └── useActiveSection.ts # Hook para navegación[m
+[32m+[m[32m│   ├── useTheme.ts         # Theme management hook[m
+[32m+[m[32m│   └── useActiveSection.ts # Navigation hook[m
+ ├── types/[m
+[31m-│   └── index.ts            # Definiciones de tipos TypeScript[m
+[32m+[m[32m│   └── index.ts            # TypeScript type definitions[m
+ ├── data/[m
+[31m-│   └── constants.ts        # Datos y constantes[m
+[32m+[m[32m│   └── constants.ts        # Data and constants[m
+ └── styles/[m
+[31m-    └── globals.css         # Estilos globales y variables CSS[m
+[32m+[m[32m    └── globals.css         # Global styles and CSS variables[m
+ ```[m
+ [m
+[31m-## 🛠️ Tecnologías Utilizadas[m
+[32m+[m[32m## 🛠️ Technologies Used[m
+ [m
+[31m-- **React 18** - Biblioteca de UI[m
+[31m-- **Next.js 14** - Framework de React[m
+[31m-- **TypeScript** - Tipado estático[m
+[31m-- **Tailwind CSS v4** - Framework de CSS[m
+[31m-- **Lucide React** - Iconos[m
+[31m-- **ESLint** - Linter de código[m
+[32m+[m[32m- **React 18** - UI library[m
+[32m+[m[32m- **Next.js 14** - React framework[m
+[32m+[m[32m- **TypeScript** - Static typing[m
+[32m+[m[32m- **Tailwind CSS v4** - CSS framework[m
+[32m+[m[32m- **Lucide React** - Icons[m
+[32m+[m[32m- **ESLint** - Code linter[m
+ [m
+[31m-## 🎨 Sistema de Diseño[m
+[32m+[m[32m## 🎨 Design System[m
+ [m
+[31m-### Temas Disponibles[m
+[31m-- **Claro**: Tema por defecto con colores claros[m
+[31m-- **Oscuro**: Tema oscuro para mejor experiencia nocturna[m
+[31m-- **Azul**: Tema con paleta de colores azules[m
+[31m-- **Verde**: Tema con paleta de colores verdes[m
+[31m-- **Púrpura**: Tema con paleta de colores púrpuras[m
+[32m+[m[32m### Available Themes[m
+[32m+[m[32m- **Light**: Default theme with light colors[m
+[32m+[m[32m- **Dark**: Dark theme for better night experience[m
+[32m+[m[32m- **Blue**: Theme with blue color palette[m
+[32m+[m[32m- **Green**: Theme with green color palette[m
+[32m+[m[32m- **Purple**: Theme with purple color palette[m
+ [m
+[31m-### Componentes Reutilizables[m
+[31m-- **Botones**: `btn-primary`, `btn-secondary`[m
+[31m-- **Tarjetas**: `card`[m
+[32m+[m[32m### Reusable Components[m
+[32m+[m[32m- **Buttons**: `btn-primary`, `btn-secondary`[m
+[32m+[m[32m- **Cards**: `card`[m
+ - **Inputs**: `input`[m
+ - **Badges**: `badge-primary`, `badge-secondary`[m
+[31m-- **Enlaces Sociales**: `social-link`[m
+[32m+[m[32m- **Social Links**: `social-link`[m
+ [m
+[31m-## 🚀 Instalación y Uso[m
+[32m+[m[32m## 🚀 Installation and Usage[m
+ [m
+[31m-1. **Clonar el repositorio**[m
+[32m+[m[32m1. **Clone the repository**[m
+    ```bash[m
+    git clone https://github.com/rafael5678/portfolio.git[m
+    cd portfolio[m
+    ```[m
+ [m
+[31m-2. **Instalar dependencias**[m
+[32m+[m[32m2. **Install dependencies**[m
+    ```bash[m
+    npm install[m
+    ```[m
+ [m
+[31m-3. **Ejecutar en modo desarrollo**[m
+[32m+[m[32m3. **Run in development mode**[m
+    ```bash[m
+    npm run dev[m
+    ```[m
+ [m
+[31m-4. **Construir para producción**[m
+[32m+[m[32m4. **Build for production**[m
+    ```bash[m
+    npm run build[m
+    ```[m
+ [m
+[31m-5. **Iniciar servidor de producción**[m
+[32m+[m[32m5. **Start production server**[m
+    ```bash[m
+    npm start[m
+    ```[m
+ [m
+ ## 📱 Responsive Design[m
+ [m
+[31m-El portafolio está optimizado para:[m
+[32m+[m[32mThe portfolio is optimized for:[m
+ - **Mobile**: 320px - 768px[m
+ - **Tablet**: 768px - 1024px[m
+ - **Desktop**: 1024px+[m
+ [m
+[31m-## 🎯 Funcionalidades[m
+[32m+[m[32m## 🎯 Features[m
+ [m
+[31m-### Navegación[m
+[31m-- Menú responsive con hamburguesa en móvil[m
+[31m-- Scroll suave entre secciones[m
+[31m-- Indicador de sección activa[m
+[31m-- Navegación por teclado[m
+[32m+[m[32m### Navigation[m
+[32m+[m[32m- Responsive menu with mobile hamburger[m
+[32m+[m[32m- Smooth scrolling between sections[m
+[32m+[m[32m- Active section indicator[m
+[32m+[m[32m- Keyboard navigation[m
+ [m
+[31m-### Temas[m
+[31m-- Cambio dinámico de temas[m
+[31m-- Persistencia del tema seleccionado[m
+[31m-- Transiciones suaves entre temas[m
+[32m+[m[32m### Themes[m
+[32m+[m[32m- Dynamic theme switching[m
+[32m+[m[32m- Selected theme persistence[m
+[32m+[m[32m- Smooth transitions between themes[m
+ [m
+[31m-### Formulario de Contacto[m
+[31m-- Validación de campos requeridos[m
+[31m-- Estados de carga y éxito[m
+[31m-- Integración con redes sociales[m
+[32m+[m[32m### Contact Form[m
+[32m+[m[32m- Required field validation[m
+[32m+[m[32m- Loading and success states[m
+[32m+[m[32m- Social media integration[m
+ [m
+[31m-### Proyectos[m
+[31m-- Tarjetas interactivas[m
+[31m-- Filtros por estado y tipo[m
+[31m-- Enlaces a código y demo[m
+[32m+[m[32m### Projects[m
+[32m+[m[32m- Interactive cards[m
+[32m+[m[32m- Filtering by status and type[m
+[32m+[m[32m- Links to code and demo[m
+ [m
+[31m-## 🔧 Configuración[m
+[32m+[m[32m## 🔧 Configuration[m
+ [m
+[31m-### Variables de Entorno[m
+[31m-Crear archivo `.env.local`:[m
+[32m+[m[32m### Environment Variables[m
+[32m+[m[32mCreate `.env.local` file:[m
+ ```env[m
+[31m-NEXT_PUBLIC_SITE_URL=https://tu-dominio.com[m
+[31m-NEXT_PUBLIC_EMAIL=tu-email@ejemplo.com[m
+[32m+[m[32mNEXT_PUBLIC_SITE_URL=https://your-domain.com[m
+[32m+[m[32mNEXT_PUBLIC_EMAIL=your-email@example.com[m
+ ```[m
+ [m
+[31m-### Personalización[m
+[31m-1. **Datos Personales**: Editar `src/data/constants.ts`[m
+[31m-2. **Colores**: Modificar variables CSS en `src/styles/globals.css`[m
+[31m-3. **Temas**: Ajustar colores en `tailwind.config.js`[m
+[32m+[m[32m### Customization[m
+[32m+[m[32m1. **Personal Data**: Edit `src/data/constants.ts`[m
+[32m+[m[32m2. **Colors**: Modify CSS variables in `src/styles/globals.css`[m
+[32m+[m[32m3. **Themes**: Adjust colors in `tailwind.config.js`[m
+ [m
+[31m-## 📈 Mejoras Futuras[m
+[32m+[m[32m## 📈 Future Improvements[m
+ [m
+[31m-- [ ] Integración con CMS (Strapi/Sanity)[m
+[31m-- [ ] Blog personal[m
+[31m-- [ ] Animaciones con Framer Motion[m
+[31m-- [ ] Modo offline con PWA[m
+[31m-- [ ] Tests unitarios con Jest[m
+[31m-- [ ] Analytics y métricas[m
+[31m-- [ ] Internacionalización (i18n)[m
+[32m+[m[32m- [ ] CMS integration (Strapi/Sanity)[m
+[32m+[m[32m- [ ] Personal blog[m
+[32m+[m[32m- [ ] Animations with Framer Motion[m
+[32m+[m[32m- [ ] Offline mode with PWA[m
+[32m+[m[32m- [ ] Unit tests with Jest[m
+[32m+[m[32m- [ ] Analytics and metrics[m
+[32m+[m[32m- [ ] Internationalization (i18n)[m
+ [m
+[31m-## 🤝 Contribuciones[m
+[32m+[m[32m## 🤝 Contributions[m
+ [m
+[31m-Las contribuciones son bienvenidas. Por favor:[m
+[32m+[m[32mContributions are welcome. Please:[m
+ [m
+[31m-1. Fork el proyecto[m
+[31m-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)[m
+[31m-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)[m
+[31m-4. Push a la rama (`git push origin feature/AmazingFeature`)[m
+[31m-5. Abre un Pull Request[m
+[32m+[m[32m1. Fork the project[m
+[32m+[m[32m2. Create a feature branch (`git checkout -b feature/AmazingFeature`)[m
+[32m+[m[32m3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)[m
+[32m+[m[32m4. Push to the branch (`git push origin feature/AmazingFeature`)[m
+[32m+[m[32m5. Open a Pull Request[m
+ [m
+[31m-## 📄 Licencia[m
+[32m+[m[32m## 📄 License[m
+ [m
+[31m-Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.[m
+[32m+[m[32mThis project is licensed under the MIT License. See `LICENSE` for more details.[m
+ [m
+[31m-## 👨‍💻 Autor[m
+[32m+[m[32m## 👨‍💻 Author[m
+ [m
+ **Juan Rafael Calzada González**[m
+ - GitHub: [@rafael5678](https://github.com/rafael5678)[m
+[36m@@ -179,4 +179,4 @@[m [mEste proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.[m
+ [m
+ ---[m
+ [m
+[31m-⭐ Si te gusta este proyecto, ¡dale una estrella![m
+\ No newline at end of file[m
+[32m+[m[32m⭐ If you like this project, give it a star![m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/layout.tsx b/src/app/layout.tsx[m
+[1mindex bb93d70..bf734dd 100644[m
+[1m--- a/src/app/layout.tsx[m
+[1m+++ b/src/app/layout.tsx[m
+[36m@@ -6,13 +6,13 @@[m [mimport { Providers } from './providers';[m
+ const inter = Inter({ subsets: ['latin'] });[m
+ [m
+ export const metadata: Metadata = {[m
+[31m-  title: 'Juan Rafael Calzada González - Portafolio',[m
+[31m-  description: 'Portafolio profesional de Juan Rafael Calzada González - Ingeniero de Software especializado en Backend Development',[m
+[31m-  keywords: 'desarrollador, software, backend, python, java, javascript, typescript, react, nextjs',[m
+[32m+[m[32m  title: 'Juan Rafael Calzada González - Portfolio',[m
+[32m+[m[32m  description: 'Professional portfolio of Juan Rafael Calzada González - Software Engineer specialized in Backend Development',[m
+[32m+[m[32m  keywords: 'developer, software, backend, python, java, javascript, typescript, react, nextjs',[m
+   authors: [{ name: 'Juan Rafael Calzada González' }],[m
+   openGraph: {[m
+[31m-    title: 'Juan Rafael Calzada González - Portafolio',[m
+[31m-    description: 'Ingeniero de Software especializado en Backend Development',[m
+[32m+[m[32m    title: 'Juan Rafael Calzada González - Portfolio',[m
+[32m+[m[32m    description: 'Software Engineer specialized in Backend Development',[m
+     type: 'website',[m
+   },[m
+ };[m
+[36m@@ -23,7 +23,7 @@[m [mexport default function RootLayout({[m
+   children: React.ReactNode;[m
+ }) {[m
+   return ([m
+[31m-    <html lang="es" suppressHydrationWarning>[m
+[32m+[m[32m    <html lang="en" suppressHydrationWarning>[m
+       <head>[m
+         <script[m
+           dangerouslySetInnerHTML={{[m
+[1mdiff --git a/src/app/providers.tsx b/src/app/providers.tsx[m
+[1mindex c84efc2..2555ee1 100644[m
+[1m--- a/src/app/providers.tsx[m
+[1m+++ b/src/app/providers.tsx[m
+[36m@@ -10,3 +10,7 @@[m [mexport function Providers({ children }: { children: React.ReactNode }) {[m
+   );[m
+ }[m
+ [m
+[41m+[m
+[41m+[m
+[41m+[m
+[41m+[m
+[1mdiff --git a/src/components/sections/AchievementsSection.tsx b/src/components/sections/AchievementsSection.tsx[m
+[1mindex 3adad4b..1cf76e7 100644[m
+[1m--- a/src/components/sections/AchievementsSection.tsx[m
+[1m+++ b/src/components/sections/AchievementsSection.tsx[m
+[36m@@ -188,3 +188,7 @@[m [mexport const AchievementsSection = () => {[m
+   );[m
+ };[m
+ [m
+[41m+[m
+[41m+[m
+[41m+[m
+[41m+[m
+[1mdiff --git a/src/config/site.ts b/src/config/site.ts[m
+[1mindex 387495c..670119f 100644[m
+[1m--- a/src/config/site.ts[m
+[1m+++ b/src/config/site.ts[m
+[36m@@ -1,7 +1,7 @@[m
+ export const siteConfig = {[m
+   name: "Juan Rafael Calzada González",[m
+[31m-  title: "Portafolio Profesional",[m
+[31m-  description: "Ingeniero de Software especializado en Backend Development con experiencia en Python, Java, JavaScript, TypeScript y React/Next.js",[m
+[32m+[m[32m  title: "Professional Portfolio",[m
+[32m+[m[32m  description: "Software Engineer specialized in Backend Development with experience in Python, Java, JavaScript, TypeScript and React/Next.js",[m
+   url: "https://juanrafael.dev",[m
+   ogImage: "https://juanrafael.dev/og-image.jpg",[m
+   links: {[m
+[36m@@ -17,7 +17,7 @@[m [mexport const siteConfig = {[m
+     url: "https://juanrafael.dev",[m
+   },[m
+   keywords: [[m
+[31m-    "desarrollador",[m
+[32m+[m[32m    "developer",[m
+     "software",[m
+     "backend",[m
+     "python",[m
+[36m@@ -26,9 +26,9 @@[m [mexport const siteConfig = {[m
+     "typescript",[m
+     "react",[m
+     "nextjs",[m
+[31m-    "portafolio",[m
+[31m-    "ingeniero",[m
+[31m-    "programador"[m
+[32m+[m[32m    "portfolio",[m
+[32m+[m[32m    "engineer",[m
+[32m+[m[32m    "programmer"[m
+   ],[m
+   social: {[m
+     github: "rafael5678",[m
+[36m@@ -38,7 +38,7 @@[m [mexport const siteConfig = {[m
+   },[m
+   location: "Colombia",[m
+   university: "Universidad Cooperativa",[m
+[31m-  experience: "2 años académicos",[m
+[32m+[m[32m  experience: "2 academic years",[m
+   projects: 3,[m
+   technologies: [[m
+     "Python",[m
+[1mdiff --git a/src/contexts/LanguageContext.tsx b/src/contexts/LanguageContext.tsx[m
+[1mindex 3f9e9c7..212ce64 100644[m
+[1m--- a/src/contexts/LanguageContext.tsx[m
+[1m+++ b/src/contexts/LanguageContext.tsx[m
+[36m@@ -65,3 +65,4 @@[m [mexport const useLanguage = () => {[m
+   return context;[m
+ };[m
+ [m
+[41m+ [m
+\ No newline at end of file[m
+[1mdiff --git a/src/data/constants.ts b/src/data/constants.ts[m
+[1mindex 87c8d8b..fac5025 100644[m
+[1m--- a/src/data/constants.ts[m
+[1m+++ b/src/data/constants.ts[m
+[36m@@ -1,17 +1,17 @@[m
+ import { MenuItem, Theme, Project, Testimonial, Skills, Service } from '@/types';[m
+ [m
+ export const menuItems: MenuItem[] = [[m
+[31m-  { id: 'inicio', label: 'Inicio' },[m
+[31m-  { id: 'cv', label: 'CV' },[m
+[31m-  { id: 'sobre-mi', label: 'Sobre Mí' },[m
+[31m-  { id: 'proyectos', label: 'Proyectos' },[m
+[31m-  { id: 'testimonios', label: 'Testimonios' },[m
+[31m-  { id: 'experiencia', label: 'Experiencia' },[m
+[31m-  { id: 'habilidades', label: 'Habilidades' },[m
+[31m-  { id: 'servicios', label: 'Servicios' },[m
+[31m-  { id: 'estadisticas', label: 'Estadísticas' },[m
+[31m-  { id: 'logros', label: 'Logros' },[m
+[31m-  { id: 'contacto', label: 'Contacto' }[m
+[32m+[m[32m  { id: 'inicio', label: 'Home' },[m
+[32m+[m[32m  { id: 'cv', label: 'Resume' },[m
+[32m+[m[32m  { id: 'sobre-mi', label: 'About' },[m
+[32m+[m[32m  { id: 'proyectos', label: 'Projects' },[m
+[32m+[m[32m  { id: 'testimonios', label: 'Testimonials' },[m
+[32m+[m[32m  { id: 'experiencia', label: 'Experience' },[m
+[32m+[m[32m  { id: 'habilidades', label: 'Skills' },[m
+[32m+[m[32m  { id: 'servicios', label: 'Services' },[m
+[32m+[m[32m  { id: 'estadisticas', label: 'Statistics' },[m
+[32m+[m[32m  { id: 'logros', label: 'Achievements' },[m
+[32m+[m[32m  { id: 'contacto', label: 'Contact' }[m
+ ];[m
+ [m
+ export const themes: Theme[] = [[m
+[36m@@ -24,8 +24,8 @@[m [mexport const themes: Theme[] = [[m
+ [m
+ export const projects: Project[] = [[m
+   {[m
+[31m-    title: "Sistema de Rutas de Recorrido",[m
+[31m-    description: "Sistema de recorrido para trotar con seguimiento en tiempo real y mapas interactivos",[m
+[32m+[m[32m    title: "Route Tracking System",[m
+[32m+[m[32m    description: "Route system for jogging with real-time tracking and interactive maps",[m
+     tech: ["JavaScript", "TypeScript", "CSS + Tailwind", "JSON"],[m
+     status: "Completado",[m
+     type: "Académico",[m
+[36m@@ -34,8 +34,8 @@[m [mexport const projects: Project[] = [[m
+     image: "/projects/routes-app.png"[m
+   },[m
+   {[m
+[31m-    title: "IA para Tareas",[m
+[31m-    description: "IA para ayudarte en tus trabajos si eres muy perezoso o perezosa. Te ayudan con trabajos de inglés, programación, matemáticas y mucho más",[m
+[32m+[m[32m    title: "AI for Tasks",[m
+[32m+[m[32m    description: "AI to help you with your work if you are very lazy. Helps with English, programming, mathematics, and much more",[m
+     tech: ["TypeScript", "Next.js", "Tailwind CSS", "Next.js API Routes"],[m
+     status: "Completado",[m
+     type: "Personal",[m
+[36m@@ -44,8 +44,8 @@[m [mexport const projects: Project[] = [[m
+     image: "/projects/ia-tareas.png"[m
+   },[m
+   {[m
+[31m-    title: "Sistema Hospy",[m
+[31m-    description: "Tu asistente de gestión hospitalaria. Aplicación completa para gestionar historias clínicas, citas médicas, pacientes y doctores con autenticación de múltiples niveles",[m
+[32m+[m[32m    title: "Hospy System",[m
+[32m+[m[32m    description: "Your 
