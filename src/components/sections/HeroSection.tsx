@@ -1,6 +1,7 @@
 'use client';
 
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 
@@ -80,7 +81,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
               rel="noopener noreferrer"
               className="p-2 border border-border hover:bg-accent transition-colors rounded-md text-foreground"
             >
-              <Mail className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" />
             </a>
           </div>
           <button

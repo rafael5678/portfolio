@@ -1,4 +1,5 @@
-import { Github, Linkedin, Instagram, Mail } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 export const Footer = () => {
   return (
@@ -29,9 +30,9 @@ export const Footer = () => {
               label="Instagram"
             />
             <SocialLink
-              href="mailto:juanrafaelcalzada1087@gmail.com"
-              icon={<Mail className="w-4 h-4" />}
-              label="Email"
+              href="https://wa.me/573103602816"
+              icon={<WhatsAppIcon className="w-4 h-4" />}
+              label="WhatsApp"
             />
           </div>
 
