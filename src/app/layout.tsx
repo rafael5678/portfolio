@@ -6,13 +6,13 @@ import { Providers } from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Juan Rafael Calzada González - Portafolio',
-  description: 'Portafolio profesional de Juan Rafael Calzada González - Ingeniero de Software especializado en Backend Development',
-  keywords: 'desarrollador, software, backend, python, java, javascript, typescript, react, nextjs',
+  title: 'Juan Rafael Calzada González - Portfolio',
+  description: 'Professional portfolio of Juan Rafael Calzada González - Software Engineer specialized in Backend Development',
+  keywords: 'developer, software, backend, python, java, javascript, typescript, react, nextjs',
   authors: [{ name: 'Juan Rafael Calzada González' }],
   openGraph: {
-    title: 'Juan Rafael Calzada González - Portafolio',
-    description: 'Ingeniero de Software especializado en Backend Development',
+    title: 'Juan Rafael Calzada González - Portfolio',
+    description: 'Software Engineer specialized in Backend Development',
     type: 'website',
   },
 };
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

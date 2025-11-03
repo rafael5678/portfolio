@@ -1,176 +1,176 @@
-# Portafolio Juan Rafael Calzada González
+# Portfolio Juan Rafael Calzada González
 
-Un portafolio profesional moderno y responsive desarrollado con React, TypeScript y Tailwind CSS.
+A modern, responsive professional portfolio developed with React, TypeScript, and Tailwind CSS.
 
-## 🚀 Características
+## 🚀 Features
 
-- **Arquitectura Modular**: Componentes reutilizables y bien organizados
-- **TypeScript**: Tipado estático para mayor robustez
-- **Tailwind CSS**: Estilos modernos y responsive
-- **Temas Dinámicos**: Múltiples temas de color (claro, oscuro, azul, verde, púrpura)
-- **Responsive Design**: Optimizado para todos los dispositivos
-- **Navegación Suave**: Scroll automático entre secciones
-- **Formulario de Contacto**: Interfaz de contacto funcional
-- **SEO Optimizado**: Meta tags y estructura semántica
+- **Modular Architecture**: Reusable and well-organized components
+- **TypeScript**: Static typing for enhanced robustness
+- **Tailwind CSS**: Modern and responsive styling
+- **Dynamic Themes**: Multiple color themes (light, dark, blue, green, purple)
+- **Responsive Design**: Optimized for all devices
+- **Smooth Navigation**: Automatic scrolling between sections
+- **Contact Form**: Functional contact interface
+- **SEO Optimized**: Meta tags and semantic structure
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Layout principal
-│   └── page.tsx            # Página principal
+│   ├── layout.tsx          # Main layout
+│   └── page.tsx            # Main page
 ├── components/
 │   ├── Header/
-│   │   ├── Header.tsx      # Componente del header
-│   │   ├── Navigation.tsx  # Navegación
-│   │   ├── ThemeSelector.tsx # Selector de temas
-│   │   └── index.ts        # Exportaciones
+│   │   ├── Header.tsx      # Header component
+│   │   ├── Navigation.tsx  # Navigation
+│   │   ├── ThemeSelector.tsx # Theme selector
+│   │   └── index.ts        # Exports
 │   └── sections/
-│       ├── HeroSection.tsx     # Sección hero
-│       ├── CVSection.tsx       # Sección CV
-│       ├── AboutSection.tsx    # Sección sobre mí
-│       ├── ProjectsSection.tsx # Sección proyectos
-│       ├── TestimonialsSection.tsx # Testimonios
-│       ├── ExperienceSection.tsx   # Experiencia
-│       ├── SkillsSection.tsx       # Habilidades
-│       ├── ServicesSection.tsx     # Servicios
-│       ├── ContactSection.tsx      # Contacto
+│       ├── HeroSection.tsx     # Hero section
+│       ├── CVSection.tsx       # CV section
+│       ├── AboutSection.tsx    # About section
+│       ├── ProjectsSection.tsx # Projects section
+│       ├── TestimonialsSection.tsx # Testimonials
+│       ├── ExperienceSection.tsx   # Experience
+│       ├── SkillsSection.tsx       # Skills
+│       ├── ServicesSection.tsx     # Services
+│       ├── ContactSection.tsx      # Contact
 │       ├── Footer.tsx              # Footer
-│       └── index.ts                # Exportaciones
+│       └── index.ts                # Exports
 ├── hooks/
-│   ├── useTheme.ts         # Hook para manejo de temas
-│   └── useActiveSection.ts # Hook para navegación
+│   ├── useTheme.ts         # Theme management hook
+│   └── useActiveSection.ts # Navigation hook
 ├── types/
-│   └── index.ts            # Definiciones de tipos TypeScript
+│   └── index.ts            # TypeScript type definitions
 ├── data/
-│   └── constants.ts        # Datos y constantes
+│   └── constants.ts        # Data and constants
 └── styles/
-    └── globals.css         # Estilos globales y variables CSS
+    └── globals.css         # Global styles and CSS variables
 ```
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
-- **React 18** - Biblioteca de UI
-- **Next.js 14** - Framework de React
-- **TypeScript** - Tipado estático
-- **Tailwind CSS v4** - Framework de CSS
-- **Lucide React** - Iconos
-- **ESLint** - Linter de código
+- **React 18** - UI library
+- **Next.js 14** - React framework
+- **TypeScript** - Static typing
+- **Tailwind CSS v4** - CSS framework
+- **Lucide React** - Icons
+- **ESLint** - Code linter
 
-## 🎨 Sistema de Diseño
+## 🎨 Design System
 
-### Temas Disponibles
-- **Claro**: Tema por defecto con colores claros
-- **Oscuro**: Tema oscuro para mejor experiencia nocturna
-- **Azul**: Tema con paleta de colores azules
-- **Verde**: Tema con paleta de colores verdes
-- **Púrpura**: Tema con paleta de colores púrpuras
+### Available Themes
+- **Light**: Default theme with light colors
+- **Dark**: Dark theme for better night experience
+- **Blue**: Theme with blue color palette
+- **Green**: Theme with green color palette
+- **Purple**: Theme with purple color palette
 
-### Componentes Reutilizables
-- **Botones**: `btn-primary`, `btn-secondary`
-- **Tarjetas**: `card`
+### Reusable Components
+- **Buttons**: `btn-primary`, `btn-secondary`
+- **Cards**: `card`
 - **Inputs**: `input`
 - **Badges**: `badge-primary`, `badge-secondary`
-- **Enlaces Sociales**: `social-link`
+- **Social Links**: `social-link`
 
-## 🚀 Instalación y Uso
+## 🚀 Installation and Usage
 
-1. **Clonar el repositorio**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/rafael5678/portfolio.git
    cd portfolio
    ```
 
-2. **Instalar dependencias**
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Ejecutar en modo desarrollo**
+3. **Run in development mode**
    ```bash
    npm run dev
    ```
 
-4. **Construir para producción**
+4. **Build for production**
    ```bash
    npm run build
    ```
 
-5. **Iniciar servidor de producción**
+5. **Start production server**
    ```bash
    npm start
    ```
 
 ## 📱 Responsive Design
 
-El portafolio está optimizado para:
+The portfolio is optimized for:
 - **Mobile**: 320px - 768px
 - **Tablet**: 768px - 1024px
 - **Desktop**: 1024px+
 
-## 🎯 Funcionalidades
+## 🎯 Features
 
-### Navegación
-- Menú responsive con hamburguesa en móvil
-- Scroll suave entre secciones
-- Indicador de sección activa
-- Navegación por teclado
+### Navigation
+- Responsive menu with mobile hamburger
+- Smooth scrolling between sections
+- Active section indicator
+- Keyboard navigation
 
-### Temas
-- Cambio dinámico de temas
-- Persistencia del tema seleccionado
-- Transiciones suaves entre temas
+### Themes
+- Dynamic theme switching
+- Selected theme persistence
+- Smooth transitions between themes
 
-### Formulario de Contacto
-- Validación de campos requeridos
-- Estados de carga y éxito
-- Integración con redes sociales
+### Contact Form
+- Required field validation
+- Loading and success states
+- Social media integration
 
-### Proyectos
-- Tarjetas interactivas
-- Filtros por estado y tipo
-- Enlaces a código y demo
+### Projects
+- Interactive cards
+- Filtering by status and type
+- Links to code and demo
 
-## 🔧 Configuración
+## 🔧 Configuration
 
-### Variables de Entorno
-Crear archivo `.env.local`:
+### Environment Variables
+Create `.env.local` file:
 ```env
-NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
-NEXT_PUBLIC_EMAIL=tu-email@ejemplo.com
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_EMAIL=your-email@example.com
 ```
 
-### Personalización
-1. **Datos Personales**: Editar `src/data/constants.ts`
-2. **Colores**: Modificar variables CSS en `src/styles/globals.css`
-3. **Temas**: Ajustar colores en `tailwind.config.js`
+### Customization
+1. **Personal Data**: Edit `src/data/constants.ts`
+2. **Colors**: Modify CSS variables in `src/styles/globals.css`
+3. **Themes**: Adjust colors in `tailwind.config.js`
 
-## 📈 Mejoras Futuras
+## 📈 Future Improvements
 
-- [ ] Integración con CMS (Strapi/Sanity)
-- [ ] Blog personal
-- [ ] Animaciones con Framer Motion
-- [ ] Modo offline con PWA
-- [ ] Tests unitarios con Jest
-- [ ] Analytics y métricas
-- [ ] Internacionalización (i18n)
+- [ ] CMS integration (Strapi/Sanity)
+- [ ] Personal blog
+- [ ] Animations with Framer Motion
+- [ ] Offline mode with PWA
+- [ ] Unit tests with Jest
+- [ ] Analytics and metrics
+- [ ] Internationalization (i18n)
 
-## 🤝 Contribuciones
+## 🤝 Contributions
 
-Las contribuciones son bienvenidas. Por favor:
+Contributions are welcome. Please:
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
+This project is licensed under the MIT License. See `LICENSE` for more details.
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Juan Rafael Calzada González**
 - GitHub: [@rafael5678](https://github.com/rafael5678)
@@ -179,4 +179,4 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 
 ---
 
-⭐ Si te gusta este proyecto, ¡dale una estrella!
+⭐ If you like this project, give it a star!

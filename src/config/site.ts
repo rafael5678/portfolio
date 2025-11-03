@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Juan Rafael Calzada González",
-  title: "Portafolio Profesional",
-  description: "Ingeniero de Software especializado en Backend Development con experiencia en Python, Java, JavaScript, TypeScript y React/Next.js",
+  title: "Professional Portfolio",
+  description: "Software Engineer specialized in Backend Development with experience in Python, Java, JavaScript, TypeScript and React/Next.js",
   url: "https://juanrafael.dev",
   ogImage: "https://juanrafael.dev/og-image.jpg",
   links: {
@@ -17,7 +17,7 @@ export const siteConfig = {
     url: "https://juanrafael.dev",
   },
   keywords: [
-    "desarrollador",
+    "developer",
     "software",
     "backend",
     "python",
@@ -26,9 +26,9 @@ export const siteConfig = {
     "typescript",
     "react",
     "nextjs",
-    "portafolio",
-    "ingeniero",
-    "programador"
+    "portfolio",
+    "engineer",
+    "programmer"
   ],
   social: {
     github: "rafael5678",
@@ -38,7 +38,7 @@ export const siteConfig = {
   },
   location: "Colombia",
   university: "Universidad Cooperativa",
-  experience: "2 años académicos",
+  experience: "2 academic years",
   projects: 3,
   technologies: [
     "Python",
