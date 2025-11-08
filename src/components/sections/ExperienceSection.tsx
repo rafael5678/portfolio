@@ -11,19 +11,19 @@ export const ExperienceSection = () => {
   return (
     <section id="experiencia" className="py-16 bg-secondary/30">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl lg:max-w-6xl mx-auto">
           <div className="space-y-6">
             <ExperienceCard
               icon={<GraduationCap className="w-5 h-5" />}
@@ -67,23 +67,23 @@ export const ExperienceSection = () => {
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-lg mx-auto">
+        <div className="text-center mt-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 max-w-xl lg:max-w-2xl mx-auto">
             <div>
-              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">2+</div>
-              <div className="text-xs text-muted-foreground">{language === 'es' ? 'Años' : 'Years'}</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">2+</div>
+              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Años' : 'Years'}</div>
             </div>
             <div>
-              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">5+</div>
-              <div className="text-xs text-muted-foreground">{language === 'es' ? 'Tecnologías' : 'Technologies'}</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">5+</div>
+              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Tecnologías' : 'Technologies'}</div>
             </div>
             <div>
-              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">3</div>
-              <div className="text-xs text-muted-foreground">{language === 'es' ? 'Proyectos' : 'Projects'}</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">3</div>
+              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Proyectos' : 'Projects'}</div>
             </div>
             <div>
-              <div className="text-xl md:text-2xl mb-1 font-bold text-foreground">1</div>
-              <div className="text-xs text-muted-foreground">{language === 'es' ? 'Universidad' : 'University'}</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">1</div>
+              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Universidad' : 'University'}</div>
             </div>
           </div>
         </div>
@@ -112,37 +112,37 @@ const ExperienceCard = ({
   const { language } = useLanguage();
   
   return (
-    <div className="bg-card border border-border rounded-lg p-6">
-      <div className="flex items-start space-x-4 mb-4">
-        <div className="p-3 border border-border bg-background rounded-md text-foreground">
+    <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+      <div className="flex items-start space-x-5 mb-5">
+        <div className="p-4 border border-border bg-background rounded-md text-foreground">
           {icon}
         </div>
         <div className="flex-1">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-            <h3 className="text-lg font-medium text-foreground">{title}</h3>
-            <div className="text-xs border border-border rounded-full px-2 py-1 w-fit text-foreground">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+            <h3 className="text-xl md:text-2xl font-medium text-foreground">{title}</h3>
+            <div className="text-sm md:text-base border border-border rounded-full px-3 py-1.5 w-fit text-foreground">
               {period}
             </div>
           </div>
-          <p className="text-sm text-muted-foreground mb-1">
+          <p className="text-base md:text-lg text-muted-foreground mb-2">
             {company}
           </p>
         </div>
       </div>
       
       <div>
-        <p className="text-sm text-muted-foreground mb-4">
+        <p className="text-base md:text-lg text-muted-foreground mb-5 leading-relaxed">
           {description}
         </p>
         
         <div>
-          <h4 className="text-sm mb-2 font-medium text-foreground">
+          <h4 className="text-base md:text-lg mb-3 font-medium text-foreground">
             {language === 'es' ? 'Logros destacados:' : 'Key achievements:'}
           </h4>
-          <ul className="space-y-1">
+          <ul className="space-y-2">
             {achievements.map((achievement, index) => (
-              <li key={index} className="flex items-center text-xs text-muted-foreground">
-                <div className="w-1 h-1 bg-primary rounded-full mr-2" />
+              <li key={index} className="flex items-center text-sm md:text-base text-muted-foreground">
+                <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
                 {achievement}
               </li>
             ))}

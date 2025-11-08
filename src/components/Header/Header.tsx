@@ -45,10 +45,10 @@ export const Header = () => {
       style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }} 
       className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm w-full"
     >
-      <nav className="mx-auto px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 max-w-[1920px] w-full">
+      <nav className="mx-auto px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-3 md:py-4 lg:py-5 max-w-[1920px] w-full">
         <div className="flex items-center justify-between w-full gap-1 md:gap-2 lg:gap-3">
           {/* Name - Simple and short */}
-          <div className="font-medium text-xs sm:text-sm md:text-base lg:text-lg flex-shrink-0 whitespace-nowrap">
+          <div className="font-medium text-sm sm:text-base md:text-lg lg:text-xl flex-shrink-0 whitespace-nowrap">
             Rafael Calzada
           </div>
           

@@ -11,31 +11,31 @@ export const ProjectsSection = () => {
   return (
     <section id="proyectos" className="py-16 bg-secondary/30">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-3 text-foreground">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-7xl lg:max-w-[1600px] mx-auto items-start">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-sm mb-4 text-foreground">{t.moreProjects}</p>
+        <div className="text-center mt-16">
+          <p className="text-base md:text-lg mb-6 text-foreground">{t.moreProjects}</p>
           <button 
-            className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm inline-flex items-center text-foreground"
+            className="px-8 py-3 md:px-10 md:py-4 border border-border rounded-md hover:bg-accent transition-colors text-base md:text-lg inline-flex items-center text-foreground"
             onClick={() => window.open('https://github.com/rafael5678?tab=repositories', '_blank')}
           >
-            <Github className="w-4 h-4 mr-2" />
+            <Github className="w-5 h-5 md:w-6 md:h-6 mr-2" />
             {t.viewOnGithub}
           </button>
         </div>
@@ -58,7 +58,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow group flex flex-col h-full">
       {/* Imagen del proyecto */}
       {project.image && (
-        <div className="w-full h-40 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden flex-shrink-0">
+        <div className="w-full h-48 md:h-56 lg:h-64 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden flex-shrink-0">
             <img 
             src={project.image} 
             alt={translatedProject.title}
@@ -75,35 +75,35 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         </div>
       )}
       
-      <div className="p-4 flex flex-col flex-grow">
-        <div className="pb-3">
-          <div className="flex items-start justify-between mb-2">
-            <div className="p-2 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md text-foreground">
-              <Code className="w-4 h-4" />
+      <div className="p-5 md:p-6 flex flex-col flex-grow">
+        <div className="pb-4">
+          <div className="flex items-start justify-between mb-3">
+            <div className="p-2.5 md:p-3 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md text-foreground">
+              <Code className="w-5 h-5 md:w-6 md:h-6" />
             </div>
-            <div className="flex space-x-1">
-              <span className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
+            <div className="flex space-x-2">
+              <span className={`inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full ${
                 index === 0 || index === 1 || index === 2 // Todos los proyectos están completados
                   ? "bg-primary text-primary-foreground" 
                   : "bg-secondary text-secondary-foreground"
               }`}>
                 {t.completed}
               </span>
-              <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full border border-border text-foreground">
+              <span className="inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full border border-border text-foreground">
                 {index === 0 ? t.academic : t.personal}
               </span>
             </div>
           </div>
-          <h3 className="text-sm mb-2 font-medium text-foreground">{translatedProject.title}</h3>
-          <p className="text-xs text-muted-foreground mb-3">
+          <h3 className="text-base md:text-lg lg:text-xl mb-3 font-medium text-foreground">{translatedProject.title}</h3>
+          <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
             {translatedProject.description}
           </p>
         </div>
         
-        <div className="space-y-3 mt-auto">
-          <div className="flex flex-wrap gap-1">
+        <div className="space-y-4 mt-auto">
+          <div className="flex flex-wrap gap-2">
             {project.tech.map((tech, techIndex) => (
-              <span key={techIndex} className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
+              <span key={techIndex} className="inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full bg-secondary text-secondary-foreground">
                 {tech}
               </span>
             ))}
@@ -112,19 +112,19 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           <div className="flex space-x-2">
             {project.repoUrl && (
               <button 
-                className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center text-foreground"
+                className="px-6 py-2.5 md:px-8 md:py-3 border border-border rounded-md hover:bg-accent transition-colors font-medium text-sm md:text-base flex-1 inline-flex items-center justify-center text-foreground"
                 onClick={() => window.open(project.repoUrl, '_blank')}
               >
-                <Github className="w-3 h-3 mr-1" />
+                <Github className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 {t.code}
               </button>
             )}
             {project.demoUrl && (
               <button 
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
+                className="px-6 py-2.5 md:px-8 md:py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-sm md:text-base flex-1 inline-flex items-center justify-center"
                 onClick={() => window.open(project.demoUrl, '_blank')}
               >
-                <ExternalLink className="w-3 h-3 mr-1" />
+                <ExternalLink className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 {t.demo}
               </button>
             )}

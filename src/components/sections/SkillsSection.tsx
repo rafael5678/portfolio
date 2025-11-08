@@ -12,22 +12,22 @@ export const SkillsSection = () => {
   return (
     <section id="habilidades" className="py-16 bg-secondary/30">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-12 max-w-6xl lg:max-w-7xl mx-auto">
           <div>
-            <h3 className="mb-6 text-center text-lg text-foreground">{t.backend}</h3>
-            <div className="space-y-4">
+            <h3 className="mb-8 text-center text-xl md:text-2xl lg:text-3xl text-foreground font-medium">{t.backend}</h3>
+            <div className="space-y-5">
               {skills.backend.map((skill, index) => (
                 <SkillCard key={index} skill={skill} />
               ))}
@@ -35,8 +35,8 @@ export const SkillsSection = () => {
           </div>
           
           <div>
-            <h3 className="mb-6 text-center text-lg text-foreground">{t.frontend}</h3>
-            <div className="space-y-4">
+            <h3 className="mb-8 text-center text-xl md:text-2xl lg:text-3xl text-foreground font-medium">{t.frontend}</h3>
+            <div className="space-y-5">
               {skills.frontend.map((skill, index) => (
                 <SkillCard key={index} skill={skill} />
               ))}
@@ -54,10 +54,10 @@ interface SkillCardProps {
 
 const SkillCard = ({ skill }: SkillCardProps) => {
   return (
-    <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-shadow">
-      <div className="flex items-center justify-center space-x-3">
-        <span className="text-2xl">{skill.icon}</span>
-        <span className="font-medium text-foreground">{skill.name}</span>
+    <div className="bg-card border border-border rounded-lg p-5 md:p-6 hover:shadow-lg transition-shadow">
+      <div className="flex items-center justify-center space-x-4">
+        <span className="text-3xl md:text-4xl">{skill.icon}</span>
+        <span className="text-lg md:text-xl font-medium text-foreground">{skill.name}</span>
       </div>
     </div>
   );

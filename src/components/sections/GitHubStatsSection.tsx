@@ -55,14 +55,14 @@ export const GitHubStatsSection = () => {
   return (
     <section id="estadisticas" className="py-16 bg-background">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
@@ -78,10 +78,10 @@ export const GitHubStatsSection = () => {
                 <div className={`inline-flex p-2 md:p-3 rounded-lg bg-secondary mb-3 ${stat.color}`}>
                   {stat.icon}
                 </div>
-                <div className="text-2xl md:text-3xl font-bold mb-1 text-foreground">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-foreground">
                   {stat.value}
                 </div>
-                <div className="text-xs md:text-sm text-muted-foreground">
+                <div className="text-sm md:text-base text-muted-foreground">
                   {stat.label}
                 </div>
               </div>

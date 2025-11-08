@@ -20,19 +20,19 @@ export const ServicesSection = () => {
   return (
     <section id="servicios" className="py-16 bg-secondary/30">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl lg:max-w-[1600px] mx-auto">
           {servicesData.map((service, index) => (
             <ServiceCard key={index} service={service} />
           ))}
@@ -86,21 +86,21 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const { language } = useLanguage();
   
   return (
-    <div className="bg-card border border-border rounded-lg p-4 hover:bg-accent transition-colors group flex flex-col h-full">
+    <div className="bg-card border border-border rounded-lg p-5 md:p-6 hover:bg-accent transition-colors group flex flex-col h-full">
       <div className="flex-grow">
-        <div className="flex items-center space-x-3 mb-3">
-          <div className="p-2 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md">
+        <div className="flex items-center space-x-4 mb-4">
+          <div className="p-3 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md">
             {service.icon}
           </div>
-          <h3 className="text-sm font-medium text-foreground">{service.title}</h3>
+          <h3 className="text-base md:text-lg font-medium text-foreground">{service.title}</h3>
         </div>
-        <p className="text-xs text-muted-foreground mb-4">
+        <p className="text-sm md:text-base text-muted-foreground mb-5 leading-relaxed">
           {service.description}
         </p>
         
-        <div className="flex flex-wrap gap-1 mb-4">
+        <div className="flex flex-wrap gap-2 mb-5">
           {service.features.map((feature, featureIndex) => (
-            <span key={featureIndex} className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
+            <span key={featureIndex} className="inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full bg-secondary text-secondary-foreground">
               {feature}
             </span>
           ))}
@@ -108,7 +108,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
       </div>
       
       <button 
-        className="px-6 py-2 border-2 border-border rounded-md hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm font-medium w-full text-foreground hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 mt-auto"
+        className="px-6 py-2.5 md:px-8 md:py-3 border-2 border-border rounded-md hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm md:text-base font-medium w-full text-foreground hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 mt-auto"
         onClick={() => window.open('https://www.linkedin.com/in/juan-rafael-calzada-65566a387', '_blank')}
       >
         {language === 'es' ? 'Cotizar' : 'Get quote'}

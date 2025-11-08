@@ -162,48 +162,48 @@ export const ContactSection = () => {
   return (
     <section id="contacto" className="py-16 bg-background">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 max-w-5xl lg:max-w-6xl mx-auto">
           <div>
-            <h3 className="mb-6 text-lg font-bold text-foreground">
+            <h3 className="mb-8 text-xl md:text-2xl lg:text-3xl font-bold text-foreground">
               {language === 'es' ? 'Información' : 'Information'}
             </h3>
             
-            <div className="space-y-4 mb-6">
+            <div className="space-y-5 mb-6">
               <ContactInfoItem
-                icon={<Mail className="w-4 h-4" />}
+                icon={<Mail className="w-5 h-5 md:w-6 md:h-6" />}
                 label="Email"
                 value="juanrafaelcalzada1087@gmail.com"
                 href="mailto:juanrafaelcalzada1087@gmail.com"
               />
               
               <ContactInfoItem
-                icon={<Phone className="w-4 h-4" />}
+                icon={<Phone className="w-5 h-5 md:w-6 md:h-6" />}
                 label="WhatsApp"
                 value="+57 310 360 2816"
                 href="https://wa.me/573103602816"
               />
               
               <ContactInfoItem
-                icon={<MapPin className="w-4 h-4" />}
+                icon={<MapPin className="w-5 h-5 md:w-6 md:h-6" />}
                 label="Ubicación"
                 value="Colombia"
               />
             </div>
 
             <div>
-              <h4 className="mb-3 text-sm font-bold text-foreground">Redes sociales</h4>
+              <h4 className="mb-4 text-base md:text-lg font-bold text-foreground">Redes sociales</h4>
               <div className="flex space-x-2">
                 <SocialLink
                   href="https://github.com/rafael5678/portfolio.git"
@@ -223,73 +223,73 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-accent/50 border border-border rounded-lg">
-              <h4 className="mb-2 text-sm font-bold text-foreground">Disponibilidad</h4>
-              <p className="text-xs text-muted-foreground mb-3">
+            <div className="mt-6 p-5 md:p-6 bg-accent/50 border border-border rounded-lg">
+              <h4 className="mb-3 text-base md:text-lg font-bold text-foreground">Disponibilidad</h4>
+              <p className="text-sm md:text-base text-muted-foreground mb-4">
                 Estudiante activo. Disponible para proyectos de aprendizaje y colaboración.
               </p>
               <div className="flex space-x-2">
-                <span className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded-md">Estudiante</span>
-                <span className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded-md">Proyectos</span>
+                <span className="text-sm md:text-base px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md">Estudiante</span>
+                <span className="text-sm md:text-base px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md">Proyectos</span>
               </div>
             </div>
           </div>
 
           <div className="bg-card border border-border rounded-lg p-8 shadow-lg">
-            <div className="mb-6">
-              <h3 className="text-xl font-bold text-foreground mb-2">{language === 'es' ? 'Enviar mensaje' : 'Send message'}</h3>
-              <p className="text-sm text-muted-foreground">
+            <div className="mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">{language === 'es' ? 'Enviar mensaje' : 'Send message'}</h3>
+              <p className="text-base md:text-lg text-muted-foreground">
                 {language === 'es' ? 'Completa el formulario y me pondré en contacto contigo lo antes posible.' : 'Fill out the form and I will contact you as soon as possible.'}
               </p>
             </div>
             <form className="space-y-6" onSubmit={handleContactSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-foreground">{t.name}</label>
+                  <label className="block text-base md:text-lg font-medium text-foreground">{t.name}</label>
                   <input 
                     name="name" 
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder={language === 'es' ? 'Tu nombre completo' : 'Your full name'} 
-                    className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-sm font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
+                    className="w-full px-5 py-3.5 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-base font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
                     required 
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-foreground">{t.email}</label>
+                  <label className="block text-base md:text-lg font-medium text-foreground">{t.email}</label>
                   <input 
                     name="email" 
                     type="email" 
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'} 
-                    className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-sm font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
+                    className="w-full px-5 py-3.5 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-base font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
                     required 
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-foreground">{t.subject}</label>
+                <label className="block text-base md:text-lg font-medium text-foreground">{t.subject}</label>
                 <input 
                   name="subject" 
                   value={formData.subject}
                   onChange={handleInputChange}
                   placeholder={language === 'es' ? '¿De qué quieres hablar?' : 'What do you want to talk about?'} 
-                  className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-sm font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
+                  className="w-full px-5 py-3.5 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-base font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg" 
                   required 
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-foreground">{t.message}</label>
+                <label className="block text-base md:text-lg font-medium text-foreground">{t.message}</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder={language === 'es' ? 'Cuéntame sobre tu proyecto, idea o consulta...' : 'Tell me about your project, idea or question...'}
                   rows={5}
-                  className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-sm font-normal shadow-sm resize-vertical hover:border-primary/30 hover:shadow-md focus:shadow-lg"
+                  className="w-full px-5 py-3.5 border-2 border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-base font-normal shadow-sm resize-vertical hover:border-primary/30 hover:shadow-md focus:shadow-lg"
                   required
                 />
               </div>
@@ -298,7 +298,7 @@ export const ContactSection = () => {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className={`w-full inline-flex items-center justify-center px-6 py-3 rounded-md transition-all text-base font-medium ${
+                  className={`w-full inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 rounded-md transition-all text-base md:text-lg font-medium ${
                     submitStatus === 'success' 
                       ? 'bg-green-600 hover:bg-green-700 text-white'
                       : submitStatus === 'error'
@@ -345,7 +345,7 @@ export const ContactSection = () => {
                   </div>
                 )}
                 
-                <p className="text-xs text-muted-foreground text-center">
+                <p className="text-sm md:text-base text-muted-foreground text-center">
                   {language === 'es' ? '* Campos obligatorios' : '* Required fields'}
                 </p>
               </div>
@@ -368,21 +368,21 @@ const ContactInfoItem = ({ icon, label, value, href }: ContactInfoItemProps) => 
   const content = href ? (
     <a 
       href={href}
-      className="text-sm text-foreground hover:text-primary transition-colors"
+      className="text-base md:text-lg text-foreground hover:text-primary transition-colors"
     >
       {value}
     </a>
   ) : (
-    <span className="text-sm text-foreground">{value}</span>
+    <span className="text-base md:text-lg text-foreground">{value}</span>
   );
 
   return (
-    <div className="flex items-center space-x-3">
-      <div className="p-2 border border-border text-foreground">
+    <div className="flex items-center space-x-4">
+      <div className="p-3 border border-border text-foreground">
         {icon}
       </div>
       <div>
-        <div className="text-xs text-muted-foreground font-bold">{label}</div>
+        <div className="text-sm md:text-base text-muted-foreground font-bold mb-1">{label}</div>
         {content}
       </div>
     </div>

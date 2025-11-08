@@ -62,14 +62,14 @@ export const AchievementsSection = () => {
   return (
     <section id="logros" className="py-16 bg-secondary/30">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
@@ -84,10 +84,10 @@ export const AchievementsSection = () => {
               <div className={`inline-flex p-3 rounded-lg ${achievement.color} mb-4`}>
                 {achievement.icon}
               </div>
-              <h3 className="text-sm md:text-base font-semibold mb-2 text-foreground">
+              <h3 className="text-base md:text-lg lg:text-xl font-semibold mb-3 text-foreground">
                 {achievement.title}
               </h3>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                 {achievement.description}
               </p>
             </div>

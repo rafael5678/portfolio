@@ -7,8 +7,8 @@ export const Footer = () => {
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
         <div className="text-center space-y-4">
           <div>
-            <h3 className="text-lg mb-1 font-medium text-foreground">Rafael Calzada</h3>
-            <p className="text-xs text-muted-foreground">
+            <h3 className="text-xl md:text-2xl mb-2 font-medium text-foreground">Rafael Calzada</h3>
+            <p className="text-sm md:text-base text-muted-foreground">
               Ingeniero de Software | Desarrollador Backend & Frontend
             </p>
           </div>
@@ -37,10 +37,10 @@ export const Footer = () => {
           </div>
 
           <div className="pt-4 border-t border-border">
-            <p className="text-xs text-muted-foreground">
+            <p className="text-sm md:text-base text-muted-foreground">
               © 2025 Rafael Calzada. Todos los derechos reservados.
             </p>
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="text-sm md:text-base text-muted-foreground mt-2">
               Desarrollado con React, TypeScript y Tailwind CSS
             </p>
           </div>

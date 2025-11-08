@@ -11,22 +11,22 @@ export const AboutSection = () => {
   return (
     <section id="sobre-mi" className="py-16 bg-background">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-3 text-foreground">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-4 text-2xl md:text-3xl font-medium text-foreground">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-xs">
+          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 max-w-6xl lg:max-w-7xl mx-auto">
           <div>
-            <h3 className="mb-4 text-lg text-foreground">{t.myStory}</h3>
-            <div className="space-y-3 text-sm text-muted-foreground">
+            <h3 className="mb-6 text-xl md:text-2xl lg:text-3xl text-foreground font-medium">{t.myStory}</h3>
+            <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               <p>{t.story1}</p>
               <p>{t.story2}</p>
               <p>{t.story3}</p>
@@ -34,66 +34,66 @@ export const AboutSection = () => {
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg text-foreground">{t.personalInfo}</h3>
-                <div className="space-y-3">
-                  <div className="bg-card border border-border rounded-lg p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 border border-border rounded-md text-foreground">
-                    <Mail className="w-4 h-4" />
+            <h3 className="mb-6 text-xl md:text-2xl lg:text-3xl text-foreground font-medium">{t.personalInfo}</h3>
+                <div className="space-y-4">
+                  <div className="bg-card border border-border rounded-lg p-5 md:p-6">
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 border border-border rounded-md text-foreground">
+                    <Mail className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <div className="text-xs text-muted-foreground">Email</div>
-                    <div className="text-sm text-foreground">juanrafaelcalzada1087@gmail.com</div>
+                    <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">Email</div>
+                    <div className="text-base md:text-lg text-foreground">juanrafaelcalzada1087@gmail.com</div>
                   </div>
                 </div>
               </div>
               
-                  <div className="bg-card border border-border rounded-lg p-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 border border-border rounded-md text-foreground">
-                        <MapPin className="w-4 h-4" />
+                  <div className="bg-card border border-border rounded-lg p-5 md:p-6">
+                    <div className="flex items-center space-x-4">
+                      <div className="p-3 border border-border rounded-md text-foreground">
+                        <MapPin className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
                       <div>
-                        <div className="text-xs text-muted-foreground">{language === 'es' ? 'Ubicación' : 'Location'}</div>
-                        <div className="text-sm text-foreground">{t.location}</div>
+                        <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Ubicación' : 'Location'}</div>
+                        <div className="text-base md:text-lg text-foreground">{t.location}</div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="bg-card border border-border rounded-lg p-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 border border-border rounded-md text-foreground">
-                        <GraduationCap className="w-4 h-4" />
+                  <div className="bg-card border border-border rounded-lg p-5 md:p-6">
+                    <div className="flex items-center space-x-4">
+                      <div className="p-3 border border-border rounded-md text-foreground">
+                        <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
                       <div>
-                        <div className="text-xs text-muted-foreground">{language === 'es' ? 'Universidad' : 'University'}</div>
-                        <div className="text-sm text-foreground">{t.university}</div>
+                        <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Universidad' : 'University'}</div>
+                        <div className="text-base md:text-lg text-foreground">{t.university}</div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="bg-card border border-border rounded-lg p-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 border border-border rounded-md text-foreground">
-                        <Calendar className="w-4 h-4" />
+                  <div className="bg-card border border-border rounded-lg p-5 md:p-6">
+                    <div className="flex items-center space-x-4">
+                      <div className="p-3 border border-border rounded-md text-foreground">
+                        <Calendar className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
                       <div>
-                        <div className="text-xs text-muted-foreground">{language === 'es' ? 'Experiencia' : 'Experience'}</div>
-                        <div className="text-sm text-foreground">{language === 'es' ? '2 años académicos' : '2 academic years'}</div>
+                        <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Experiencia' : 'Experience'}</div>
+                        <div className="text-base md:text-lg text-foreground">{language === 'es' ? '2 años académicos' : '2 academic years'}</div>
                       </div>
                     </div>
                   </div>
             </div>
 
-            <div className="mt-6 bg-accent/50 border border-border rounded-lg p-4">
-              <h4 className="mb-2 text-sm font-medium text-foreground">{language === 'es' ? 'Estado Actual' : 'Current Status'}</h4>
-              <p className="text-xs text-muted-foreground mb-3">
+            <div className="mt-6 bg-accent/50 border border-border rounded-lg p-5 md:p-6">
+              <h4 className="mb-3 text-base md:text-lg font-medium text-foreground">{language === 'es' ? 'Estado Actual' : 'Current Status'}</h4>
+              <p className="text-sm md:text-base text-muted-foreground mb-4">
                 {t.currentlyStudying}
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">{language === 'es' ? 'Estudiante' : 'Student'}</span>
-                <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">Backend</span>
-                <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">Frontend</span>
+                <span className="inline-flex items-center px-3 py-1.5 text-sm md:text-base font-medium rounded-full bg-secondary text-secondary-foreground">{language === 'es' ? 'Estudiante' : 'Student'}</span>
+                <span className="inline-flex items-center px-3 py-1.5 text-sm md:text-base font-medium rounded-full bg-secondary text-secondary-foreground">Backend</span>
+                <span className="inline-flex items-center px-3 py-1.5 text-sm md:text-base font-medium rounded-full bg-secondary text-secondary-foreground">Frontend</span>
               </div>
             </div>
           </div>
