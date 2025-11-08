@@ -90,7 +90,7 @@ export const Header = () => {
         style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }} 
         className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm w-full"
       >
-        <nav className="mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 2xl:px-12 py-3 sm:py-3.5 md:py-4 lg:py-5 max-w-[1920px] w-full overflow-hidden">
+        <nav className="mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-3 sm:py-3.5 md:py-4 lg:py-5 max-w-[1200px] w-full overflow-hidden">
           <div className="flex items-center justify-between w-full gap-2 sm:gap-3 md:gap-4 lg:gap-3 overflow-hidden">
             {/* Name - Simple and short, responsive sizes - Click to go home */}
             <button
