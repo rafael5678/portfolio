@@ -38,46 +38,46 @@ export const AboutSection = () => {
                 <div className="space-y-4">
                   <div className="bg-card border border-border rounded-lg p-5 md:p-6">
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 border border-border rounded-md text-foreground">
+                  <div className="p-3 border border-border rounded-md text-foreground flex-shrink-0">
                     <Mail className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">Email</div>
-                    <div className="text-base md:text-lg text-foreground">juanrafaelcalzada1087@gmail.com</div>
+                    <div className="text-base md:text-lg text-foreground break-words overflow-wrap-anywhere">juanrafaelcalzada1087@gmail.com</div>
                   </div>
                 </div>
               </div>
               
                   <div className="bg-card border border-border rounded-lg p-5 md:p-6">
                     <div className="flex items-center space-x-4">
-                      <div className="p-3 border border-border rounded-md text-foreground">
+                      <div className="p-3 border border-border rounded-md text-foreground flex-shrink-0">
                         <MapPin className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Ubicación' : 'Location'}</div>
-                        <div className="text-base md:text-lg text-foreground">{t.location}</div>
+                        <div className="text-base md:text-lg text-foreground break-words">{t.location}</div>
                       </div>
                     </div>
                   </div>
                   
                   <div className="bg-card border border-border rounded-lg p-5 md:p-6">
                     <div className="flex items-center space-x-4">
-                      <div className="p-3 border border-border rounded-md text-foreground">
+                      <div className="p-3 border border-border rounded-md text-foreground flex-shrink-0">
                         <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Universidad' : 'University'}</div>
-                        <div className="text-base md:text-lg text-foreground">{t.university}</div>
+                        <div className="text-base md:text-lg text-foreground break-words">{t.university}</div>
                       </div>
                     </div>
                   </div>
                   
                   <div className="bg-card border border-border rounded-lg p-5 md:p-6">
                     <div className="flex items-center space-x-4">
-                      <div className="p-3 border border-border rounded-md text-foreground">
+                      <div className="p-3 border border-border rounded-md text-foreground flex-shrink-0">
                         <Calendar className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Experiencia' : 'Experience'}</div>
                         <div className="text-base md:text-lg text-foreground">{language === 'es' ? '2 años académicos' : '2 academic years'}</div>
                       </div>

@@ -61,7 +61,7 @@ const SocialLink = ({ href, icon, label }: SocialLinkProps) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="p-2 border border-border hover:bg-accent transition-colors rounded-md"
+    className="p-2 border border-border hover:bg-accent transition-colors rounded-md text-foreground"
     aria-label={label}
   >
     {icon}

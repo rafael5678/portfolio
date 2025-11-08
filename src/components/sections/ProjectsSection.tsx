@@ -35,7 +35,7 @@ export const ProjectsSection = () => {
             className="px-8 py-3 md:px-10 md:py-4 border border-border rounded-md hover:bg-accent transition-colors text-base md:text-lg inline-flex items-center text-foreground"
             onClick={() => window.open('https://github.com/rafael5678?tab=repositories', '_blank')}
           >
-            <Github className="w-5 h-5 md:w-6 md:h-6 mr-2" />
+            <Github className="w-5 h-5 md:w-6 md:h-6 mr-2 text-foreground" />
             {t.viewOnGithub}
           </button>
         </div>
@@ -79,7 +79,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         <div className="pb-4">
           <div className="flex items-start justify-between mb-3">
             <div className="p-2.5 md:p-3 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md text-foreground">
-              <Code className="w-5 h-5 md:w-6 md:h-6" />
+              <Code className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
             </div>
             <div className="flex space-x-2">
               <span className={`inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full ${
@@ -112,37 +112,37 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           <div className="flex space-x-2">
             {project.repoUrl && (
               <button 
-                className="px-6 py-2.5 md:px-8 md:py-3 border border-border rounded-md hover:bg-accent transition-colors font-medium text-sm md:text-base flex-1 inline-flex items-center justify-center text-foreground"
+                className="px-4 py-2.5 sm:px-6 sm:py-2.5 md:px-8 md:py-3 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 inline-flex items-center justify-center text-foreground min-w-0"
                 onClick={() => window.open(project.repoUrl, '_blank')}
               >
-                <Github className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                {t.code}
+                <Github className="w-4 h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 flex-shrink-0 text-foreground" />
+                <span className="truncate">{t.code}</span>
               </button>
             )}
             {project.demoUrl && (
               <button 
-                className="px-6 py-2.5 md:px-8 md:py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-sm md:text-base flex-1 inline-flex items-center justify-center"
+                className="px-4 py-2.5 sm:px-6 sm:py-2.5 md:px-8 md:py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 inline-flex items-center justify-center min-w-0"
                 onClick={() => window.open(project.demoUrl, '_blank')}
               >
-                <ExternalLink className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                {t.demo}
+                <ExternalLink className="w-4 h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 flex-shrink-0" />
+                <span className="truncate">{t.demo}</span>
               </button>
             )}
             {!project.repoUrl && !project.demoUrl && (
               <>
                 <button 
-                  className="px-6 py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center text-foreground"
+                  className="px-4 py-2 sm:px-6 sm:py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm flex-1 inline-flex items-center justify-center text-foreground min-w-0"
                   onClick={() => window.open('#', '_blank')}
                 >
-                  <Github className="w-3 h-3 mr-1" />
-                  {t.code}
+                  <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-1.5 flex-shrink-0 text-foreground" />
+                  <span className="truncate">{t.code}</span>
                 </button>
                 <button 
-                  className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs flex-1 inline-flex items-center justify-center"
+                  className="px-4 py-2 sm:px-6 sm:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm flex-1 inline-flex items-center justify-center min-w-0"
                   onClick={() => window.open('#', '_blank')}
                 >
-                  <ExternalLink className="w-3 h-3 mr-1" />
-                  {t.demo}
+                  <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-1.5 flex-shrink-0" />
+                  <span className="truncate">{t.demo}</span>
                 </button>
               </>
             )}
