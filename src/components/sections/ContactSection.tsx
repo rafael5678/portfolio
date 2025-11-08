@@ -113,16 +113,12 @@ export const ContactSection = () => {
 
         if (response.ok && result.success) {
           setSubmitStatus('success');
-          // Si hay un warning (respaldo enviado), mostrar mensaje especial
-          if (result.warning && result.message) {
-            setErrorMessage(result.message);
-          }
           setTimeout(() => {
             setFormData({ name: '', email: '', toEmail: undefined, subject: '', message: '' });
             setEmailValidationStatus(null);
             setSubmitStatus('idle');
             setErrorMessage('');
-          }, result.warning ? 5000 : 3000); // Más tiempo si hay warning
+          }, 3000);
           return;
         } else {
           // Si Resend falla, intentar con otros métodos
@@ -437,12 +433,9 @@ export const ContactSection = () => {
                 </button>
                 
                 {submitStatus === 'success' && (
-                  <div className={`p-3 rounded-md border ${errorMessage && errorMessage.includes('respaldo') ? 'bg-yellow-50 border-yellow-200' : 'bg-green-50 border-green-200'}`}>
-                    <p className={`text-sm text-center ${errorMessage && errorMessage.includes('respaldo') ? 'text-yellow-800' : 'text-green-800'}`}>
-                      {errorMessage && errorMessage.includes('respaldo') 
-                        ? `⚠️ ${errorMessage}`
-                        : (language === 'es' ? '✅ Tu mensaje ha sido enviado exitosamente. Te contactaré pronto.' : '✅ Your message has been sent successfully. I will contact you soon.')
-                      }
+                  <div className="p-3 bg-green-50 border border-green-200 rounded-md">
+                    <p className="text-sm text-green-800 text-center">
+                      {language === 'es' ? '✅ Tu mensaje ha sido enviado exitosamente. Te contactaré pronto.' : '✅ Your message has been sent successfully. I will contact you soon.'}
                     </p>
                   </div>
                 )}
