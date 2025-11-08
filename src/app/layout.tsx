@@ -31,18 +31,13 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var theme = localStorage.getItem('theme') || 'light';
+                  // Siempre iniciar con tema claro (blanco) por defecto
+                  var theme = 'light';
                   var root = document.documentElement;
+                  // Limpiar todas las clases de tema
                   root.classList.remove('dark', 'theme-blue', 'theme-green', 'theme-purple');
-                  if (theme === 'dark') {
-                    root.classList.add('dark');
-                  } else if (theme === 'blue') {
-                    root.classList.add('theme-blue');
-                  } else if (theme === 'green') {
-                    root.classList.add('theme-green');
-                  } else if (theme === 'purple') {
-                    root.classList.add('theme-purple');
-                  }
+                  // No aplicar ninguna clase adicional para tema claro (blanco)
+                  // El tema claro es el default sin clases
                 } catch (e) {}
               })();
             `,

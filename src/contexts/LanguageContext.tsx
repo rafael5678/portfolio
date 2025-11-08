@@ -19,15 +19,13 @@ const defaultValue: LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType>(defaultValue);
 
-// Función para obtener el idioma inicial
+// Función para obtener el idioma inicial - Siempre español por defecto
 const getInitialLanguage = (): Language => {
   if (typeof window === 'undefined') return 'es'; // Servidor siempre español
   
-  const saved = localStorage.getItem('portfolio-language');
-  if (saved === 'es' || saved === 'en') {
-    return saved;
-  }
-  return 'es'; // Español por defecto
+  // Siempre retornar español por defecto al cargar
+  // El usuario puede cambiar después si lo desea
+  return 'es'; // Español por defecto siempre
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
@@ -35,10 +33,20 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Cargar idioma guardado al montar
+    // Siempre iniciar en español al montar
     setMounted(true);
     const initialLang = getInitialLanguage();
     setLanguageState(initialLang);
+    
+    // Limpiar cualquier idioma guardado anteriormente para forzar español
+    // Si el usuario quiere cambiar, lo guardará después
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('portfolio-language');
+      // Si hay un idioma guardado diferente a 'es', lo eliminamos para forzar el default
+      if (saved && saved !== 'es') {
+        localStorage.removeItem('portfolio-language');
+      }
+    }
   }, []);
 
   const setLanguage = (lang: Language) => {

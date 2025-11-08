@@ -4,12 +4,23 @@ export const useTheme = () => {
   const [theme, setTheme] = useState<string>('light');
   const [isMounted, setIsMounted] = useState(false);
 
-  // Cargar el tema desde localStorage al montar el componente
+  // Siempre iniciar con tema claro (blanco) por defecto, ignorando localStorage
   useEffect(() => {
     setIsMounted(true);
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-    applyThemeToDocument(savedTheme);
+    // Forzar tema claro (blanco) al cargar, pero permitir cambios después
+    const defaultTheme = 'light';
+    setTheme(defaultTheme);
+    applyThemeToDocument(defaultTheme);
+    
+    // Limpiar cualquier tema guardado anteriormente para forzar el default
+    // Si el usuario quiere cambiar, lo guardará después
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      // Si hay un tema guardado diferente a 'light', lo eliminamos para forzar el default
+      if (savedTheme && savedTheme !== 'light') {
+        localStorage.removeItem('theme');
+      }
+    }
   }, []);
 
   const applyThemeToDocument = (newTheme: string) => {
