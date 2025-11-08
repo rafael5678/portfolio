@@ -25,7 +25,7 @@ export const LanguageSelector = ({
       title={currentLanguage === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
     >
       <Languages className={`${isMobile ? 'w-4 h-4' : 'w-4 h-4 2xl:w-5 2xl:h-5'} text-foreground`} />
-      <span className={`${isMobile ? 'text-sm' : 'text-xs xl:text-sm'} font-semibold uppercase text-foreground`}>
+      <span className={`${isMobile ? 'text-sm' : 'text-sm 2xl:text-base'} font-semibold uppercase text-foreground`}>
         {currentLanguage === 'es' ? 'ES' : 'EN'}
       </span>
     </button>

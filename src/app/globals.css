@@ -183,26 +183,30 @@ header nav > div {
   overflow: hidden;
 }
 
-/* Ensure hamburger menu is visible on mobile/tablet/small desktop (below xl) */
-@media (max-width: 1279px) {
-  header nav .xl\:flex {
+/* Ensure hamburger menu is visible on mobile/tablet/desktop (below 1536px) */
+/* Tailwind's 2xl breakpoint is 1536px */
+@media (max-width: 1535px) {
+  /* Force hide desktop navigation elements */
+  header nav [class*="2xl:flex"] {
     display: none !important;
   }
   
-  header nav .xl\:hidden {
+  /* Force show hamburger menu button */
+  header nav [class*="2xl:hidden"] {
     display: flex !important;
   }
 }
 
-/* Desktop Navigation - Force single line, no wrapping on xl+ screens (1280px+) */
-@media (min-width: 1280px) {
-  header nav .hidden.xl\:flex {
+/* Desktop Navigation - Force single line, no wrapping on 2xl+ screens (1536px+) - Large PCs only */
+@media (min-width: 1536px) {
+  /* Ensure desktop navigation works correctly */
+  header nav > div > div[class*="2xl:flex"] {
     flex-wrap: nowrap !important;
     overflow: hidden;
     max-width: 100%;
   }
 
-  header nav .hidden.xl\:flex nav {
+  header nav > div > div[class*="2xl:flex"] nav {
     flex-wrap: nowrap !important;
     display: flex;
     align-items: center;
