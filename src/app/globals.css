@@ -234,15 +234,24 @@ header nav button {
   }
 }
 
-.animate-slide-down {
-  animation: slide-down 0.2s ease-out;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* Prevent body scroll when menu is open */
-body.menu-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+/* Prevent body scroll when menu is open on mobile/tablet */
+@media (max-width: 1535px) {
+  body:has(header nav button[aria-expanded="true"]) {
+    overflow: hidden;
+  }
 }
 
 /* Hide scrollbar but allow scrolling if needed */

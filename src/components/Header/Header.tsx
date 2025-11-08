@@ -68,7 +68,7 @@ export const Header = () => {
 
   return (
     <>
-      {/* Backdrop/Overlay - Se muestra cuando el menú está abierto, cierra al hacer clic */}
+      {/* Backdrop/Overlay - Se muestra cuando el menú está abierto, cierra al hacer clic fuera */}
       {isMenuOpen && (
         <div
           onClick={closeMenu}
@@ -77,9 +77,12 @@ export const Header = () => {
               closeMenu();
             }
           }}
-          className="2xl:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998] transition-opacity duration-200"
+          className="2xl:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-[9997] transition-opacity duration-300 ease-in-out"
           aria-hidden="true"
           tabIndex={-1}
+          style={{ 
+            animation: 'fadeIn 0.2s ease-out'
+          }}
         />
       )}
 
@@ -89,10 +92,18 @@ export const Header = () => {
       >
         <nav className="mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 2xl:px-12 py-3 sm:py-3.5 md:py-4 lg:py-5 max-w-[1920px] w-full overflow-hidden">
           <div className="flex items-center justify-between w-full gap-2 sm:gap-3 md:gap-4 lg:gap-3 overflow-hidden">
-            {/* Name - Simple and short, responsive sizes */}
-            <div className="font-medium text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-xl flex-shrink-0 whitespace-nowrap">
+            {/* Name - Simple and short, responsive sizes - Click to go home */}
+            <button
+              onClick={() => {
+                handleSectionClick('inicio');
+                if (isMenuOpen) {
+                  setIsMenuOpen(false);
+                }
+              }}
+              className="font-medium text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-xl flex-shrink-0 whitespace-nowrap text-left hover:text-primary transition-colors cursor-pointer"
+            >
               Rafael Calzada
-            </div>
+            </button>
             
             {/* Desktop Navigation - Only shown on 2xl+ screens (1536px+) - Large PCs only */}
             <div className="hidden 2xl:flex items-center flex-1 justify-center mx-3 min-w-0">
@@ -136,8 +147,13 @@ export const Header = () => {
           {/* Mobile/Tablet/Desktop Navigation - Shown below 2xl (everything except large PCs) */}
           {isMenuOpen && (
             <div 
-              className="2xl:hidden mt-3 sm:mt-4 py-3 sm:py-4 border-t border-border w-full bg-background relative z-[10000] animate-slide-down"
+              className="2xl:hidden mt-3 sm:mt-4 py-3 sm:py-4 border-t border-border w-full bg-background relative z-[9999] animate-slide-down"
               onClick={(e) => e.stopPropagation()}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  closeMenu();
+                }
+              }}
             >
               <div className="flex flex-col space-y-3 sm:space-y-4 w-full">
                 <Navigation 
