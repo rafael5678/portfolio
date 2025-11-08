@@ -4,7 +4,7 @@ import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 export const Footer = () => {
   return (
     <footer className="bg-secondary/30 border-t border-border">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] xl:max-w-[1600px]">
         <div className="text-center space-y-4">
           <div>
             <h3 className="text-xl md:text-2xl mb-2 font-medium text-foreground">Rafael Calzada</h3>

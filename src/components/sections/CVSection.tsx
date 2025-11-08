@@ -63,63 +63,63 @@ export const CVSection = () => {
 
   return (
     <section id="cv" className="py-16 bg-secondary/30">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] xl:max-w-[1600px]">
+        <div className="text-center mb-12 sm:mb-14 md:mb-16">
+          <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm md:text-base border border-border rounded-full mb-3 sm:mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
+          <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
             {t.description}
           </p>
         </div>
 
-        <div className="max-w-4xl lg:max-w-5xl mx-auto">
-          <div className="bg-card border border-border rounded-lg p-8 md:p-10">
-            <div className="text-center space-y-6">
+        <div className="max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
+          <div className="bg-card border border-border rounded-lg p-6 sm:p-8 md:p-10">
+            <div className="text-center space-y-5 sm:space-y-6">
               <button 
                 onClick={handleDownload}
-                className="w-20 h-24 md:w-24 md:h-28 mx-auto bg-gradient-to-br from-primary to-primary/60 border border-border flex items-center justify-center rounded-md hover:opacity-90 transition"
+                className="w-16 h-20 sm:w-20 sm:h-24 md:w-24 md:h-28 mx-auto bg-gradient-to-br from-primary to-primary/60 border border-border flex items-center justify-center rounded-md hover:opacity-90 transition"
                 aria-label="Descargar CV"
               >
-                <span className="text-white text-sm md:text-base font-medium">{hasPdf ? 'PDF' : hasPng ? 'PNG' : 'PDF'}</span>
+                <span className="text-white text-xs sm:text-sm md:text-base font-medium">{hasPdf ? 'PDF' : hasPng ? 'PNG' : 'PDF'}</span>
               </button>
               
               <div>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl mb-3 font-medium text-foreground">{t.cvTitle}</h3>
-                <p className="text-base md:text-lg text-muted-foreground mb-6">
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 sm:mb-3 font-medium text-foreground">{t.cvTitle}</h3>
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 sm:mb-6">
                   Rafael Calzada<br/>
                   {t.role}
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <button 
-                  className="px-8 py-3 md:px-10 md:py-4 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-base md:text-lg font-medium inline-flex items-center"
+                  className="px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm sm:text-base md:text-lg font-medium inline-flex items-center justify-center"
                   onClick={handleDownload}
                 >
-                  <Download className="w-5 h-5 md:w-6 md:h-6 mr-2" />
+                  <Download className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2" />
                   {t.download}
                 </button>
                 <button 
-                  className="px-8 py-3 md:px-10 md:py-4 border border-border rounded-md hover:bg-accent transition-colors text-base md:text-lg font-medium inline-flex items-center"
+                  className="px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 border border-border rounded-md hover:bg-accent transition-colors text-sm sm:text-base md:text-lg font-medium inline-flex items-center justify-center"
                   onClick={handlePreview}
                 >
-                  <Eye className="w-5 h-5 md:w-6 md:h-6 mr-2" />
+                  <Eye className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2" />
                   {t.preview}
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-6 text-center pt-6 border-t border-border">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 text-center pt-4 sm:pt-6 border-t border-border">
                 <div>
-                  <div className="text-base md:text-lg mb-1 font-medium text-foreground">{t.pages}</div>
-                  <div className="text-sm md:text-base text-muted-foreground">1</div>
+                  <div className="text-sm sm:text-base md:text-lg mb-1 font-medium text-foreground">{t.pages}</div>
+                  <div className="text-xs sm:text-sm md:text-base text-muted-foreground">1</div>
                 </div>
                 <div>
-                  <div className="text-base md:text-lg mb-1 font-medium text-foreground">{t.updated}</div>
-                  <div className="text-sm md:text-base text-muted-foreground">2025</div>
+                  <div className="text-sm sm:text-base md:text-lg mb-1 font-medium text-foreground">{t.updated}</div>
+                  <div className="text-xs sm:text-sm md:text-base text-muted-foreground">2025</div>
                 </div>
               </div>
             </div>

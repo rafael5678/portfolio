@@ -12,20 +12,20 @@ export const TestimonialsSection = () => {
 
   return (
     <section id="testimonios" className="py-16 bg-background">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 text-sm md:text-base border border-border rounded-full mb-4 text-foreground">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[90%] xl:max-w-[1600px]">
+        <div className="text-center mb-12 sm:mb-14 md:mb-16">
+          <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm md:text-base border border-border rounded-full mb-3 sm:mb-4 text-foreground">
             {t.badge}
           </div>
-          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
+          <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-7xl lg:max-w-[1600px] mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 lg:gap-10 max-w-5xl sm:max-w-6xl md:max-w-7xl lg:max-w-[1600px] mx-auto">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} index={index} />
           ))}
