@@ -13,7 +13,7 @@ export const ContactSection = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
-    toEmail: '', // Email destino opcional
+    toEmail: undefined, // Email destino opcional
     subject: '',
     message: ''
   });
@@ -45,7 +45,7 @@ export const ContactSection = () => {
   };
 
   // Validar email destino cuando el usuario termina de escribir
-  const handleEmailBlur = async (email: string): Promise<boolean> => {
+  const handleEmailBlur = async (email: string | undefined): Promise<boolean> => {
     if (!email || email.trim() === '') {
       setEmailValidationStatus(null);
       return true; // Válido si está vacío (es opcional)
@@ -162,7 +162,7 @@ export const ContactSection = () => {
         if (response.ok && result.success) {
           setSubmitStatus('success');
           setTimeout(() => {
-            setFormData({ name: '', email: '', toEmail: '', subject: '', message: '' });
+            setFormData({ name: '', email: '', toEmail: undefined, subject: '', message: '' });
             setEmailValidationStatus(null);
             setSubmitStatus('idle');
           }, 3000);
@@ -199,7 +199,7 @@ export const ContactSection = () => {
           if (response.status === 200) {
             setSubmitStatus('success');
             setTimeout(() => {
-              setFormData({ name: '', email: '', toEmail: '', subject: '', message: '' });
+              setFormData({ name: '', email: '', toEmail: undefined, subject: '', message: '' });
               setEmailValidationStatus(null);
               setSubmitStatus('idle');
             }, 3000);
@@ -237,7 +237,7 @@ export const ContactSection = () => {
         if (result.success) {
           setSubmitStatus('success');
           setTimeout(() => {
-            setFormData({ name: '', email: '', toEmail: '', subject: '', message: '' });
+            setFormData({ name: '', email: '', toEmail: undefined, subject: '', message: '' });
             setEmailValidationStatus(null);
             setSubmitStatus('idle');
           }, 3000);
@@ -387,9 +387,9 @@ export const ContactSection = () => {
                   <input 
                     name="toEmail" 
                     type="email" 
-                    value={formData.toEmail}
+                    value={formData.toEmail || ''}
                     onChange={handleInputChange}
-                    onBlur={() => handleEmailBlur(formData.toEmail)}
+                    onBlur={() => handleEmailBlur(formData.toEmail || '')}
                     placeholder={language === 'es' ? 'destino@email.com (opcional)' : 'destination@email.com (optional)'} 
                     className={`w-full px-5 py-3.5 border-2 rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200 text-base font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg ${
                       emailValidationStatus 
