@@ -160,11 +160,16 @@ header {
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Fix for Opera and other browsers - Prevent overlapping and wrapping */
 header nav {
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 header nav > div {
@@ -173,20 +178,38 @@ header nav > div {
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
-}
-
-/* Navigation container - Force single line, no wrapping on lg+ screens */
-header nav .hidden.lg\\:flex {
-  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
 }
 
-header nav .hidden.lg\\:flex nav {
-  flex-wrap: nowrap !important;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
+/* Ensure hamburger menu is visible on mobile/tablet (below lg) */
+@media (max-width: 1023px) {
+  header nav .lg\:flex {
+    display: none !important;
+  }
+  
+  header nav .lg\:hidden {
+    display: flex !important;
+  }
+}
+
+/* Desktop Navigation - Force single line, no wrapping on lg+ screens */
+@media (min-width: 1024px) {
+  header nav .hidden.lg\:flex {
+    flex-wrap: nowrap !important;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  header nav .hidden.lg\:flex nav {
+    flex-wrap: nowrap !important;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
 }
 
 /* Navigation buttons - Prevent wrapping and ensure single line */
