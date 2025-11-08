@@ -18,7 +18,7 @@ export const LanguageSelector = ({
     <button
       onClick={onLanguageChange}
       className={`
-        flex items-center gap-1 md:gap-1.5 px-1.5 md:px-2 py-1 md:py-1.5 rounded-md 
+        flex items-center gap-0.5 xl:gap-1 px-1 xl:px-1.5 py-0.5 xl:py-1 rounded-md 
         border border-border hover:bg-accent transition-all text-foreground flex-shrink-0
         ${isMobile ? 'w-full justify-start' : ''}
       `}

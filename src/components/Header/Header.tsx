@@ -45,26 +45,26 @@ export const Header = () => {
       style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }} 
       className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm w-full"
     >
-      <nav className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2 max-w-7xl w-full">
-        <div className="flex items-center justify-between w-full gap-2 md:gap-4">
+      <nav className="mx-auto px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 max-w-[1920px] w-full">
+        <div className="flex items-center justify-between w-full gap-1 md:gap-2 lg:gap-3">
           {/* Name - Simple and short */}
-          <div className="font-medium text-sm sm:text-base md:text-lg flex-shrink-0 whitespace-nowrap">
+          <div className="font-medium text-xs sm:text-sm md:text-base lg:text-lg flex-shrink-0 whitespace-nowrap">
             Rafael Calzada
           </div>
           
-          {/* Desktop Navigation - Shown on md+ screens - Single line, no wrap */}
-          <div className="hidden md:flex items-center flex-1 justify-center mx-2 lg:mx-4 min-w-0 overflow-hidden">
-            <div className="flex items-center gap-1.5 md:gap-2 lg:gap-2.5 xl:gap-3 flex-nowrap justify-center max-w-full">
+          {/* Desktop Navigation - Only shown on lg+ screens to prevent wrapping */}
+          <div className="hidden lg:flex items-center flex-1 justify-center mx-1 xl:mx-2 min-w-0">
+            <nav className="flex items-center gap-1 xl:gap-1.5 2xl:gap-2 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               <Navigation 
                 menuItems={localizedMenu}
                 activeSection={activeSection}
                 onSectionClick={handleMenuClick}
               />
-            </div>
+            </nav>
           </div>
 
           {/* Theme & Language Selectors - Desktop */}
-          <div className="hidden md:flex items-center gap-1.5 md:gap-2 lg:gap-2.5 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-1.5 2xl:gap-2 flex-shrink-0 ml-1">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}
@@ -76,10 +76,10 @@ export const Header = () => {
             />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button - Shown below lg */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-accent rounded-md transition-colors flex-shrink-0"
+            className="lg:hidden p-2 hover:bg-accent rounded-md transition-colors flex-shrink-0"
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
           >
@@ -91,9 +91,9 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile/Tablet Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border w-full">
+          <div className="lg:hidden mt-4 py-4 border-t border-border w-full">
             <div className="flex flex-col space-y-3 w-full">
               <Navigation 
                 menuItems={localizedMenu}

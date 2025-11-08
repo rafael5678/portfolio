@@ -144,3 +144,4 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
   );
 };
 
+

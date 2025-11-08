@@ -11,7 +11,7 @@ export const SkillsSection = () => {
 
   return (
     <section id="habilidades" className="py-16 bg-secondary/30">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-3 py-1 mb-3 text-xs border border-border rounded-full text-foreground">
             {t.badge}
@@ -62,3 +62,4 @@ const SkillCard = ({ skill }: SkillCardProps) => {
     </div>
   );
 };
+

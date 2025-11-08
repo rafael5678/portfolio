@@ -175,17 +175,18 @@ header nav > div {
   flex-wrap: nowrap;
 }
 
-/* Navigation container - Force single line, no wrapping */
-header nav .hidden.md\\:flex {
+/* Navigation container - Force single line, no wrapping on lg+ screens */
+header nav .hidden.lg\\:flex {
   flex-wrap: nowrap !important;
   overflow: hidden;
 }
 
-header nav .hidden.md\\:flex > div {
+header nav .hidden.lg\\:flex nav {
   flex-wrap: nowrap !important;
   display: flex;
   align-items: center;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Navigation buttons - Prevent wrapping and ensure single line */
@@ -194,26 +195,59 @@ header nav button {
   flex-shrink: 0;
 }
 
-/* On smaller desktop screens, allow horizontal scroll if needed */
-@media (min-width: 768px) and (max-width: 1279px) {
-  header nav .hidden.md\\:flex > div {
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-    -webkit-overflow-scrolling: touch;
+/* Hide scrollbar but allow scrolling if needed */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Container improvements - Better use of screen width */
+.container-section {
+  max-width: 100%;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container-section {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  
-  header nav .hidden.md\\:flex > div::-webkit-scrollbar {
-    height: 4px;
+}
+
+@media (min-width: 768px) {
+  .container-section {
+    max-width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-  
-  header nav .hidden.md\\:flex > div::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
+}
+
+@media (min-width: 1024px) {
+  .container-section {
+    max-width: 95%;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
-  
-  header nav .hidden.md\\:flex > div::-webkit-scrollbar-track {
-    background: transparent;
+}
+
+@media (min-width: 1280px) {
+  .container-section {
+    max-width: 90%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-section {
+    max-width: 1600px;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 

@@ -15,7 +15,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
 
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center bg-background">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-7xl">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 max-w-[95%] lg:max-w-[90%] xl:max-w-[1600px]">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center px-3 py-1 text-xs border border-border rounded-full mb-4 text-foreground">
             {t.badge}
@@ -96,3 +96,4 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
     </section>
   );
 };
+
