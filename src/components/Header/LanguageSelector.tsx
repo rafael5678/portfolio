@@ -18,14 +18,14 @@ export const LanguageSelector = ({
     <button
       onClick={onLanguageChange}
       className={`
-        flex items-center gap-0.5 xl:gap-1 px-1 xl:px-1.5 py-0.5 xl:py-1 rounded-md 
+        flex items-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 py-1.5 sm:py-2 rounded-md 
         border border-border hover:bg-accent transition-all text-foreground flex-shrink-0
-        ${isMobile ? 'w-full justify-start' : ''}
+        ${isMobile ? 'justify-center min-w-[80px]' : ''}
       `}
       title={currentLanguage === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
     >
-      <Languages className="w-3.5 h-3.5 text-foreground" />
-      <span className="text-xs font-semibold uppercase text-foreground">
+      <Languages className={`${isMobile ? 'w-4 h-4' : 'w-3.5 h-3.5 xl:w-4 xl:h-4'} text-foreground`} />
+      <span className={`${isMobile ? 'text-sm' : 'text-xs'} font-semibold uppercase text-foreground`}>
         {currentLanguage === 'es' ? 'ES' : 'EN'}
       </span>
     </button>

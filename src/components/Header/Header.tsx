@@ -45,16 +45,16 @@ export const Header = () => {
       style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }} 
       className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm w-full"
     >
-      <nav className="mx-auto px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-3 md:py-4 lg:py-5 max-w-[1920px] w-full">
-        <div className="flex items-center justify-between w-full gap-1 md:gap-2 lg:gap-3">
-          {/* Name - Simple and short */}
-          <div className="font-medium text-sm sm:text-base md:text-lg lg:text-xl flex-shrink-0 whitespace-nowrap">
+      <nav className="mx-auto px-3 sm:px-4 md:px-5 lg:px-8 xl:px-12 py-3 sm:py-3.5 md:py-4 lg:py-5 max-w-[1920px] w-full">
+        <div className="flex items-center justify-between w-full gap-2 sm:gap-3 md:gap-4 lg:gap-3">
+          {/* Name - Simple and short, smaller on tablet */}
+          <div className="font-medium text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl flex-shrink-0 whitespace-nowrap">
             Rafael Calzada
           </div>
           
-          {/* Desktop Navigation - Only shown on lg+ screens to prevent wrapping */}
-          <div className="hidden lg:flex items-center flex-1 justify-center mx-1 xl:mx-2 min-w-0">
-            <nav className="flex items-center gap-1 xl:gap-1.5 2xl:gap-2 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          {/* Desktop Navigation - Only shown on lg+ screens (1024px+) */}
+          <div className="hidden lg:flex items-center flex-1 justify-center mx-2 xl:mx-3 min-w-0">
+            <nav className="flex items-center gap-1.5 xl:gap-2 2xl:gap-2.5 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               <Navigation 
                 menuItems={localizedMenu}
                 activeSection={activeSection}
@@ -63,8 +63,8 @@ export const Header = () => {
             </nav>
           </div>
 
-          {/* Theme & Language Selectors - Desktop */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-1.5 2xl:gap-2 flex-shrink-0 ml-1">
+          {/* Theme & Language Selectors - Desktop ONLY (lg+) */}
+          <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 2xl:gap-3 flex-shrink-0 ml-2">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}
@@ -76,39 +76,44 @@ export const Header = () => {
             />
           </div>
 
-          {/* Mobile/Tablet Menu Button - Shown below lg */}
+          {/* Mobile/Tablet Menu Button - Shown below lg (mobile + tablet) */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 hover:bg-accent rounded-md transition-colors flex-shrink-0"
+            className="lg:hidden p-2 sm:p-2.5 md:p-2.5 hover:bg-accent rounded-md transition-colors flex-shrink-0"
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
-              <X className="w-5 h-5 text-foreground" />
+              <X className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 text-foreground" />
             ) : (
-              <Menu className="w-5 h-5 text-foreground" />
+              <Menu className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 text-foreground" />
             )}
           </button>
         </div>
 
-        {/* Mobile/Tablet Navigation */}
+        {/* Mobile/Tablet Navigation - Shown below lg (mobile + tablet) */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-border w-full">
-            <div className="flex flex-col space-y-3 w-full">
+          <div className="lg:hidden mt-3 sm:mt-4 py-3 sm:py-4 border-t border-border w-full">
+            <div className="flex flex-col space-y-3 sm:space-y-4 w-full">
               <Navigation 
                 menuItems={localizedMenu}
                 activeSection={activeSection}
                 onSectionClick={handleMenuClick}
                 isMobile={true}
               />
-              <div className="flex flex-col space-y-2 pt-3 border-t border-border">
-                <LanguageSelector 
-                  currentLanguage={language}
-                  onLanguageChange={toggleLanguage}
-                  isMobile={true}
-                />
-                <div className="flex items-center space-x-2">
-                  <span className="text-xs text-muted-foreground">
+              <div className="flex flex-col space-y-3 sm:space-y-3 pt-3 sm:pt-4 border-t border-border">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm sm:text-base font-medium text-foreground">
+                    {language === 'es' ? 'Idioma:' : 'Language:'}
+                  </span>
+                  <LanguageSelector 
+                    currentLanguage={language}
+                    onLanguageChange={toggleLanguage}
+                    isMobile={true}
+                  />
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm sm:text-base font-medium text-foreground">
                     {language === 'es' ? 'Tema:' : 'Theme:'}
                   </span>
                   <ThemeSelector 

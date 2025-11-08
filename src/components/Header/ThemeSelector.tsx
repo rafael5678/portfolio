@@ -21,27 +21,28 @@ export const ThemeSelector = ({
     { id: 'purple', name: 'Púrpura', class: 'theme-purple' }
   ];
 
-  const buttonSize = isMobile ? "w-5 h-5" : "w-6 h-6";
-  const borderClass = isMobile ? "border" : "border-2";
+  const buttonSize = isMobile ? "w-6 h-6" : "w-5 h-5 xl:w-6 xl:h-6";
+  const borderClass = isMobile ? "border-2" : "border";
+  const gapClass = isMobile ? "gap-2" : "gap-1 xl:gap-1.5";
 
   return (
-    <>
+    <div className={`flex items-center ${gapClass}`}>
       {themeOptions.map((themeOption) => (
         <button
           key={themeOption.id}
           onClick={() => onThemeChange(themeOption.id)}
           className={`${buttonSize} rounded-full ${borderClass} transition-all ${
-            currentTheme === themeOption.id ? 'border-primary' : 'border-transparent'
+            currentTheme === themeOption.id ? 'border-primary scale-110' : 'border-border'
           } ${
             themeOption.id === 'light' ? 'bg-white' :
             themeOption.id === 'dark' ? 'bg-gray-800' :
             themeOption.id === 'blue' ? 'bg-blue-500' :
             themeOption.id === 'green' ? 'bg-green-500' :
             'bg-purple-500'
-          }`}
+          } hover:scale-110`}
           title={themeOption.name}
         />
       ))}
-    </>
+    </div>
   );
 };
