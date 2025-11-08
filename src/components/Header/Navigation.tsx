@@ -14,11 +14,29 @@ export const Navigation = ({
   isMobile = false 
 }: NavigationProps) => {
   const baseClasses = isMobile 
-    ? "text-left text-sm transition-colors hover:text-primary"
-    : "text-sm transition-colors hover:text-primary";
+    ? "text-left text-sm transition-colors hover:text-primary py-2 px-1 w-full text-left"
+    : "text-xs xl:text-sm transition-colors hover:text-primary px-1 xl:px-2 whitespace-nowrap";
 
-  const activeClasses = "text-primary";
+  const activeClasses = "text-primary font-medium";
   const inactiveClasses = "text-muted-foreground";
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col space-y-1 w-full">
+        {menuItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => onSectionClick(item.id)}
+            className={`${baseClasses} ${
+              activeSection === item.id ? activeClasses : inactiveClasses
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <>

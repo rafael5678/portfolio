@@ -41,48 +41,65 @@ export const Header = () => {
   };
 
   return (
-    <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }} className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
-      <nav className="mx-auto px-4 sm:px-6 lg:px-8 py-2 max-w-7xl">
-        <div className="flex items-center justify-between">
-          <div className="font-medium text-sm sm:text-base">Juan Rafael Calzada González</div>
+    <header 
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }} 
+      className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm w-full"
+    >
+      <nav className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2 max-w-7xl w-full">
+        <div className="flex items-center justify-between w-full gap-2">
+          {/* Name - Responsive */}
+          <div className="font-medium text-xs sm:text-sm md:text-base truncate flex-shrink min-w-0">
+            <span className="hidden lg:inline">Juan Rafael Calzada González</span>
+            <span className="hidden md:inline lg:hidden">Juan Rafael C. G.</span>
+            <span className="hidden sm:inline md:hidden">J. R. Calzada</span>
+            <span className="sm:hidden">J. R. C. G.</span>
+          </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Navigation 
-              menuItems={localizedMenu}
-              activeSection={activeSection}
-              onSectionClick={handleMenuClick}
-            />
+          {/* Desktop Navigation - Hidden on mobile/tablet, shown on lg+ */}
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-6 flex-1 justify-center mx-4 overflow-hidden">
+            <div className="flex items-center space-x-3 xl:space-x-6 flex-wrap justify-center">
+              <Navigation 
+                menuItems={localizedMenu}
+                activeSection={activeSection}
+                onSectionClick={handleMenuClick}
+              />
+            </div>
           </div>
 
-          {/* Theme & Language Selectors */}
-          <div className="hidden md:flex items-center space-x-4 ml-4">
+          {/* Theme & Language Selectors - Desktop */}
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}
             />
             <ThemeSelector 
-              themes={[]} // Se pasará desde el componente padre
+              themes={[]}
               currentTheme={theme}
               onThemeChange={toggleTheme}
             />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-accent rounded-md"
+            className="lg:hidden p-2 hover:bg-accent rounded-md transition-colors flex-shrink-0"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
           >
-            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMenuOpen ? (
+              <X className="w-5 h-5 text-foreground" />
+            ) : (
+              <Menu className="w-5 h-5 text-foreground" />
+            )}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile/Tablet Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border">
-            <div className="flex flex-col space-y-3">
+          <div className="lg:hidden mt-4 py-4 border-t border-border w-full">
+            <div className="flex flex-col space-y-3 w-full">
               <Navigation 
-                menuItems={menuItems}
+                menuItems={localizedMenu}
                 activeSection={activeSection}
                 onSectionClick={handleMenuClick}
                 isMobile={true}
@@ -94,9 +111,11 @@ export const Header = () => {
                   isMobile={true}
                 />
                 <div className="flex items-center space-x-2">
-                  <span className="text-xs text-muted-foreground">Tema:</span>
+                  <span className="text-xs text-muted-foreground">
+                    {language === 'es' ? 'Tema:' : 'Theme:'}
+                  </span>
                   <ThemeSelector 
-                    themes={[]} // Se pasará desde el componente padre
+                    themes={[]}
                     currentTheme={theme}
                     onThemeChange={toggleTheme}
                     isMobile={true}

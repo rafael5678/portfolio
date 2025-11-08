@@ -155,6 +155,25 @@
   --color-ring: #9333ea;
 }
 
+/* Cross-browser compatibility fixes for header */
+header {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-sizing: border-box;
+}
+
+/* Fix for Opera and other browsers */
+@media (max-width: 1023px) {
+  header nav {
+    overflow-x: hidden;
+  }
+  
+  header nav > div {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+}
+
 /* Estilos de impresión para el CV */
 @media print {
   /* Ocultar elementos que no se necesitan en la impresión */
