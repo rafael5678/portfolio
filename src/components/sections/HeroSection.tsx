@@ -15,16 +15,16 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
 
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center bg-background">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-12 sm:py-14 md:py-16 max-w-[90%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[1200px]">
-        <div className="text-center max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto">
-          <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm md:text-base border border-border rounded-full mb-4 sm:mb-5 md:mb-6 text-foreground">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 max-w-[90%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[900px]">
+        <div className="text-center max-w-2xl sm:max-w-3xl mx-auto">
+          <div className="inline-flex items-center px-3 py-1 sm:px-3.5 sm:py-1.5 text-xs sm:text-sm border border-border rounded-full mb-3 sm:mb-4 text-foreground">
             {t.badge}
           </div>
-          <h1 className="mb-4 sm:mb-5 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground font-medium">
+          <h1 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground font-medium">
             Rafael Calzada
           </h1>
-          <div className="mb-6 sm:mb-7 md:mb-8">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full mx-auto mb-4 sm:mb-5 md:mb-6 bg-gradient-to-br from-primary to-primary/60 border-4 border-border overflow-hidden shadow-2xl">
+          <div className="mb-4 sm:mb-5">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-primary to-primary/60 border-2 border-border overflow-hidden shadow-lg">
               {/* Aquí irá tu foto cuando la subas */}
               <img 
                 src="/profile-photo.jpg" 
@@ -35,30 +35,30 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
                   e.currentTarget.style.display = 'none';
                   const parent = e.currentTarget.parentElement;
                   if (parent) {
-                    parent.innerHTML = '<div class="w-full h-full flex items-center justify-center"><span class="text-white text-4xl md:text-5xl lg:text-6xl font-bold">RC</span></div>';
+                    parent.innerHTML = '<div class="w-full h-full flex items-center justify-center"><span class="text-white text-2xl sm:text-3xl md:text-4xl font-bold">RC</span></div>';
                   }
                 }}
               />
             </div>
           </div>
-          <p className="mb-6 sm:mb-7 md:mb-8 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed">
+          <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base md:text-base text-muted-foreground max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
             {t.description}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-9 md:mb-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 sm:mb-7">
             <button 
-              className="px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm sm:text-base md:text-lg font-medium"
+              className="px-5 py-2 sm:px-6 sm:py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm sm:text-base font-medium"
               onClick={() => onSectionClick('proyectos')}
             >
               {t.viewProjects}
             </button>
             <button 
-              className="px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 border border-border rounded-md hover:bg-accent transition-colors text-sm sm:text-base md:text-lg font-medium text-foreground"
+              className="px-5 py-2 sm:px-6 sm:py-2.5 border border-border rounded-md hover:bg-accent transition-colors text-sm sm:text-base font-medium text-foreground"
               onClick={() => onSectionClick('contacto')}
             >
               {t.contact}
             </button>
           </div>
-          <div className="flex items-center justify-center space-x-4 mb-8">
+          <div className="flex items-center justify-center space-x-3 mb-6">
             <a 
               href="https://github.com/rafael5678/portfolio.git" 
               target="_blank" 
@@ -86,9 +86,9 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
           </div>
           <button
             onClick={() => onSectionClick('cv')}
-            className="inline-flex items-center text-sm md:text-base text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            <ArrowDown className="w-5 h-5 md:w-6 md:h-6 mr-2 animate-bounce" />
+            <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-bounce" />
             {t.moreInfo}
           </button>
         </div>

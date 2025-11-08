@@ -77,7 +77,7 @@ export const Header = () => {
               closeMenu();
             }
           }}
-          className="lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-[9997] transition-opacity duration-300 ease-in-out"
+          className="xl:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-[9997] transition-opacity duration-300 ease-in-out"
           aria-hidden="true"
           tabIndex={-1}
           style={{ 
@@ -105,8 +105,8 @@ export const Header = () => {
               Rafael Calzada
             </button>
             
-          {/* Desktop Navigation - Only shown on lg+ screens (1024px+) */}
-          <div className="hidden lg:flex items-center flex-1 justify-center mx-2 xl:mx-3 min-w-0">
+          {/* Desktop Navigation - Only shown on xl+ screens (1280px+) */}
+          <div className="hidden xl:flex items-center flex-1 justify-center mx-2 xl:mx-3 min-w-0">
             <nav className="flex items-center gap-1.5 xl:gap-2 2xl:gap-2.5 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               <Navigation 
                 menuItems={localizedMenu}
@@ -116,8 +116,8 @@ export const Header = () => {
             </nav>
           </div>
 
-          {/* Theme & Language Selectors - Desktop ONLY (lg+) */}
-          <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 2xl:gap-3 flex-shrink-0 ml-2">
+          {/* Theme & Language Selectors - Desktop ONLY (xl+) */}
+          <div className="hidden xl:flex items-center gap-2 xl:gap-2.5 2xl:gap-3 flex-shrink-0 ml-2">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}
@@ -129,10 +129,10 @@ export const Header = () => {
             />
           </div>
 
-          {/* Mobile/Tablet Menu Button - Shown below lg (mobile + tablet only) */}
+          {/* Mobile/Tablet Menu Button - Shown below xl (mobile + tablet) */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 sm:p-2.5 md:p-2.5 hover:bg-accent rounded-md transition-colors flex-shrink-0 z-[10000] relative"
+            className="xl:hidden p-2 sm:p-2.5 md:p-2.5 hover:bg-accent rounded-md transition-colors flex-shrink-0 z-[10000] relative"
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
           >
@@ -144,10 +144,10 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile/Tablet Navigation - Shown below lg (mobile + tablet only) */}
+        {/* Mobile/Tablet Navigation - Shown below xl (mobile + tablet) */}
         {isMenuOpen && (
           <div 
-            className="lg:hidden mt-3 sm:mt-4 py-3 sm:py-4 border-t border-border w-full bg-background relative z-[9999] animate-slide-down"
+            className="xl:hidden mt-3 sm:mt-4 py-3 sm:py-4 border-t border-border w-full bg-background relative z-[9999] animate-slide-down"
             onClick={(e) => e.stopPropagation()}
             onKeyDown={(e) => {
               if (e.key === 'Escape') {
