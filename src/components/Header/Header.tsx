@@ -106,8 +106,8 @@ export const Header = () => {
             </button>
             
           {/* Desktop Navigation - Only shown on lg+ screens (1024px+) */}
-          <div className="hidden lg:flex items-center flex-1 justify-center mx-2 2xl:mx-3 min-w-0">
-            <nav className="flex items-center gap-2 2xl:gap-2.5 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          <div className="hidden lg:flex items-center flex-1 justify-center mx-2 xl:mx-3 min-w-0">
+            <nav className="flex items-center gap-1.5 xl:gap-2 2xl:gap-2.5 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               <Navigation 
                 menuItems={localizedMenu}
                 activeSection={activeSection}
@@ -117,7 +117,7 @@ export const Header = () => {
           </div>
 
           {/* Theme & Language Selectors - Desktop ONLY (lg+) */}
-          <div className="hidden lg:flex items-center gap-2 2xl:gap-3 flex-shrink-0 ml-2">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 2xl:gap-3 flex-shrink-0 ml-2">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}

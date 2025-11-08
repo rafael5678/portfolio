@@ -183,6 +183,17 @@ header nav > div {
   overflow: hidden;
 }
 
+/* Force desktop navigation to show on lg+ screens */
+@media (min-width: 1024px) {
+  header nav .hidden.lg\:flex {
+    display: flex !important;
+  }
+  
+  header nav .lg\:hidden {
+    display: none !important;
+  }
+}
+
 /* Ensure hamburger menu is visible on mobile/tablet (below lg) */
 /* Tailwind's lg breakpoint is 1024px */
 @media (max-width: 1023px) {
