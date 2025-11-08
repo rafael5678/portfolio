@@ -15,7 +15,7 @@ export const Navigation = ({
 }: NavigationProps) => {
   const baseClasses = isMobile 
     ? "text-left text-sm transition-colors hover:text-primary py-2 px-1 w-full text-left"
-    : "text-xs xl:text-sm transition-colors hover:text-primary px-1 xl:px-2 whitespace-nowrap";
+    : "text-xs lg:text-sm transition-colors hover:text-primary px-1 lg:px-2 whitespace-nowrap";
 
   const activeClasses = "text-primary font-medium";
   const inactiveClasses = "text-muted-foreground";

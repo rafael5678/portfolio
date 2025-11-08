@@ -21,7 +21,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
             {t.badge}
           </div>
           <h1 className="mb-4 text-3xl md:text-5xl text-foreground font-medium">
-            Juan Rafael Calzada González
+            Rafael Calzada
           </h1>
           <div className="mb-6">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-4 bg-gradient-to-br from-primary to-primary/60 border-4 border-border overflow-hidden shadow-2xl">

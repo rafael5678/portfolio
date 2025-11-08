@@ -162,15 +162,35 @@ header {
   box-sizing: border-box;
 }
 
-/* Fix for Opera and other browsers */
-@media (max-width: 1023px) {
-  header nav {
-    overflow-x: hidden;
+/* Fix for Opera and other browsers - Prevent overlapping */
+header nav {
+  overflow-x: hidden;
+}
+
+header nav > div {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+/* Ensure navigation items don't overlap on medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  header nav .hidden.md\\:flex {
+    flex-wrap: wrap;
+    gap: 0.25rem;
   }
   
-  header nav > div {
-    min-width: 0;
-    flex-wrap: wrap;
+  header nav .hidden.md\\:flex > div {
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  header nav .hidden.md\\:flex > div::-webkit-scrollbar {
+    display: none;
   }
 }
 

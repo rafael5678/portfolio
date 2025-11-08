@@ -46,18 +46,15 @@ export const Header = () => {
       className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm w-full"
     >
       <nav className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2 max-w-7xl w-full">
-        <div className="flex items-center justify-between w-full gap-2">
-          {/* Name - Responsive */}
-          <div className="font-medium text-xs sm:text-sm md:text-base truncate flex-shrink min-w-0">
-            <span className="hidden lg:inline">Juan Rafael Calzada González</span>
-            <span className="hidden md:inline lg:hidden">Juan Rafael C. G.</span>
-            <span className="hidden sm:inline md:hidden">J. R. Calzada</span>
-            <span className="sm:hidden">J. R. C. G.</span>
+        <div className="flex items-center justify-between w-full gap-2 md:gap-4">
+          {/* Name - Simple and short */}
+          <div className="font-medium text-sm sm:text-base md:text-lg flex-shrink-0 whitespace-nowrap">
+            Rafael Calzada
           </div>
           
-          {/* Desktop Navigation - Hidden on mobile/tablet, shown on lg+ */}
-          <div className="hidden lg:flex items-center space-x-3 xl:space-x-6 flex-1 justify-center mx-4 overflow-hidden">
-            <div className="flex items-center space-x-3 xl:space-x-6 flex-wrap justify-center">
+          {/* Desktop Navigation - Shown on md+ screens */}
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-3 xl:space-x-4 flex-1 justify-center mx-2 lg:mx-4 min-w-0">
+            <div className="flex items-center space-x-2 lg:space-x-3 xl:space-x-4 flex-wrap justify-center">
               <Navigation 
                 menuItems={localizedMenu}
                 activeSection={activeSection}
@@ -67,7 +64,7 @@ export const Header = () => {
           </div>
 
           {/* Theme & Language Selectors - Desktop */}
-          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-3 flex-shrink-0">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}
@@ -79,11 +76,11 @@ export const Header = () => {
             />
           </div>
 
-          {/* Mobile/Tablet Menu Button */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 hover:bg-accent rounded-md transition-colors flex-shrink-0"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="md:hidden p-2 hover:bg-accent rounded-md transition-colors flex-shrink-0"
+            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
@@ -94,9 +91,9 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile/Tablet Navigation */}
+        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-border w-full">
+          <div className="md:hidden mt-4 py-4 border-t border-border w-full">
             <div className="flex flex-col space-y-3 w-full">
               <Navigation 
                 menuItems={localizedMenu}

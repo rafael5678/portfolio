@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl">
         <div className="text-center space-y-4">
           <div>
-            <h3 className="text-lg mb-1 font-medium text-foreground">Juan Rafael Calzada González</h3>
+            <h3 className="text-lg mb-1 font-medium text-foreground">Rafael Calzada</h3>
             <p className="text-xs text-muted-foreground">
               Ingeniero de Software | Desarrollador Backend & Frontend
             </p>
@@ -38,7 +38,7 @@ export const Footer = () => {
 
           <div className="pt-4 border-t border-border">
             <p className="text-xs text-muted-foreground">
-              © 2025 Juan Rafael Calzada González. Todos los derechos reservados.
+              © 2025 Rafael Calzada. Todos los derechos reservados.
             </p>
             <p className="text-xs text-muted-foreground mt-1">
               Desarrollado con React, TypeScript y Tailwind CSS
