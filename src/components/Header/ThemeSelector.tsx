@@ -21,9 +21,9 @@ export const ThemeSelector = ({
     { id: 'purple', name: 'Púrpura', class: 'theme-purple' }
   ];
 
-  const buttonSize = isMobile ? "w-6 h-6" : "w-5 h-5 xl:w-6 xl:h-6";
+  const buttonSize = isMobile ? "w-6 h-6" : "w-5 h-5 2xl:w-6 2xl:h-6";
   const borderClass = isMobile ? "border-2" : "border";
-  const gapClass = isMobile ? "gap-2" : "gap-1 xl:gap-1.5";
+  const gapClass = isMobile ? "gap-2" : "gap-1.5 2xl:gap-2";
 
   return (
     <div className={`flex items-center ${gapClass}`}>

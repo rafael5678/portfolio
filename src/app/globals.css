@@ -183,26 +183,26 @@ header nav > div {
   overflow: hidden;
 }
 
-/* Ensure hamburger menu is visible on mobile/tablet (below lg) */
-@media (max-width: 1023px) {
-  header nav .lg\:flex {
+/* Ensure hamburger menu is visible on mobile/tablet/small desktop (below xl) */
+@media (max-width: 1279px) {
+  header nav .xl\:flex {
     display: none !important;
   }
   
-  header nav .lg\:hidden {
+  header nav .xl\:hidden {
     display: flex !important;
   }
 }
 
-/* Desktop Navigation - Force single line, no wrapping on lg+ screens */
-@media (min-width: 1024px) {
-  header nav .hidden.lg\:flex {
+/* Desktop Navigation - Force single line, no wrapping on xl+ screens (1280px+) */
+@media (min-width: 1280px) {
+  header nav .hidden.xl\:flex {
     flex-wrap: nowrap !important;
     overflow: hidden;
     max-width: 100%;
   }
 
-  header nav .hidden.lg\:flex nav {
+  header nav .hidden.xl\:flex nav {
     flex-wrap: nowrap !important;
     display: flex;
     align-items: center;

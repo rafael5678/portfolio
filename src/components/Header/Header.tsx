@@ -48,13 +48,13 @@ export const Header = () => {
       <nav className="mx-auto px-3 sm:px-4 md:px-5 lg:px-8 xl:px-12 py-3 sm:py-3.5 md:py-4 lg:py-5 max-w-[1920px] w-full">
         <div className="flex items-center justify-between w-full gap-2 sm:gap-3 md:gap-4 lg:gap-3">
           {/* Name - Simple and short, smaller on tablet */}
-          <div className="font-medium text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl flex-shrink-0 whitespace-nowrap">
+          <div className="font-medium text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-xl flex-shrink-0 whitespace-nowrap">
             Rafael Calzada
           </div>
           
-          {/* Desktop Navigation - Only shown on lg+ screens (1024px+) */}
-          <div className="hidden lg:flex items-center flex-1 justify-center mx-2 xl:mx-3 min-w-0">
-            <nav className="flex items-center gap-1.5 xl:gap-2 2xl:gap-2.5 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          {/* Desktop Navigation - Only shown on xl+ screens (1280px+) */}
+          <div className="hidden xl:flex items-center flex-1 justify-center mx-2 2xl:mx-3 min-w-0">
+            <nav className="flex items-center gap-2 2xl:gap-2.5 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               <Navigation 
                 menuItems={localizedMenu}
                 activeSection={activeSection}
@@ -63,8 +63,8 @@ export const Header = () => {
             </nav>
           </div>
 
-          {/* Theme & Language Selectors - Desktop ONLY (lg+) */}
-          <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 2xl:gap-3 flex-shrink-0 ml-2">
+          {/* Theme & Language Selectors - Desktop ONLY (xl+) */}
+          <div className="hidden xl:flex items-center gap-2 2xl:gap-3 flex-shrink-0 ml-2">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}
@@ -76,10 +76,10 @@ export const Header = () => {
             />
           </div>
 
-          {/* Mobile/Tablet Menu Button - Shown below lg (mobile + tablet) */}
+          {/* Mobile/Tablet Menu Button - Shown below xl (mobile + tablet + small desktop) */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 sm:p-2.5 md:p-2.5 hover:bg-accent rounded-md transition-colors flex-shrink-0"
+            className="xl:hidden p-2 sm:p-2.5 md:p-2.5 hover:bg-accent rounded-md transition-colors flex-shrink-0"
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
           >
@@ -91,9 +91,9 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile/Tablet Navigation - Shown below lg (mobile + tablet) */}
+        {/* Mobile/Tablet Navigation - Shown below xl (mobile + tablet + small desktop) */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-3 sm:mt-4 py-3 sm:py-4 border-t border-border w-full">
+          <div className="xl:hidden mt-3 sm:mt-4 py-3 sm:py-4 border-t border-border w-full">
             <div className="flex flex-col space-y-3 sm:space-y-4 w-full">
               <Navigation 
                 menuItems={localizedMenu}
