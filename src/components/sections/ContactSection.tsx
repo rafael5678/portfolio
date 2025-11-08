@@ -13,7 +13,7 @@ export const ContactSection = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
-    toEmail: undefined, // Email destino opcional
+    toEmail: undefined,
     subject: '',
     message: ''
   });
@@ -21,12 +21,6 @@ export const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  const [isValidatingEmail, setIsValidatingEmail] = useState(false);
-  const [emailValidationStatus, setEmailValidationStatus] = useState<{
-    isValid: boolean;
-    message: string;
-    exists: boolean;
-  } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -38,55 +32,10 @@ export const ContactSection = () => {
     if (submitStatus !== 'idle') {
       setSubmitStatus('idle');
     }
-    // Reset email validation when user changes email
-    if (name === 'toEmail' && emailValidationStatus) {
-      setEmailValidationStatus(null);
-    }
-  };
-
-  // Validar email destino cuando el usuario termina de escribir (solo formato, no existencia)
-  const handleEmailBlur = async (email: string | undefined): Promise<boolean> => {
-    if (!email || email.trim() === '') {
-      setEmailValidationStatus(null);
-      return true; // Válido si está vacío (es opcional)
-    }
-
-    // Validación básica de formato
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setEmailValidationStatus({
-        isValid: false,
-        exists: false,
-        message: language === 'es' ? 'Formato de email inválido' : 'Invalid email format'
-      });
-      return false;
-    }
-
-    // Si el formato es válido, lo aceptamos (no verificamos existencia para permitir cualquier email)
-    setEmailValidationStatus({
-      isValid: true,
-      exists: true,
-      message: language === 'es' ? '✅ Formato de email válido' : '✅ Valid email format'
-    });
-    return true;
   };
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    // Validar formato de email destino si se proporcionó (solo formato, no existencia)
-    if (formData.toEmail && formData.toEmail.trim() !== '') {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.toEmail)) {
-        setSubmitStatus('error');
-        setErrorMessage(
-          language === 'es' 
-            ? 'Por favor, corrige el formato del email destino.' 
-            : 'Please fix the destination email format.'
-        );
-        return;
-      }
-    }
     
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -103,7 +52,6 @@ export const ContactSection = () => {
             body: JSON.stringify({
             name: formData.name,
             email: formData.email,
-            toEmail: formData.toEmail || undefined, // Email destino opcional - puede ser cualquier email
             subject: formData.subject,
             message: formData.message,
           }),
@@ -115,7 +63,6 @@ export const ContactSection = () => {
           setSubmitStatus('success');
           setTimeout(() => {
             setFormData({ name: '', email: '', toEmail: undefined, subject: '', message: '' });
-            setEmailValidationStatus(null);
             setSubmitStatus('idle');
             setErrorMessage('');
           }, 3000);
@@ -132,15 +79,15 @@ export const ContactSection = () => {
         // Continuar con métodos alternativos
       }
       
-      // Método 2: Intentar con EmailJS si está configurado (solo para email por defecto)
-      if (isEmailConfigured() && !formData.toEmail) {
+      // Método 2: Intentar con EmailJS si está configurado
+      if (isEmailConfigured()) {
         try {
           const templateParams = {
             from_name: formData.name,
             from_email: formData.email,
             subject: formData.subject,
             message: formData.message,
-            to_email: formData.toEmail || 'juanrafaelcalzada1087@gmail.com',
+            to_email: 'juanrafaelcalzada1087@gmail.com',
           };
           
           const response = await emailjs.send(
@@ -154,7 +101,6 @@ export const ContactSection = () => {
             setSubmitStatus('success');
             setTimeout(() => {
               setFormData({ name: '', email: '', toEmail: undefined, subject: '', message: '' });
-              setEmailValidationStatus(null);
               setSubmitStatus('idle');
             }, 3000);
             return;
@@ -192,7 +138,6 @@ export const ContactSection = () => {
           setSubmitStatus('success');
           setTimeout(() => {
             setFormData({ name: '', email: '', toEmail: undefined, subject: '', message: '' });
-            setEmailValidationStatus(null);
             setSubmitStatus('idle');
           }, 3000);
           return;
@@ -328,48 +273,6 @@ export const ContactSection = () => {
                     required 
                   />
                 </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="block text-base md:text-lg font-medium text-foreground">
-                  {language === 'es' ? 'Email destino (opcional)' : 'Destination email (optional)'}
-                  <span className="text-sm text-muted-foreground ml-2 block mt-1">
-                    {language === 'es' 
-                      ? 'Puedes enviar a cualquier correo electrónico. Si lo dejas vacío, se enviará a mi correo.' 
-                      : 'You can send to any email address. If left empty, it will be sent to my email.'}
-                  </span>
-                </label>
-                <div className="relative">
-                  <input 
-                    name="toEmail" 
-                    type="email" 
-                    value={formData.toEmail || ''}
-                    onChange={handleInputChange}
-                    onBlur={() => handleEmailBlur(formData.toEmail || '')}
-                    placeholder={language === 'es' ? 'destino@email.com (opcional)' : 'destination@email.com (optional)'} 
-                    className={`w-full px-5 py-3.5 border-2 rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200 text-base font-normal shadow-sm hover:border-primary/30 hover:shadow-md focus:shadow-lg ${
-                      emailValidationStatus 
-                        ? emailValidationStatus.isValid 
-                          ? 'border-green-500 focus:border-green-500' 
-                          : 'border-red-500 focus:border-red-500'
-                        : 'border-border focus:border-primary'
-                    }`}
-                  />
-                  {isValidatingEmail && (
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                      <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-                    </div>
-                  )}
-                </div>
-                {emailValidationStatus && (
-                  <p className={`text-sm ${
-                    emailValidationStatus.isValid 
-                      ? 'text-green-600 dark:text-green-400' 
-                      : 'text-red-600 dark:text-red-400'
-                  }`}>
-                    {emailValidationStatus.message}
-                  </p>
-                )}
               </div>
 
               <div className="space-y-2">
