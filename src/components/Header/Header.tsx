@@ -52,9 +52,9 @@ export const Header = () => {
             Rafael Calzada
           </div>
           
-          {/* Desktop Navigation - Shown on md+ screens */}
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-3 xl:space-x-4 flex-1 justify-center mx-2 lg:mx-4 min-w-0">
-            <div className="flex items-center space-x-2 lg:space-x-3 xl:space-x-4 flex-wrap justify-center">
+          {/* Desktop Navigation - Shown on md+ screens - Single line, no wrap */}
+          <div className="hidden md:flex items-center flex-1 justify-center mx-2 lg:mx-4 min-w-0 overflow-hidden">
+            <div className="flex items-center gap-1.5 md:gap-2 lg:gap-2.5 xl:gap-3 flex-nowrap justify-center max-w-full">
               <Navigation 
                 menuItems={localizedMenu}
                 activeSection={activeSection}
@@ -64,7 +64,7 @@ export const Header = () => {
           </div>
 
           {/* Theme & Language Selectors - Desktop */}
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-3 flex-shrink-0">
+          <div className="hidden md:flex items-center gap-1.5 md:gap-2 lg:gap-2.5 flex-shrink-0">
             <LanguageSelector 
               currentLanguage={language}
               onLanguageChange={toggleLanguage}

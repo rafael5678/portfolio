@@ -162,7 +162,7 @@ header {
   box-sizing: border-box;
 }
 
-/* Fix for Opera and other browsers - Prevent overlapping */
+/* Fix for Opera and other browsers - Prevent overlapping and wrapping */
 header nav {
   overflow-x: hidden;
 }
@@ -175,22 +175,45 @@ header nav > div {
   flex-wrap: nowrap;
 }
 
-/* Ensure navigation items don't overlap on medium screens */
-@media (min-width: 768px) and (max-width: 1023px) {
-  header nav .hidden.md\\:flex {
-    flex-wrap: wrap;
-    gap: 0.25rem;
-  }
-  
+/* Navigation container - Force single line, no wrapping */
+header nav .hidden.md\\:flex {
+  flex-wrap: nowrap !important;
+  overflow: hidden;
+}
+
+header nav .hidden.md\\:flex > div {
+  flex-wrap: nowrap !important;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Navigation buttons - Prevent wrapping and ensure single line */
+header nav button {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* On smaller desktop screens, allow horizontal scroll if needed */
+@media (min-width: 768px) and (max-width: 1279px) {
   header nav .hidden.md\\:flex > div {
-    max-width: 100%;
     overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    -webkit-overflow-scrolling: touch;
   }
   
   header nav .hidden.md\\:flex > div::-webkit-scrollbar {
-    display: none;
+    height: 4px;
+  }
+  
+  header nav .hidden.md\\:flex > div::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+  }
+  
+  header nav .hidden.md\\:flex > div::-webkit-scrollbar-track {
+    background: transparent;
   }
 }
 
