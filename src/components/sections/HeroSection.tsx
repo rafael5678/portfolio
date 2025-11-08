@@ -30,7 +30,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
                 src="/profile-photo.jpg" 
                 alt="Rafael Calzada" 
                 className="w-full h-full object-cover"
-                style={{ objectPosition: 'center center', transform: 'scale(0.9)' }}
+                style={{ objectPosition: '50% 45%' }}
                 onError={(e) => {
                   // Si la imagen no carga, mostramos las iniciales
                   e.currentTarget.style.display = 'none';
