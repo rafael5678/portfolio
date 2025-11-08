@@ -62,7 +62,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             <img 
             src={project.image} 
             alt={translatedProject.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-none"
             onError={(e) => {
               // Si la imagen falla, mostrar un placeholder
               e.currentTarget.style.display = 'none';
@@ -78,7 +78,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       <div className="p-5 md:p-6 flex flex-col flex-grow">
         <div className="pb-4">
           <div className="flex items-start justify-between mb-3">
-            <div className="p-2.5 md:p-3 border border-border group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-md text-foreground">
+            <div className="p-2.5 md:p-3 border border-border rounded-md text-foreground">
               <Code className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
             </div>
             <div className="flex space-x-2">
@@ -112,37 +112,37 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           <div className="flex space-x-2">
             {project.repoUrl && (
               <button 
-                className="px-4 py-2.5 sm:px-6 sm:py-2.5 md:px-8 md:py-3 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 inline-flex items-center justify-center text-foreground min-w-0"
+                className="px-4 py-2.5 sm:px-6 sm:py-2.5 md:px-6 md:py-3 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 inline-flex items-center justify-center text-foreground"
                 onClick={() => window.open(project.repoUrl, '_blank')}
               >
                 <Github className="w-4 h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 flex-shrink-0 text-foreground" />
-                <span className="truncate">{t.code}</span>
+                <span className="whitespace-nowrap">{t.code}</span>
               </button>
             )}
             {project.demoUrl && (
               <button 
-                className="px-4 py-2.5 sm:px-6 sm:py-2.5 md:px-8 md:py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 inline-flex items-center justify-center min-w-0"
+                className="px-4 py-2.5 sm:px-6 sm:py-2.5 md:px-6 md:py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 inline-flex items-center justify-center"
                 onClick={() => window.open(project.demoUrl, '_blank')}
               >
                 <ExternalLink className="w-4 h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 flex-shrink-0" />
-                <span className="truncate">{t.demo}</span>
+                <span className="whitespace-nowrap">{t.demo}</span>
               </button>
             )}
             {!project.repoUrl && !project.demoUrl && (
               <>
                 <button 
-                  className="px-4 py-2 sm:px-6 sm:py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm flex-1 inline-flex items-center justify-center text-foreground min-w-0"
+                  className="px-4 py-2 sm:px-6 sm:py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm flex-1 inline-flex items-center justify-center text-foreground"
                   onClick={() => window.open('#', '_blank')}
                 >
                   <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-1.5 flex-shrink-0 text-foreground" />
-                  <span className="truncate">{t.code}</span>
+                  <span className="whitespace-nowrap">{t.code}</span>
                 </button>
                 <button 
-                  className="px-4 py-2 sm:px-6 sm:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm flex-1 inline-flex items-center justify-center min-w-0"
+                  className="px-4 py-2 sm:px-6 sm:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm flex-1 inline-flex items-center justify-center"
                   onClick={() => window.open('#', '_blank')}
                 >
                   <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-1.5 flex-shrink-0" />
-                  <span className="truncate">{t.demo}</span>
+                  <span className="whitespace-nowrap">{t.demo}</span>
                 </button>
               </>
             )}
