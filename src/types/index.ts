@@ -50,6 +50,7 @@ export interface Service {
 export interface ContactFormData {
   name: string;
   email: string;
+  toEmail?: string; // Email destino opcional
   subject: string;
   message: string;
 }

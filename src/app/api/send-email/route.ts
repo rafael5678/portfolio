@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const { name, email, toEmail, subject, message } = body;
 
     // Validación básica
     if (!name || !email || !subject || !message) {
@@ -17,8 +17,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 🎯 AQUÍ PUEDES CAMBIAR EL EMAIL DE DESTINO FÁCILMENTE
-    const destinatario = process.env.CONTACT_EMAIL || 'juanrafaelcalzada1087@gmail.com';
+    // Validar formato del email del remitente
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'El email del remitente no es válido' },
+        { status: 400 }
+      );
+    }
+
+    // 🎯 Email destino: usar el proporcionado o el por defecto
+    let destinatario = toEmail || process.env.CONTACT_EMAIL || 'juanrafaelcalzada1087@gmail.com';
+    
+    // Validar formato del email destino
+    if (!emailRegex.test(destinatario)) {
+      return NextResponse.json(
+        { error: 'El email destino no es válido' },
+        { status: 400 }
+      );
+    }
 
     // Enviar el email usando Resend
     const data = await resend.emails.send({
@@ -51,8 +68,13 @@ export async function POST(request: NextRequest) {
                   <span class="label">👤 Nombre:</span> ${name}
                 </div>
                 <div class="info-row">
-                  <span class="label">📧 Email:</span> ${email}
+                  <span class="label">📧 Email del remitente:</span> ${email}
                 </div>
+                ${toEmail ? `
+                <div class="info-row">
+                  <span class="label">📬 Email destino:</span> ${toEmail}
+                </div>
+                ` : ''}
                 <div class="info-row">
                   <span class="label">📝 Asunto:</span> ${subject}
                 </div>
