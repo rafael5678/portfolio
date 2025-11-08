@@ -248,7 +248,7 @@ header nav button {
 }
 
 /* Prevent body scroll when menu is open on mobile/tablet */
-@media (max-width: 1535px) {
+@media (max-width: 1023px) {
   body:has(header nav button[aria-expanded="true"]) {
     overflow: hidden;
   }
