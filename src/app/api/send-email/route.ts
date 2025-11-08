@@ -10,9 +10,20 @@ export async function POST(request: NextRequest) {
   // Email remitente de Resend - Definido al inicio para usar en catch
   const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
   
+  // Variables declaradas fuera del try para uso en catch
+  let toEmail: string | undefined = undefined;
+  let name: string = '';
+  let email: string = '';
+  let subject: string = '';
+  let message: string = '';
+  
   try {
     const body = await request.json();
-    const { name, email, toEmail, subject, message } = body;
+    name = body.name || '';
+    email = body.email || '';
+    toEmail = body.toEmail;
+    subject = body.subject || '';
+    message = body.message || '';
 
     // Validación básica
     if (!name || !email || !subject || !message) {
@@ -139,7 +150,7 @@ export async function POST(request: NextRequest) {
     console.error('Error al enviar email:', error);
     
     // Si falló el envío y había un toEmail diferente, intentar enviar solo al usuario como respaldo
-    if (toEmail && toEmail.trim() !== '' && toEmail !== userEmail) {
+    if (toEmail && typeof toEmail === 'string' && toEmail.trim() !== '' && toEmail !== userEmail && name && email && subject && message) {
       try {
         console.log('Intento fallido al enviar a destinatario externo. Enviando respaldo al usuario...');
         
@@ -223,7 +234,7 @@ export async function POST(request: NextRequest) {
     if (error.message) {
       if (error.message.includes('domain') || error.message.includes('Domain') || error.message.includes('not allowed')) {
         errorMessage = 'Error: No se puede enviar a este correo. Necesitas verificar un dominio en Resend para enviar a correos externos.';
-        userFriendlyMessage = toEmail && toEmail !== userEmail
+        userFriendlyMessage = (toEmail && typeof toEmail === 'string' && toEmail !== userEmail)
           ? `No se pudo enviar el mensaje a ${toEmail}. Para enviar a correos externos, necesitas verificar un dominio en Resend. Se intentó enviar una copia de respaldo a tu correo.`
           : 'Error: Necesitas verificar un dominio en Resend para enviar correos. Configura RESEND_FROM_EMAIL con un dominio verificado.';
       } else if (error.message.includes('API key') || error.message.includes('Unauthorized')) {
