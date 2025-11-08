@@ -194,30 +194,74 @@ header nav > div {
   }
 }
 
-/* Ensure hamburger menu is visible on mobile/tablet (below lg) */
-/* Tailwind's lg breakpoint is 1024px */
-@media (max-width: 1023px) {
+/* Ensure hamburger menu is visible on mobile/tablet (below custom breakpoint) */
+/* Custom breakpoint: 1400px - activates when "Contacto" starts to disappear */
+@media (max-width: 1399px) {
   /* Force hide desktop navigation elements */
-  header nav .lg\:flex {
+  header nav .desktop-nav {
     display: none !important;
   }
   
   /* Force show hamburger menu button */
-  header nav .lg\:hidden {
+  header nav .mobile-menu-btn {
     display: flex !important;
+  }
+  
+  /* Force hide desktop selectors */
+  header nav .desktop-selectors {
+    display: none !important;
   }
 }
 
-/* Desktop Navigation - Force single line, no wrapping on lg+ screens (1024px+) */
-@media (min-width: 1024px) {
+/* Show desktop navigation only above 1400px */
+@media (min-width: 1400px) {
+  header nav .desktop-nav {
+    display: flex !important;
+  }
+  
+  header nav .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  header nav .desktop-selectors {
+    display: flex !important;
+  }
+  
+  /* Hide backdrop menu on desktop */
+  .backdrop-menu {
+    display: none !important;
+  }
+}
+
+/* Show backdrop menu only below 1400px */
+@media (max-width: 1399px) {
+  .backdrop-menu {
+    display: block !important;
+  }
+  
+  /* Show mobile menu only below 1400px */
+  .mobile-nav-menu {
+    display: block !important;
+  }
+}
+
+/* Hide mobile menu on desktop (1400px+) */
+@media (min-width: 1400px) {
+  .mobile-nav-menu {
+    display: none !important;
+  }
+}
+
+/* Desktop Navigation - Force single line, no wrapping on custom breakpoint (1400px+) */
+@media (min-width: 1400px) {
   /* Ensure desktop navigation works correctly */
-  header nav .hidden.lg\:flex {
+  header nav .desktop-nav {
     flex-wrap: nowrap !important;
     overflow: hidden;
     max-width: 100%;
   }
 
-  header nav .hidden.lg\:flex nav {
+  header nav .desktop-nav nav {
     flex-wrap: nowrap !important;
     display: flex;
     align-items: center;
@@ -259,7 +303,7 @@ header nav button {
 }
 
 /* Prevent body scroll when menu is open on mobile/tablet */
-@media (max-width: 1023px) {
+@media (max-width: 1399px) {
   body:has(header nav button[aria-expanded="true"]) {
     overflow: hidden;
   }
