@@ -44,7 +44,7 @@ export const ContactSection = () => {
     }
   };
 
-  // Validar email destino cuando el usuario termina de escribir
+  // Validar email destino cuando el usuario termina de escribir (solo formato, no existencia)
   const handleEmailBlur = async (email: string | undefined): Promise<boolean> => {
     if (!email || email.trim() === '') {
       setEmailValidationStatus(null);
@@ -62,77 +62,29 @@ export const ContactSection = () => {
       return false;
     }
 
-    setIsValidatingEmail(true);
-    try {
-      const response = await fetch('/api/verify-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const result = await response.json();
-
-      if (result.exists && result.valid) {
-        setEmailValidationStatus({
-          isValid: true,
-          exists: true,
-          message: language === 'es' ? '✅ Email válido y entregable' : '✅ Valid and deliverable email'
-        });
-        return true;
-      } else {
-        setEmailValidationStatus({
-          isValid: false,
-          exists: false,
-          message: language === 'es' 
-            ? '❌ Este email no existe o no es entregable' 
-            : '❌ This email does not exist or is not deliverable'
-        });
-        return false;
-      }
-    } catch (error) {
-      console.error('Error verificando email:', error);
-      setEmailValidationStatus({
-        isValid: true, // Asumimos válido si falla la verificación
-        exists: true,
-        message: language === 'es' ? '⚠️ No se pudo verificar, pero el formato es válido' : '⚠️ Could not verify, but format is valid'
-      });
-      return true; // Asumimos válido si falla la verificación
-    } finally {
-      setIsValidatingEmail(false);
-    }
+    // Si el formato es válido, lo aceptamos (no verificamos existencia para permitir cualquier email)
+    setEmailValidationStatus({
+      isValid: true,
+      exists: true,
+      message: language === 'es' ? '✅ Formato de email válido' : '✅ Valid email format'
+    });
+    return true;
   };
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Validar email destino si se proporcionó
+    // Validar formato de email destino si se proporcionó (solo formato, no existencia)
     if (formData.toEmail && formData.toEmail.trim() !== '') {
-      // Si ya hay un estado de validación y es inválido, bloquear envío
-      if (emailValidationStatus && !emailValidationStatus.isValid) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.toEmail)) {
         setSubmitStatus('error');
         setErrorMessage(
           language === 'es' 
-            ? 'Por favor, corrige el email destino antes de enviar. El email no existe o no es válido.' 
-            : 'Please fix the destination email before sending. The email does not exist or is not valid.'
+            ? 'Por favor, corrige el formato del email destino.' 
+            : 'Please fix the destination email format.'
         );
         return;
-      }
-      
-      // Si no se ha validado aún, validar ahora
-      if (!emailValidationStatus || emailValidationStatus.isValid === undefined) {
-        const isValid = await handleEmailBlur(formData.toEmail);
-        if (!isValid) {
-          setSubmitStatus('error');
-          setErrorMessage(
-            language === 'es' 
-              ? 'Por favor, corrige el email destino antes de enviar. El email no existe o no es válido.' 
-              : 'Please fix the destination email before sending. The email does not exist or is not valid.'
-          );
-          setIsSubmitting(false);
-          return;
-        }
       }
     }
     
@@ -151,7 +103,7 @@ export const ContactSection = () => {
             body: JSON.stringify({
             name: formData.name,
             email: formData.email,
-            toEmail: formData.toEmail || undefined, // Email destino opcional
+            toEmail: formData.toEmail || undefined, // Email destino opcional - puede ser cualquier email
             subject: formData.subject,
             message: formData.message,
           }),
@@ -174,19 +126,20 @@ export const ContactSection = () => {
             throw new Error(result.error);
           }
         }
-      } catch (apiError) {
+      } catch (apiError: any) {
         console.error('Error con API route, intentando alternativas:', apiError);
+        // Continuar con métodos alternativos
       }
       
-      // Método 2: Intentar con EmailJS si está configurado
-      if (isEmailConfigured()) {
+      // Método 2: Intentar con EmailJS si está configurado (solo para email por defecto)
+      if (isEmailConfigured() && !formData.toEmail) {
         try {
           const templateParams = {
             from_name: formData.name,
             from_email: formData.email,
             subject: formData.subject,
             message: formData.message,
-            to_email: 'juanrafaelcalzada1087@gmail.com',
+            to_email: formData.toEmail || 'juanrafaelcalzada1087@gmail.com',
           };
           
           const response = await emailjs.send(
@@ -379,8 +332,10 @@ export const ContactSection = () => {
               <div className="space-y-2">
                 <label className="block text-base md:text-lg font-medium text-foreground">
                   {language === 'es' ? 'Email destino (opcional)' : 'Destination email (optional)'}
-                  <span className="text-sm text-muted-foreground ml-2">
-                    {language === 'es' ? '(por defecto: mi correo)' : '(default: my email)'}
+                  <span className="text-sm text-muted-foreground ml-2 block mt-1">
+                    {language === 'es' 
+                      ? 'Puedes enviar a cualquier correo electrónico. Si lo dejas vacío, se enviará a mi correo.' 
+                      : 'You can send to any email address. If left empty, it will be sent to my email.'}
                   </span>
                 </label>
                 <div className="relative">

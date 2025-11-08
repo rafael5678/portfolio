@@ -37,10 +37,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Verificar si Resend está configurado
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 'tu_resend_api_key_aqui') {
+      return NextResponse.json(
+        { 
+          error: 'Resend API key no está configurada. Por favor, configura RESEND_API_KEY en tus variables de entorno.',
+          success: false
+        },
+        { status: 500 }
+      );
+    }
+
     // Enviar el email usando Resend
+    // NOTA: Para enviar a cualquier correo, necesitas verificar tu dominio en Resend
+    // Por ahora, si tienes un dominio verificado, úsalo. Si no, usa el dominio de prueba.
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+    
     const data = await resend.emails.send({
-      from: 'Portafolio <onboarding@resend.dev>', // Email verificado de Resend
-      to: [destinatario], // 👈 AQUÍ puedes poner cualquier email
+      from: `Portafolio <${fromEmail}>`,
+      to: [destinatario], // 👈 Puede ser cualquier email válido
       replyTo: email, // El email del usuario que te contacta
       subject: `Nuevo mensaje de contacto: ${subject}`,
       html: `
@@ -104,10 +119,24 @@ export async function POST(request: NextRequest) {
 
   } catch (error: any) {
     console.error('Error al enviar email:', error);
+    
+    // Mensajes de error más específicos
+    let errorMessage = 'Error al enviar el email';
+    if (error.message) {
+      if (error.message.includes('domain') || error.message.includes('Domain')) {
+        errorMessage = 'Error: Necesitas verificar un dominio en Resend para enviar a este correo. Configura RESEND_FROM_EMAIL con un dominio verificado.';
+      } else if (error.message.includes('API key') || error.message.includes('Unauthorized')) {
+        errorMessage = 'Error: La API key de Resend no es válida. Verifica tu RESEND_API_KEY.';
+      } else {
+        errorMessage = `Error: ${error.message}`;
+      }
+    }
+    
     return NextResponse.json(
       { 
-        error: 'Error al enviar el email',
-        details: error.message 
+        error: errorMessage,
+        details: error.message || 'Error desconocido',
+        success: false
       },
       { status: 500 }
     );
