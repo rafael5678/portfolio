@@ -24,12 +24,12 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
             Rafael Calzada
           </h1>
           <div className="mb-4 sm:mb-5">
-            <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-primary to-primary/60 border-2 border-border overflow-hidden shadow-lg">
+            <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-primary to-primary/60 border-2 border-border overflow-hidden shadow-lg">
               {/* Foto de perfil profesional */}
               <img 
                 src="/profile-photo.jpg" 
                 alt="Rafael Calzada" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 onError={(e) => {
                   // Si la imagen no carga, mostramos las iniciales
                   e.currentTarget.style.display = 'none';
