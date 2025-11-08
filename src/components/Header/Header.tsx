@@ -100,7 +100,7 @@ export const Header = () => {
                   setIsMenuOpen(false);
                 }
               }}
-              className="font-medium text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-xl flex-shrink-0 whitespace-nowrap text-left hover:text-primary transition-colors cursor-pointer"
+              className="font-medium text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-xl flex-shrink-0 whitespace-nowrap text-left text-foreground hover:text-primary transition-colors cursor-pointer"
             >
               Rafael Calzada
             </button>

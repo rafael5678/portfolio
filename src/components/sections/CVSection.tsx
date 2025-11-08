@@ -89,9 +89,9 @@ export const CVSection = () => {
               
               <div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 sm:mb-3 font-medium text-foreground">{t.cvTitle}</h3>
-                <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 sm:mb-6">
-                  Rafael Calzada<br/>
-                  {t.role}
+                <p className="text-sm sm:text-base md:text-lg text-foreground mb-4 sm:mb-6">
+                  <span className="font-semibold">Rafael Calzada</span><br/>
+                  <span className="text-muted-foreground">{t.role}</span>
                 </p>
               </div>
 
@@ -104,7 +104,7 @@ export const CVSection = () => {
                   {t.download}
                 </button>
                 <button 
-                  className="px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 border border-border rounded-md hover:bg-accent transition-colors text-sm sm:text-base md:text-lg font-medium inline-flex items-center justify-center"
+                  className="px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 border border-border rounded-md hover:bg-accent transition-colors text-sm sm:text-base md:text-lg font-medium inline-flex items-center justify-center text-foreground hover:text-foreground"
                   onClick={handlePreview}
                 >
                   <Eye className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2" />
