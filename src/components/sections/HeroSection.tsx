@@ -24,8 +24,8 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
             Rafael Calzada
           </h1>
           <div className="mb-4 sm:mb-5">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-primary to-primary/60 border-2 border-border overflow-hidden shadow-lg">
-              {/* Aquí irá tu foto cuando la subas */}
+            <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-primary to-primary/60 border-2 border-border overflow-hidden shadow-lg">
+              {/* Foto de perfil profesional */}
               <img 
                 src="/profile-photo.jpg" 
                 alt="Rafael Calzada" 
