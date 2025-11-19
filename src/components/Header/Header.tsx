@@ -77,18 +77,14 @@ export const Header = () => {
               closeMenu();
             }
           }}
-          className="backdrop-menu fixed inset-0 bg-black/40 backdrop-blur-sm z-[9997] transition-opacity duration-300 ease-in-out"
-          style={{ 
-            animation: 'fadeIn 0.2s ease-out'
-          }}
+          className="backdrop-menu fixed inset-0 bg-black/40 backdrop-blur-sm z-[9997] transition-opacity duration-300 ease-in-out animate-fadeIn"
           aria-hidden="true"
           tabIndex={-1}
         />
       )}
 
       <header 
-        style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }} 
-        className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm w-full"
+        className="fixed top-0 left-0 right-0 z-[9999] bg-background/95 backdrop-blur-md border-b border-border shadow-sm w-full"
       >
         <nav className="mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-3 sm:py-3.5 md:py-4 lg:py-5 max-w-[1200px] w-full overflow-hidden">
           <div className="flex items-center justify-between w-full gap-2 sm:gap-3 md:gap-4 lg:gap-3 overflow-hidden">
@@ -107,7 +103,7 @@ export const Header = () => {
             
           {/* Desktop Navigation - Only shown on screens 1400px+ */}
           <div className="desktop-nav hidden items-center flex-1 justify-center mx-2 xl:mx-3 min-w-0">
-            <nav className="flex items-center gap-1.5 xl:gap-2 2xl:gap-2.5 flex-nowrap overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <nav className="flex items-center gap-1.5 xl:gap-2 2xl:gap-2.5 flex-nowrap overflow-x-auto scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none]">
               <Navigation 
                 menuItems={localizedMenu}
                 activeSection={activeSection}

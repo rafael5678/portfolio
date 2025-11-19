@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
+import { cn } from '@/utils';
 import { Activity, GitBranch, GitCommit, Star, Users } from 'lucide-react';
 
 export const GitHubStatsSection = () => {
@@ -72,10 +73,16 @@ export const GitHubStatsSection = () => {
           {stats.map((stat, index) => {
             const StatCard = (
               <div 
-                className={`bg-card border border-border rounded-lg p-4 md:p-6 hover:shadow-lg transition-all hover:-translate-y-1 ${stat.onClick || stat.link ? 'cursor-pointer' : ''}`}
+                className={cn(
+                  "bg-card border border-border rounded-lg p-4 md:p-6 hover:shadow-lg transition-all hover:-translate-y-1",
+                  (stat.onClick || stat.link) && 'cursor-pointer'
+                )}
                 onClick={stat.onClick}
               >
-                <div className={`inline-flex p-2 md:p-3 rounded-lg bg-secondary mb-3 ${stat.color}`}>
+                <div className={cn(
+                  "inline-flex p-2 md:p-3 rounded-lg bg-secondary mb-3",
+                  stat.color
+                )}>
                   {stat.icon}
                 </div>
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-foreground">

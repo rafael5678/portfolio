@@ -1,4 +1,5 @@
 import { Theme } from '@/types';
+import { cn } from '@/utils';
 
 interface ThemeSelectorProps {
   themes: Theme[];
@@ -6,6 +7,14 @@ interface ThemeSelectorProps {
   onThemeChange: (theme: string) => void;
   isMobile?: boolean;
 }
+
+const themeColors: Record<string, string> = {
+  light: 'bg-white',
+  dark: 'bg-gray-800',
+  blue: 'bg-blue-500',
+  green: 'bg-green-500',
+  purple: 'bg-purple-500'
+};
 
 export const ThemeSelector = ({ 
   themes, 
@@ -21,25 +30,23 @@ export const ThemeSelector = ({
     { id: 'purple', name: 'Púrpura', class: 'theme-purple' }
   ];
 
-  const buttonSize = isMobile ? "w-6 h-6" : "w-5 h-5 2xl:w-6 2xl:h-6";
-  const borderClass = isMobile ? "border-2" : "border";
-  const gapClass = isMobile ? "gap-2" : "gap-1.5 2xl:gap-2";
-
   return (
-    <div className={`flex items-center ${gapClass}`}>
+    <div className={cn(
+      "flex items-center",
+      isMobile ? "gap-2" : "gap-1.5 2xl:gap-2"
+    )}>
       {themeOptions.map((themeOption) => (
         <button
           key={themeOption.id}
           onClick={() => onThemeChange(themeOption.id)}
-          className={`${buttonSize} rounded-full ${borderClass} transition-all ${
-            currentTheme === themeOption.id ? 'border-primary scale-110' : 'border-border'
-          } ${
-            themeOption.id === 'light' ? 'bg-white' :
-            themeOption.id === 'dark' ? 'bg-gray-800' :
-            themeOption.id === 'blue' ? 'bg-blue-500' :
-            themeOption.id === 'green' ? 'bg-green-500' :
-            'bg-purple-500'
-          } hover:scale-110`}
+          className={cn(
+            "rounded-full transition-all hover:scale-110",
+            isMobile ? "w-6 h-6 border-2" : "w-5 h-5 2xl:w-6 2xl:h-6 border",
+            currentTheme === themeOption.id 
+              ? 'border-primary scale-110' 
+              : 'border-border',
+            themeColors[themeOption.id] || themeColors.purple
+          )}
           title={themeOption.name}
         />
       ))}

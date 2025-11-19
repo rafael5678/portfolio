@@ -302,6 +302,10 @@ header nav button {
   animation: slide-down 0.3s ease-out;
 }
 
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
 /* Prevent body scroll when menu is open on mobile/tablet */
 @media (max-width: 1399px) {
   body:has(header nav button[aria-expanded="true"]) {

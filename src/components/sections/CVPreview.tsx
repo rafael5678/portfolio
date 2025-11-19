@@ -129,7 +129,6 @@ export const CVPreview = ({ isOpen, onClose, language }: CVPreviewProps) => {
               className="w-full h-auto"
               loading="eager"
               decoding="sync"
-              style={{ imageRendering: 'auto' }}
               onLoad={() => setIsViewerLoaded(true)}
             />
           </div>

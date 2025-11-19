@@ -1,4 +1,5 @@
 import { MenuItem } from '@/types';
+import { cn } from '@/utils';
 
 interface NavigationProps {
   menuItems: MenuItem[];
@@ -14,7 +15,7 @@ export const Navigation = ({
   isMobile = false 
 }: NavigationProps) => {
   const baseClasses = isMobile 
-    ? "text-left text-sm sm:text-base transition-colors hover:text-primary py-2 sm:py-2.5 px-2 sm:px-3 w-full text-left rounded-md hover:bg-accent/50"
+    ? "text-left text-sm sm:text-base transition-colors hover:text-primary py-2 sm:py-2.5 px-2 sm:px-3 w-full rounded-md hover:bg-accent/50"
     : "text-xs xl:text-sm 2xl:text-base transition-colors hover:text-primary px-2 xl:px-2.5 2xl:px-3 whitespace-nowrap flex-shrink-0";
 
   const activeClasses = "text-primary font-medium";
@@ -27,9 +28,10 @@ export const Navigation = ({
           <button
             key={item.id}
             onClick={() => onSectionClick(item.id)}
-            className={`${baseClasses} ${
+            className={cn(
+              baseClasses,
               activeSection === item.id ? activeClasses : inactiveClasses
-            }`}
+            )}
           >
             {item.label}
           </button>
@@ -44,9 +46,10 @@ export const Navigation = ({
         <button
           key={item.id}
           onClick={() => onSectionClick(item.id)}
-          className={`${baseClasses} ${
+          className={cn(
+            baseClasses,
             activeSection === item.id ? activeClasses : inactiveClasses
-          }`}
+          )}
         >
           {item.label}
         </button>
