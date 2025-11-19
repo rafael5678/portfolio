@@ -20,7 +20,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
           <div className="inline-flex items-center px-3 py-1 sm:px-3.5 sm:py-1.5 text-xs sm:text-sm border border-border rounded-full mb-3 sm:mb-4 text-foreground">
             {t.badge}
           </div>
-          <h1 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground font-medium">
+          <h1 className="mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground font-medium">
             Rafael Calzada
           </h1>
           <div className="mb-4 sm:mb-5">
@@ -42,18 +42,18 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
               />
             </div>
           </div>
-          <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base md:text-base text-muted-foreground max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
+          <p className="mb-4 sm:mb-5 md:mb-6 text-base sm:text-lg md:text-lg text-muted-foreground max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
             {t.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 sm:mb-7">
             <button 
-              className="px-5 py-2 sm:px-6 sm:py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm sm:text-base font-medium"
+              className="px-5 py-2 sm:px-6 sm:py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-base sm:text-lg font-medium"
               onClick={() => onSectionClick('proyectos')}
             >
               {t.viewProjects}
             </button>
             <button 
-              className="px-5 py-2 sm:px-6 sm:py-2.5 border border-border rounded-md hover:bg-accent transition-colors text-sm sm:text-base font-medium text-foreground"
+              className="px-5 py-2 sm:px-6 sm:py-2.5 border border-border rounded-md hover:bg-accent transition-colors text-base sm:text-lg font-medium text-foreground"
               onClick={() => onSectionClick('contacto')}
             >
               {t.contact}

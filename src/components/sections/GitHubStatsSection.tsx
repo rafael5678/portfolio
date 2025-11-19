@@ -62,7 +62,7 @@ export const GitHubStatsSection = () => {
           <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
             {t.subtitle}
           </p>
         </div>
@@ -81,7 +81,7 @@ export const GitHubStatsSection = () => {
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-foreground">
                   {stat.value}
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground">
+                <div className="text-base md:text-lg text-muted-foreground">
                   {stat.label}
                 </div>
               </div>
@@ -115,7 +115,7 @@ export const GitHubStatsSection = () => {
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="bg-card border border-border rounded-lg p-6 md:p-8">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg md:text-xl font-medium text-foreground flex items-center">
+              <h3 className="text-xl md:text-2xl font-medium text-foreground flex items-center">
                 <Activity className="w-5 h-5 mr-2" />
                 {t.activityTitle}
               </h3>
@@ -123,7 +123,7 @@ export const GitHubStatsSection = () => {
                 href="https://github.com/rafael5678?tab=repositories"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-primary hover:underline"
+                className="text-base text-primary hover:underline"
               >
                 {t.viewGithub} →
               </a>
@@ -131,7 +131,7 @@ export const GitHubStatsSection = () => {
 
             {/* Technologies Grid */}
             <div className="space-y-4">
-              <h4 className="text-sm font-medium text-foreground">{t.languages}</h4>
+              <h4 className="text-lg font-medium text-foreground">{t.languages}</h4>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {languages.map((lang, index) => (
                   <a
@@ -143,7 +143,7 @@ export const GitHubStatsSection = () => {
                   >
                     <div className="flex items-center justify-center space-x-3">
                       <span className="text-2xl">{lang.icon}</span>
-                      <span className="text-sm font-medium text-foreground">{lang.name}</span>
+                      <span className="text-lg font-medium text-foreground">{lang.name}</span>
                     </div>
                   </a>
                 ))}
@@ -165,23 +165,23 @@ export const GitHubStatsSection = () => {
                   <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 mr-3">
                     <Users className="w-5 h-5" />
                   </div>
-                  <h4 className="text-sm font-medium text-foreground">NotaNova</h4>
+                  <h4 className="text-lg font-medium text-foreground">NotaNova</h4>
                 </div>
                 <GitCommit className="w-4 h-4 text-muted-foreground" />
               </div>
-              <p className="text-xs text-muted-foreground mb-3">
+              <p className="text-base text-muted-foreground mb-3">
                 {t.collaboration1Desc}
               </p>
               <div className="flex items-center justify-between">
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
+                  <span className="inline-flex items-center px-2 py-1 text-sm font-medium rounded-full bg-secondary text-secondary-foreground">
                     Python
                   </span>
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
+                  <span className="inline-flex items-center px-2 py-1 text-sm font-medium rounded-full bg-secondary text-secondary-foreground">
                     Django
                   </span>
                 </div>
-                <span className="text-xs font-medium text-muted-foreground">2 {t.commitsLabel}</span>
+                <span className="text-sm font-medium text-muted-foreground">2 {t.commitsLabel}</span>
               </div>
             </a>
 
@@ -197,35 +197,35 @@ export const GitHubStatsSection = () => {
                   <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400 mr-3">
                     <Users className="w-5 h-5" />
                   </div>
-                  <h4 className="text-sm font-medium text-foreground">Antivirus</h4>
+                  <h4 className="text-lg font-medium text-foreground">Antivirus</h4>
                 </div>
                 <GitCommit className="w-4 h-4 text-muted-foreground" />
               </div>
-              <p className="text-xs text-muted-foreground mb-3">
+              <p className="text-base text-muted-foreground mb-3">
                 {t.collaboration2Desc}
               </p>
               <div className="flex items-center justify-between">
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
+                  <span className="inline-flex items-center px-2 py-1 text-sm font-medium rounded-full bg-secondary text-secondary-foreground">
                     Java
                   </span>
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
+                  <span className="inline-flex items-center px-2 py-1 text-sm font-medium rounded-full bg-secondary text-secondary-foreground">
                     TypeScript
                   </span>
                 </div>
-                <span className="text-xs font-medium text-muted-foreground">33 {t.commitsLabel}</span>
+                <span className="text-sm font-medium text-muted-foreground">33 {t.commitsLabel}</span>
               </div>
             </a>
           </div>
 
           {/* Call to Action */}
           <div className="text-center bg-accent/50 border border-border rounded-lg p-6 md:p-8">
-            <p className="text-sm md:text-base text-foreground mb-4">
+            <p className="text-base md:text-lg text-foreground mb-4">
               {t.viewMore}
             </p>
             <button 
               onClick={() => window.open('https://github.com/rafael5678?tab=repositories', '_blank')}
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm md:text-base inline-flex items-center"
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-base md:text-lg inline-flex items-center"
             >
               <Activity className="w-4 h-4 mr-2" />
               {t.exploreGithub}
