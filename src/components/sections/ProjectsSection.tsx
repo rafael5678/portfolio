@@ -77,11 +77,11 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       
       <div className="p-5 md:p-6 flex flex-col flex-grow">
         <div className="pb-4">
-          <div className="flex items-start justify-between mb-3">
-            <div className="p-2.5 md:p-3 border border-border rounded-md text-foreground">
+          <div className="flex items-start justify-between mb-3 gap-3">
+            <div className="p-2.5 md:p-3 border border-border rounded-md text-foreground flex-shrink-0">
               <Code className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
             </div>
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 flex-shrink-0">
               <span className={`inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full ${
                 index === 0 || index === 1 || index === 2 // Todos los proyectos están completados
                   ? "bg-primary text-primary-foreground" 
