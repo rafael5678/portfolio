@@ -26,10 +26,10 @@ export const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 max-w-4xl sm:max-w-5xl md:max-w-6xl lg:max-w-7xl mx-auto">
           <div>
             <h3 className="mb-6 text-xl md:text-2xl lg:text-3xl text-foreground font-medium">{t.myStory}</h3>
-            <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-relaxed">
-              <p>{t.story1}</p>
-              <p>{t.story2}</p>
-              <p>{t.story3}</p>
+            <div className="space-y-4 text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p className="break-words">{t.story1}</p>
+              <p className="break-words">{t.story2}</p>
+              <p className="break-words">{t.story3}</p>
             </div>
           </div>
 
@@ -41,9 +41,9 @@ export const AboutSection = () => {
                   <div className="p-3 border border-border rounded-md text-foreground flex-shrink-0">
                     <Mail className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <div className="min-w-0 flex-1">
+                  <div className="min-w-0 flex-1 overflow-hidden">
                     <div className="text-base md:text-lg text-muted-foreground font-medium mb-1">Email</div>
-                    <div className="text-lg md:text-xl text-foreground break-words overflow-wrap-anywhere">juanrafaelcalzada1087@gmail.com</div>
+                    <div className="text-base sm:text-lg md:text-xl text-foreground break-words break-all overflow-wrap-anywhere">juanrafaelcalzada1087@gmail.com</div>
                   </div>
                 </div>
               </div>
@@ -53,9 +53,9 @@ export const AboutSection = () => {
                       <div className="p-3 border border-border rounded-md text-foreground flex-shrink-0">
                         <MapPin className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
-                      <div className="min-w-0 flex-1">
+                      <div className="min-w-0 flex-1 overflow-hidden">
                         <div className="text-base md:text-lg text-muted-foreground font-medium mb-1">{language === 'es' ? 'Ubicación' : 'Location'}</div>
-                        <div className="text-lg md:text-xl text-foreground break-words">{t.location}</div>
+                        <div className="text-base sm:text-lg md:text-xl text-foreground break-words">{t.location}</div>
                       </div>
                     </div>
                   </div>
@@ -65,9 +65,9 @@ export const AboutSection = () => {
                       <div className="p-3 border border-border rounded-md text-foreground flex-shrink-0">
                         <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
-                      <div className="min-w-0 flex-1">
+                      <div className="min-w-0 flex-1 overflow-hidden">
                         <div className="text-base md:text-lg text-muted-foreground font-medium mb-1">{language === 'es' ? 'Universidad' : 'University'}</div>
-                        <div className="text-lg md:text-xl text-foreground break-words">{t.university}</div>
+                        <div className="text-base sm:text-lg md:text-xl text-foreground break-words">{t.university}</div>
                       </div>
                     </div>
                   </div>
@@ -77,9 +77,9 @@ export const AboutSection = () => {
                       <div className="p-3 border border-border rounded-md text-foreground flex-shrink-0">
                         <Calendar className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
-                      <div className="min-w-0 flex-1">
+                      <div className="min-w-0 flex-1 overflow-hidden">
                         <div className="text-base md:text-lg text-muted-foreground font-medium mb-1">{language === 'es' ? 'Experiencia' : 'Experience'}</div>
-                        <div className="text-lg md:text-xl text-foreground">{language === 'es' ? '2 años académicos' : '2 academic years'}</div>
+                        <div className="text-base sm:text-lg md:text-xl text-foreground break-words">{language === 'es' ? '2 años académicos' : '2 academic years'}</div>
                       </div>
                     </div>
                   </div>

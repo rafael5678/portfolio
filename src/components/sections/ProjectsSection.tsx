@@ -112,37 +112,37 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           <div className="flex space-x-2">
             {project.repoUrl && (
               <button 
-                className="px-4 py-2.5 sm:px-6 sm:py-2.5 md:px-6 md:py-3 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 inline-flex items-center justify-center text-foreground"
+                className="px-3 py-2.5 sm:px-4 sm:py-2.5 md:px-6 md:py-3 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 min-w-0 inline-flex items-center justify-center text-foreground"
                 onClick={() => window.open(project.repoUrl, '_blank')}
               >
-                <Github className="w-4 h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 flex-shrink-0 text-foreground" />
-                <span className="whitespace-nowrap">{t.code}</span>
+                <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-1.5 md:mr-2 flex-shrink-0 text-foreground" />
+                <span className="truncate">{t.code}</span>
               </button>
             )}
             {project.demoUrl && (
               <button 
-                className="px-4 py-2.5 sm:px-6 sm:py-2.5 md:px-6 md:py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 inline-flex items-center justify-center"
+                className="px-3 py-2.5 sm:px-4 sm:py-2.5 md:px-6 md:py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 min-w-0 inline-flex items-center justify-center"
                 onClick={() => window.open(project.demoUrl, '_blank')}
               >
-                <ExternalLink className="w-4 h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 flex-shrink-0" />
-                <span className="whitespace-nowrap">{t.demo}</span>
+                <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-1.5 md:mr-2 flex-shrink-0" />
+                <span className="truncate">{t.demo}</span>
               </button>
             )}
             {!project.repoUrl && !project.demoUrl && (
               <>
                 <button 
-                  className="px-4 py-2 sm:px-6 sm:py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm flex-1 inline-flex items-center justify-center text-foreground"
+                  className="px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-2 border border-border rounded-md hover:bg-accent transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 min-w-0 inline-flex items-center justify-center text-foreground"
                   onClick={() => window.open('#', '_blank')}
                 >
-                  <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-1.5 flex-shrink-0 text-foreground" />
-                  <span className="whitespace-nowrap">{t.code}</span>
+                  <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-1.5 flex-shrink-0 text-foreground" />
+                  <span className="truncate">{t.code}</span>
                 </button>
                 <button 
-                  className="px-4 py-2 sm:px-6 sm:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm flex-1 inline-flex items-center justify-center"
+                  className="px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-xs sm:text-sm md:text-base flex-1 min-w-0 inline-flex items-center justify-center"
                   onClick={() => window.open('#', '_blank')}
                 >
-                  <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-1.5 flex-shrink-0" />
-                  <span className="whitespace-nowrap">{t.demo}</span>
+                  <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-1.5 flex-shrink-0" />
+                  <span className="truncate">{t.demo}</span>
                 </button>
               </>
             )}
