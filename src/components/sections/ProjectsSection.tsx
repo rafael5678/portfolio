@@ -18,7 +18,7 @@ export const ProjectsSection = () => {
           <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
             {t.subtitle}
           </p>
         </div>
@@ -30,7 +30,7 @@ export const ProjectsSection = () => {
         </div>
 
         <div className="text-center mt-16">
-          <p className="text-base md:text-lg mb-6 text-foreground">{t.moreProjects}</p>
+          <p className="text-lg md:text-xl mb-6 text-foreground">{t.moreProjects}</p>
           <button 
             className="px-8 py-3 md:px-10 md:py-4 border border-border rounded-md hover:bg-accent transition-colors text-base md:text-lg inline-flex items-center text-foreground"
             onClick={() => window.open('https://github.com/rafael5678?tab=repositories', '_blank')}
@@ -95,7 +95,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </div>
           </div>
           <h3 className="text-base md:text-lg lg:text-xl mb-3 font-medium text-foreground">{translatedProject.title}</h3>
-          <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground mb-4 leading-relaxed">
             {translatedProject.description}
           </p>
         </div>

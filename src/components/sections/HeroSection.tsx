@@ -42,7 +42,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
               />
             </div>
           </div>
-          <p className="mb-4 sm:mb-5 md:mb-6 text-base sm:text-lg md:text-lg text-muted-foreground max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
+          <p className="mb-4 sm:mb-5 md:mb-6 text-lg sm:text-xl md:text-xl text-muted-foreground max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
             {t.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 sm:mb-7">
@@ -87,7 +87,7 @@ export const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
           </div>
           <button
             onClick={() => onSectionClick('cv')}
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center text-base text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-bounce" />
             {t.moreInfo}

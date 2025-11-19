@@ -18,7 +18,7 @@ export const AboutSection = () => {
           <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
             {t.subtitle}
           </p>
         </div>
@@ -26,7 +26,7 @@ export const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 max-w-4xl sm:max-w-5xl md:max-w-6xl lg:max-w-7xl mx-auto">
           <div>
             <h3 className="mb-6 text-xl md:text-2xl lg:text-3xl text-foreground font-medium">{t.myStory}</h3>
-            <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>{t.story1}</p>
               <p>{t.story2}</p>
               <p>{t.story3}</p>
@@ -42,8 +42,8 @@ export const AboutSection = () => {
                     <Mail className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">Email</div>
-                    <div className="text-base md:text-lg text-foreground break-words overflow-wrap-anywhere">juanrafaelcalzada1087@gmail.com</div>
+                    <div className="text-base md:text-lg text-muted-foreground font-medium mb-1">Email</div>
+                    <div className="text-lg md:text-xl text-foreground break-words overflow-wrap-anywhere">juanrafaelcalzada1087@gmail.com</div>
                   </div>
                 </div>
               </div>
@@ -54,8 +54,8 @@ export const AboutSection = () => {
                         <MapPin className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Ubicación' : 'Location'}</div>
-                        <div className="text-base md:text-lg text-foreground break-words">{t.location}</div>
+                        <div className="text-base md:text-lg text-muted-foreground font-medium mb-1">{language === 'es' ? 'Ubicación' : 'Location'}</div>
+                        <div className="text-lg md:text-xl text-foreground break-words">{t.location}</div>
                       </div>
                     </div>
                   </div>
@@ -66,8 +66,8 @@ export const AboutSection = () => {
                         <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Universidad' : 'University'}</div>
-                        <div className="text-base md:text-lg text-foreground break-words">{t.university}</div>
+                        <div className="text-base md:text-lg text-muted-foreground font-medium mb-1">{language === 'es' ? 'Universidad' : 'University'}</div>
+                        <div className="text-lg md:text-xl text-foreground break-words">{t.university}</div>
                       </div>
                     </div>
                   </div>
@@ -78,8 +78,8 @@ export const AboutSection = () => {
                         <Calendar className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="text-sm md:text-base text-muted-foreground font-medium mb-1">{language === 'es' ? 'Experiencia' : 'Experience'}</div>
-                        <div className="text-base md:text-lg text-foreground">{language === 'es' ? '2 años académicos' : '2 academic years'}</div>
+                        <div className="text-base md:text-lg text-muted-foreground font-medium mb-1">{language === 'es' ? 'Experiencia' : 'Experience'}</div>
+                        <div className="text-lg md:text-xl text-foreground">{language === 'es' ? '2 años académicos' : '2 academic years'}</div>
                       </div>
                     </div>
                   </div>
@@ -87,13 +87,13 @@ export const AboutSection = () => {
 
             <div className="mt-6 bg-accent/50 border border-border rounded-lg p-5 md:p-6">
               <h4 className="mb-3 text-base md:text-lg font-medium text-foreground">{language === 'es' ? 'Estado Actual' : 'Current Status'}</h4>
-              <p className="text-sm md:text-base text-muted-foreground mb-4">
+              <p className="text-base md:text-lg text-muted-foreground mb-4">
                 {t.currentlyStudying}
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center px-3 py-1.5 text-sm md:text-base font-medium rounded-full bg-secondary text-secondary-foreground">{language === 'es' ? 'Estudiante' : 'Student'}</span>
-                <span className="inline-flex items-center px-3 py-1.5 text-sm md:text-base font-medium rounded-full bg-secondary text-secondary-foreground">Backend</span>
-                <span className="inline-flex items-center px-3 py-1.5 text-sm md:text-base font-medium rounded-full bg-secondary text-secondary-foreground">Frontend</span>
+                <span className="inline-flex items-center px-3 py-1.5 text-base md:text-lg font-medium rounded-full bg-secondary text-secondary-foreground">{language === 'es' ? 'Estudiante' : 'Student'}</span>
+                <span className="inline-flex items-center px-3 py-1.5 text-base md:text-lg font-medium rounded-full bg-secondary text-secondary-foreground">Backend</span>
+                <span className="inline-flex items-center px-3 py-1.5 text-base md:text-lg font-medium rounded-full bg-secondary text-secondary-foreground">Frontend</span>
               </div>
             </div>
           </div>

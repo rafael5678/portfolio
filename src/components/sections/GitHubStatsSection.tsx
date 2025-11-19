@@ -17,14 +17,14 @@ export const GitHubStatsSection = () => {
   const stats = [
     {
       icon: <GitCommit className="w-5 h-5" />,
-      value: "127",
+      value: "194",
       label: t.commits,
       color: "text-green-500",
       link: "https://github.com/rafael5678"
     },
     {
       icon: <GitBranch className="w-5 h-5" />,
-      value: "15",
+      value: "17",
       label: t.repositories,
       color: "text-blue-500",
       link: "https://github.com/rafael5678?tab=repositories"
@@ -169,7 +169,7 @@ export const GitHubStatsSection = () => {
                 </div>
                 <GitCommit className="w-4 h-4 text-muted-foreground" />
               </div>
-              <p className="text-base text-muted-foreground mb-3">
+              <p className="text-lg text-muted-foreground mb-3">
                 {t.collaboration1Desc}
               </p>
               <div className="flex items-center justify-between">
@@ -201,7 +201,7 @@ export const GitHubStatsSection = () => {
                 </div>
                 <GitCommit className="w-4 h-4 text-muted-foreground" />
               </div>
-              <p className="text-base text-muted-foreground mb-3">
+              <p className="text-lg text-muted-foreground mb-3">
                 {t.collaboration2Desc}
               </p>
               <div className="flex items-center justify-between">
@@ -220,7 +220,7 @@ export const GitHubStatsSection = () => {
 
           {/* Call to Action */}
           <div className="text-center bg-accent/50 border border-border rounded-lg p-6 md:p-8">
-            <p className="text-base md:text-lg text-foreground mb-4">
+            <p className="text-lg md:text-xl text-foreground mb-4">
               {t.viewMore}
             </p>
             <button 

@@ -27,7 +27,7 @@ export const ServicesSection = () => {
           <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
             {t.subtitle}
           </p>
         </div>
@@ -59,7 +59,7 @@ export const ServicesSection = () => {
           </div>
 
           <div className="space-y-2">
-            <p className="text-sm text-foreground">
+            <p className="text-base text-foreground">
               {language === 'es' ? '¿Tienes un proyecto personalizado?' : 'Do you have a custom project?'}
             </p>
             <button 
@@ -94,7 +94,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           </div>
           <h3 className="text-base md:text-lg font-medium text-foreground">{service.title}</h3>
         </div>
-        <p className="text-sm md:text-base text-muted-foreground mb-5 leading-relaxed">
+        <p className="text-base md:text-lg text-muted-foreground mb-5 leading-relaxed">
           {service.description}
         </p>
         

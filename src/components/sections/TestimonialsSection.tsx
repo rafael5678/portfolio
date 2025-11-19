@@ -20,7 +20,7 @@ export const TestimonialsSection = () => {
           <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
             {t.subtitle}
           </p>
         </div>
@@ -35,15 +35,15 @@ export const TestimonialsSection = () => {
           <div className="grid grid-cols-3 gap-6 lg:gap-8 max-w-lg lg:max-w-xl mx-auto">
             <div>
               <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">100%</div>
-              <div className="text-sm md:text-base text-muted-foreground">{t.satisfactionRate}</div>
+              <div className="text-base md:text-lg text-muted-foreground">{t.satisfactionRate}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">3+</div>
-              <div className="text-sm md:text-base text-muted-foreground">{t.completedProjects}</div>
+              <div className="text-base md:text-lg text-muted-foreground">{t.completedProjects}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">2</div>
-              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Años' : 'Years'}</div>
+              <div className="text-base md:text-lg text-muted-foreground">{language === 'es' ? 'Años' : 'Years'}</div>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@ const TestimonialCard = ({ testimonial, index }: TestimonialCardProps) => {
         ))}
       </div>
       
-      <p className="text-base md:text-lg text-muted-foreground italic mb-5 flex-grow leading-relaxed">
+      <p className="text-lg md:text-xl text-muted-foreground italic mb-5 flex-grow leading-relaxed">
         "{translatedTestimonial.content}"
       </p>
       
@@ -79,11 +79,11 @@ const TestimonialCard = ({ testimonial, index }: TestimonialCardProps) => {
           {translatedTestimonial.initials}
         </div>
         <div className="min-w-0">
-          <div className="text-base md:text-lg font-semibold text-foreground truncate">{translatedTestimonial.name}</div>
-          <div className="text-sm md:text-base text-muted-foreground truncate">
+          <div className="text-lg md:text-xl font-semibold text-foreground truncate">{translatedTestimonial.name}</div>
+          <div className="text-base md:text-lg text-muted-foreground truncate">
             {translatedTestimonial.role}
           </div>
-          <div className="text-sm md:text-base text-muted-foreground truncate">
+          <div className="text-base md:text-lg text-muted-foreground truncate">
             {translatedTestimonial.company}
           </div>
         </div>

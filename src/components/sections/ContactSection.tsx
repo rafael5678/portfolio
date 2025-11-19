@@ -175,7 +175,7 @@ export const ContactSection = () => {
           <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
             {t.subtitle}
           </p>
         </div>
@@ -231,12 +231,12 @@ export const ContactSection = () => {
 
             <div className="mt-6 p-5 md:p-6 bg-accent/50 border border-border rounded-lg">
               <h4 className="mb-3 text-base md:text-lg font-bold text-foreground">Disponibilidad</h4>
-              <p className="text-sm md:text-base text-muted-foreground mb-4">
+                <p className="text-base md:text-lg text-muted-foreground mb-4">
                 Estudiante activo. Disponible para proyectos de aprendizaje y colaboración.
               </p>
               <div className="flex space-x-2">
-                <span className="text-sm md:text-base px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md">Estudiante</span>
-                <span className="text-sm md:text-base px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md">Proyectos</span>
+                <span className="text-base md:text-lg px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md">Estudiante</span>
+                <span className="text-base md:text-lg px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md">Proyectos</span>
               </div>
             </div>
           </div>
@@ -244,7 +244,7 @@ export const ContactSection = () => {
           <div className="bg-card border border-border rounded-lg p-8 shadow-lg">
             <div className="mb-8">
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">{language === 'es' ? 'Enviar mensaje' : 'Send message'}</h3>
-              <p className="text-base md:text-lg text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground">
                 {language === 'es' ? 'Completa el formulario y me pondré en contacto contigo lo antes posible.' : 'Fill out the form and I will contact you as soon as possible.'}
               </p>
             </div>
@@ -351,7 +351,7 @@ export const ContactSection = () => {
                   </div>
                 )}
                 
-                <p className="text-sm md:text-base text-muted-foreground text-center">
+                <p className="text-base md:text-lg text-muted-foreground text-center">
                   {language === 'es' ? '* Campos obligatorios' : '* Required fields'}
                 </p>
               </div>

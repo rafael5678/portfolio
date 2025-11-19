@@ -18,7 +18,7 @@ export const ExperienceSection = () => {
           <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
             {t.subtitle}
           </p>
         </div>
@@ -71,19 +71,19 @@ export const ExperienceSection = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 max-w-xl lg:max-w-2xl mx-auto">
             <div>
               <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">2+</div>
-              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Años' : 'Years'}</div>
+              <div className="text-base md:text-lg text-muted-foreground">{language === 'es' ? 'Años' : 'Years'}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">5+</div>
-              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Tecnologías' : 'Technologies'}</div>
+              <div className="text-base md:text-lg text-muted-foreground">{language === 'es' ? 'Tecnologías' : 'Technologies'}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">3</div>
-              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Proyectos' : 'Projects'}</div>
+              <div className="text-base md:text-lg text-muted-foreground">{language === 'es' ? 'Proyectos' : 'Projects'}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-bold text-foreground">1</div>
-              <div className="text-sm md:text-base text-muted-foreground">{language === 'es' ? 'Universidad' : 'University'}</div>
+              <div className="text-base md:text-lg text-muted-foreground">{language === 'es' ? 'Universidad' : 'University'}</div>
             </div>
           </div>
         </div>
@@ -124,24 +124,24 @@ const ExperienceCard = ({
               {period}
             </div>
           </div>
-          <p className="text-base md:text-lg text-muted-foreground mb-2">
+          <p className="text-lg md:text-xl text-muted-foreground mb-2">
             {company}
           </p>
         </div>
       </div>
       
       <div>
-        <p className="text-base md:text-lg text-muted-foreground mb-5 leading-relaxed">
+        <p className="text-lg md:text-xl text-muted-foreground mb-5 leading-relaxed">
           {description}
         </p>
         
         <div>
-          <h4 className="text-base md:text-lg mb-3 font-medium text-foreground">
+          <h4 className="text-lg md:text-xl mb-3 font-medium text-foreground">
             {language === 'es' ? 'Logros destacados:' : 'Key achievements:'}
           </h4>
           <ul className="space-y-2">
             {achievements.map((achievement, index) => (
-              <li key={index} className="flex items-center text-sm md:text-base text-muted-foreground">
+              <li key={index} className="flex items-center text-base md:text-lg text-muted-foreground">
                 <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
                 {achievement}
               </li>

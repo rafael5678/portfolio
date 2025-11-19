@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="text-center space-y-4">
           <div>
             <h3 className="text-xl md:text-2xl mb-2 font-medium text-foreground">Rafael Calzada</h3>
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground">
               Ingeniero de Software | Desarrollador Backend & Frontend
             </p>
           </div>
@@ -37,10 +37,10 @@ export const Footer = () => {
           </div>
 
           <div className="pt-4 border-t border-border">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground">
               © 2025 Rafael Calzada. Todos los derechos reservados.
             </p>
-            <p className="text-sm md:text-base text-muted-foreground mt-2">
+            <p className="text-base md:text-lg text-muted-foreground mt-2">
               Desarrollado con React, TypeScript y Tailwind CSS
             </p>
           </div>

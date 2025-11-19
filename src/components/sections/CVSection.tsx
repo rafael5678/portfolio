@@ -71,7 +71,7 @@ export const CVSection = () => {
           <h2 className="mb-4 sm:mb-5 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             {t.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-muted-foreground max-w-xl sm:max-w-2xl md:max-w-2xl lg:max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
             {t.description}
           </p>
         </div>
@@ -89,7 +89,7 @@ export const CVSection = () => {
               
               <div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 sm:mb-3 font-medium text-foreground">{t.cvTitle}</h3>
-                <p className="text-sm sm:text-base md:text-lg text-foreground mb-4 sm:mb-6">
+                <p className="text-base sm:text-lg md:text-xl text-foreground mb-4 sm:mb-6">
                   <span className="font-semibold">Rafael Calzada</span><br/>
                   <span className="text-muted-foreground">{t.role}</span>
                 </p>
