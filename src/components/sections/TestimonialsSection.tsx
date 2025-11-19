@@ -74,16 +74,16 @@ const TestimonialCard = ({ testimonial, index }: TestimonialCardProps) => {
         "{translatedTestimonial.content}"
       </p>
       
-      <div className="flex items-center space-x-4 mt-auto">
+      <div className="flex items-start space-x-3 sm:space-x-4 mt-auto">
         <div className="w-12 h-12 md:w-14 md:h-14 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-base md:text-lg font-bold flex-shrink-0">
           {translatedTestimonial.initials}
         </div>
-        <div className="min-w-0">
-          <div className="text-lg md:text-xl font-semibold text-foreground truncate">{translatedTestimonial.name}</div>
-          <div className="text-base md:text-lg text-muted-foreground truncate">
+        <div className="min-w-0 flex-1 overflow-hidden">
+          <div className="text-base sm:text-lg md:text-xl font-semibold text-foreground break-words">{translatedTestimonial.name}</div>
+          <div className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
             {translatedTestimonial.role}
           </div>
-          <div className="text-base md:text-lg text-muted-foreground truncate">
+          <div className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
             {translatedTestimonial.company}
           </div>
         </div>
