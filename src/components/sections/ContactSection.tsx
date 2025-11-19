@@ -374,20 +374,20 @@ const ContactInfoItem = ({ icon, label, value, href }: ContactInfoItemProps) => 
   const content = href ? (
     <a 
       href={href}
-      className="text-base md:text-lg text-foreground hover:text-primary transition-colors"
+      className="text-base md:text-lg text-foreground hover:text-primary transition-colors break-all break-words"
     >
       {value}
     </a>
   ) : (
-    <span className="text-base md:text-lg text-foreground">{value}</span>
+    <span className="text-base md:text-lg text-foreground break-words">{value}</span>
   );
 
   return (
-    <div className="flex items-center space-x-4">
-      <div className="p-3 border border-border text-foreground">
+    <div className="flex items-start space-x-4">
+      <div className="p-3 border border-border text-foreground flex-shrink-0">
         {icon}
       </div>
-      <div>
+      <div className="min-w-0 flex-1 overflow-hidden">
         <div className="text-sm md:text-base text-muted-foreground font-bold mb-1">{label}</div>
         {content}
       </div>

@@ -81,15 +81,15 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             <div className="p-2.5 md:p-3 border border-border rounded-md text-foreground flex-shrink-0">
               <Code className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
             </div>
-            <div className="flex space-x-2 flex-shrink-0">
-              <span className={`inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full ${
+            <div className="flex flex-wrap gap-2 flex-shrink-0">
+              <span className={`inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full whitespace-nowrap ${
                 index === 0 || index === 1 || index === 2 // Todos los proyectos están completados
                   ? "bg-primary text-primary-foreground" 
                   : "bg-secondary text-secondary-foreground"
               }`}>
                 {t.completed}
               </span>
-              <span className="inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full border border-border text-foreground">
+              <span className="inline-flex items-center px-2.5 py-1.5 text-xs md:text-sm font-medium rounded-full border border-border text-foreground whitespace-nowrap">
                 {index === 0 ? t.academic : t.personal}
               </span>
             </div>
